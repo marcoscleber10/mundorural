@@ -1,169 +1,1559 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guia Rural Animal</title>
-
-<style>
-:root {
-  --bg:#0f172a;
-  --card:#111827;
-  --text:#e5e7eb;
-  --accent:#22c55e;
-}
-
-.light {
-  --bg:#f9fafb;
-  --card:#fff;
-  --text:#111827;
-}
-
-body { margin:0; font-family:Arial; background:var(--bg); color:var(--text);}
-.container { max-width:1000px; margin:auto; padding:20px;}
-.card { background:var(--card); padding:20px; border-radius:12px; margin-bottom:20px;}
-button { padding:10px; border:none; border-radius:8px; background:var(--accent); color:white; cursor:pointer;}
-.tabs button { margin:3px;}
-.tab { display:none;}
-.tab.active { display:block;}
-input,select { padding:8px; margin:5px 0; width:100%; border-radius:6px; border:none;}
-img { max-width:100%; border-radius:10px; margin-top:10px;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌾 Guia Rural Animal | Do Incubamento à Produção</title>
+  <meta name="description" content="Guia completo para criação animal: incubação, alimentação, cuidados, temperatura e manejo nos primeiros dias de vida.">
+  
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-hover: #334155;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #22c55e;
+      --accent-hover: #16a34a;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #3b82f6;
+      --border: #334155;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+    }
+    
+    .light {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --card-hover: #f1f5f9;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --accent: #16a34a;
+      --accent-hover: #15803d;
+      --border: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--card), var(--bg));
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    
+    .header-content {
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    
+    .controls {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    button {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    button:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    button.secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    button.danger { background: var(--danger); }
+    
+    /* Container */
+    .container {
+      max-width: 1400px;
+      margin: auto;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 1.5rem;
+    }
+    
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
+      .sidebar { order: 2; }
+      .main { order: 1; }
+    }
+    
+    /* Sidebar Navigation */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+      height: fit-content;
+    }
+    
+    .nav-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1rem;
+      border: 1px solid var(--border);
+    }
+    
+    .nav-card h4 {
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    
+    .nav-list button {
+      justify-content: flex-start;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.9rem;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid transparent;
+    }
+    
+    .nav-list button:hover,
+    .nav-list button.active {
+      background: var(--card-hover);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    
+    .animal-filter {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    
+    .animal-filter select {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+    }
+    
+    /* Main Content */
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px -5px rgba(0,0,0,0.4);
+    }
+    
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .badge {
+      background: var(--accent);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .badge.warning { background: var(--warning); color: #1e293b; }
+    .badge.danger { background: var(--danger); }
+    
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .tab-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    
+    .tab-btn:hover,
+    .tab-btn.active {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.5rem 0;
+    }
+    
+    th, td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    th {
+      background: var(--card-hover);
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    tr:hover {
+      background: var(--card-hover);
+    }
+    
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    
+    /* Info Cards */
+    .info-card {
+      background: var(--card-hover);
+      border-radius: 10px;
+      padding: 1rem;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .info-card.warning { border-left-color: var(--warning); }
+    .info-card.danger { border-left-color: var(--danger); }
+    .info-card.info { border-left-color: var(--info); }
+    
+    .info-card h4 {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    /* Temperature Visualizer */
+    .temp-scale {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem 0;
+      padding: 1rem;
+      background: var(--card-hover);
+      border-radius: 10px;
+    }
+    
+    .temp-bar {
+      flex: 1;
+      height: 30px;
+      background: linear-gradient(to right, #3b82f6, #22c55e, #f59e0b, #ef4444);
+      border-radius: 15px;
+      position: relative;
+    }
+    
+    .temp-marker {
+      position: absolute;
+      top: -25px;
+      transform: translateX(-50%);
+      background: var(--card);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    
+    .temp-marker::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: var(--border);
+    }
+    
+    /* Feeding Schedule */
+    .feeding-item {
+      display: flex;
+      gap: 1rem;
+      padding: 0.8rem;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    
+    .feeding-item:last-child { border-bottom: none; }
+    
+    .feeding-time {
+      background: var(--accent);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      min-width: 80px;
+      text-align: center;
+    }
+    
+    /* Checklist */
+    .checklist {
+      list-style: none;
+    }
+    
+    .checklist li {
+      padding: 0.6rem 0;
+      padding-left: 2rem;
+      position: relative;
+      border-bottom: 1px dashed var(--border);
+    }
+    
+    .checklist li:last-child { border-bottom: none; }
+    
+    .checklist li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    
+    .checklist li.done {
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+    
+    .checklist li.done::before {
+      content: '✔';
+      color: var(--accent);
+    }
+    
+    /* Calculator */
+    .calc-form {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .calc-form label {
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    
+    .calc-form input,
+    .calc-form select {
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+    }
+    
+    .calc-result {
+      background: var(--card-hover);
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      margin: 1rem 0;
+    }
+    
+    .calc-result .date {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    
+    /* Image Upload */
+    .upload-area {
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .upload-area:hover {
+      border-color: var(--accent);
+      background: var(--card-hover);
+    }
+    
+    .upload-area img {
+      max-width: 100%;
+      max-height: 400px;
+      border-radius: 10px;
+      margin-top: 1rem;
+      display: none;
+    }
+    
+    /* Progress Steps */
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+    
+    .progress-steps::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--border);
+      z-index: 1;
+    }
+    
+    .step {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    
+    .step.active .step-number {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+    
+    .step-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 80px;
+    }
+    
+    .step.active .step-label {
+      color: var(--accent);
+      font-weight: 500;
+    }
+    
+    /* Alert Box */
+    .alert {
+      padding: 1rem;
+      border-radius: 10px;
+      margin: 1rem 0;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+    
+    .alert.info {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid var(--info);
+    }
+    
+    .alert.warning {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--warning);
+    }
+    
+    .alert.danger {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid var(--danger);
+    }
+    
+    .alert-icon {
+      font-size: 1.2rem;
+      margin-top: 2px;
+    }
+    
+    /* Search */
+    .search-box {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    
+    .search-box input {
+      width: 100%;
+      padding: 0.8rem 1rem 0.8rem 2.5rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+    }
+    
+    .search-box::before {
+      content: '🔍';
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container { padding: 1rem; }
+      .card { padding: 1rem; }
+      .header-content { flex-direction: column; align-items: flex-start; }
+      .progress-steps { flex-wrap: wrap; gap: 0.5rem; }
+      .progress-steps::before { display: none; }
+    }
+    
+    /* Print */
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white; color: black; }
+      .card { break-inside: avoid; }
+    }
+  </style>
 </head>
 
 <body>
 
+<header>
+  <div class="header-content">
+    <div class="logo">🌾 Guia Rural Animal</div>
+    <div class="controls no-print">
+      <button onclick="toggleTheme()">🌓 Tema</button>
+      <button onclick="toggleLang()">🌐 PT/EN</button>
+      <button onclick="window.print()" class="secondary">🖨️ Imprimir</button>
+      <button onclick="exportData()" class="secondary">📥 Exportar</button>
+    </div>
+  </div>
+</header>
+
 <div class="container">
-
-<div class="card">
-<button onclick="toggleTheme()">🌗</button>
-<button onclick="toggleLang()">🌍</button>
-
-<div class="tabs">
-<button onclick="tab(0)">🐣</button>
-<button onclick="tab(1)">📅</button>
-<button onclick="tab(2)">🔥</button>
-<button onclick="tab(3)">🏆</button>
-<button onclick="tab(4)">📸</button>
+  
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="nav-card">
+      <h4>📚 Conteúdo</h4>
+      <ul class="nav-list">
+        <li><button class="active" onclick="showSection('incubacao')">🥚 Incubação</button></li>
+        <li><button onclick="showSection('primeiros-dias')">🐣 Primeiros Dias</button></li>
+        <li><button onclick="showSection('alimentacao')">🥣 Alimentação</button></li>
+        <li><button onclick="showSection('temperatura')">🌡️ Temperatura</button></li>
+        <li><button onclick="showSection('saude')">🏥 Saúde</button></li>
+        <li><button onclick="showSection('calculadora')">📅 Calculadora</button></li>
+        <li><button onclick="showSection('ranking')">📊 Ranking</button></li>
+        <li><button onclick="showSection('galeria')">📸 Galeria</button></li>
+      </ul>
+      
+      <div class="animal-filter">
+        <h4>🐾 Filtrar por Animal</h4>
+        <select id="animalFilter" onchange="filterContent()">
+          <option value="all">Todos os animais</option>
+          <!-- Preenchido via JS -->
+        </select>
+      </div>
+    </div>
+    
+    <div class="nav-card" style="margin-top: 1rem;">
+      <h4>⚡ Dicas Rápidas</h4>
+      <ul class="checklist" style="font-size: 0.9rem;">
+        <li>Verificar temperatura 3x/dia</li>
+        <li>Água sempre limpa e fresca</li>
+        <li>Observar comportamento do lote</li>
+        <li>Registrar pesos semanais</li>
+        <li>Isolar animais doentes</li>
+      </ul>
+    </div>
+  </aside>
+  
+  <!-- Main Content -->
+  <main class="main">
+    
+    <!-- INCUBAÇÃO -->
+    <section id="incubacao" class="card tab-content active">
+      <div class="card-header">
+        <h2 class="card-title">🥚 Guia de Incubação</h2>
+        <span class="badge">Aves</span>
+      </div>
+      
+      <div class="alert info">
+        <span class="alert-icon">💡</span>
+        <div>
+          <strong>Dica Profissional:</strong> A incubação bem-sucedida depende de 4 pilares: temperatura, umidade, ventilação e viragem dos ovos. Monitore todos simultaneamente!
+        </div>
+      </div>
+      
+      <div class="grid-2">
+        <div class="info-card">
+          <h4>🌡️ Temperatura Ideal</h4>
+          <p><strong>37.5°C - 37.8°C</strong> (99.5°F - 100°F)</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Variação máxima permitida: ±0.3°C. Acima de 39°C causa mortalidade embrionária.
+          </p>
+        </div>
+        
+        <div class="info-card warning">
+          <h4>💧 Umidade Relativa</h4>
+          <p><strong>Dias 1-18:</strong> 50-60%</p>
+          <p><strong>Dias 19-21 (eclosão):</strong> 65-75%</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Umidade baixa = pintinhos grudados na casca. Alta = eclosão difícil.
+          </p>
+        </div>
+      </div>
+      
+      <h3 style="margin: 1.5rem 0 1rem;">📅 Cronograma de Incubação</h3>
+      
+      <div class="progress-steps">
+        <div class="step active">
+          <div class="step-number">1</div>
+          <div class="step-label">Seleção dos Ovos</div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-label">Pré-aquecimento</div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-label">Incubação (1-18)</div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-label">Transferência (19)</div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-label">Eclosão (20-21)</div>
+        </div>
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Animal</th>
+            <th>Tempo Incubação</th>
+            <th>Temp. Ideal</th>
+            <th>Umidade</th>
+            <th>Viragem</th>
+          </tr>
+        </thead>
+        <tbody id="incubationTable">
+          <!-- Preenchido via JS -->
+        </tbody>
+      </table>
+      
+      <div class="info-card danger" style="margin-top: 1rem;">
+        <h4>⚠️ Erros Comuns a Evitar</h4>
+        <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+          <li>Não virar os ovos após o 18º dia (galinha)</li>
+          <li>Abrir a incubadora durante a eclosão</li>
+          <li>Usar ovos com mais de 7 dias pós-postura</li>
+          <li>Ignorar a calibração do termômetro</li>
+          <li>Superlotação da incubadora</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- PRIMEIROS DIAS -->
+    <section id="primeiros-dias" class="card tab-content">
+      <div class="card-header">
+        <h2 class="card-title">🐣 Primeiros Dias de Vida</h2>
+        <span class="badge warning">Crítico</span>
+      </div>
+      
+      <div class="alert warning">
+        <span class="alert-icon">🚨</span>
+        <div>
+          <strong>Atenção:</strong> As primeiras 72 horas determinam 80% do sucesso da criação. Monitoramento constante é essencial!
+        </div>
+      </div>
+      
+      <h3>✅ Checklist - Hora Zero</h3>
+      <ul class="checklist">
+        <li>Secar pintinhos em local aquecido (32-35°C)</li>
+        <li>Oferecer água com glicose/eletrolitos nas primeiras 2h</li>
+        <li>Disponibilizar ração inicial (migalha) em papel ou bandeja rasa</li>
+        <li>Verificar umbigo: deve estar seco e fechado</li>
+        <li>Isolar animais fracos ou com defeitos</li>
+        <li>Registrar peso inicial de amostra (10% do lote)</li>
+      </ul>
+      
+      <h3 style="margin: 1.5rem 0 1rem;">📊 Evolução Esperada</h3>
+      
+      <div class="grid-3">
+        <div class="info-card">
+          <h4>Dia 1-3</h4>
+          <p><strong>Temp:</strong> 32-35°C</p>
+          <p><strong>Alimentação:</strong> Ração inicial 22-24% PB</p>
+          <p><strong>Água:</strong> 1 bebedouro/50 aves</p>
+          <p><strong>Observar:</strong> Aglomeração = frio</p>
+        </div>
+        
+        <div class="info-card">
+          <h4>Dia 4-7</h4>
+          <p><strong>Temp:</strong> 30-32°C (-2°C/semana)</p>
+          <p><strong>Alimentação:</strong> Aumentar espaço de cocho</p>
+          <p><strong>Saúde:</strong> Verificar uniformidade do lote</p>
+          <p><strong>Dica:</strong> Iniciar programa de luz (23h luz/1h escuro)</p>
+        </div>
+        
+        <div class="info-card">
+          <h4>Dia 8-14</h4>
+          <p><strong>Temp:</strong> 27-30°C</p>
+          <p><strong>Alimentação:</strong> Transição gradual para ração crescimento</p>
+          <p><strong>Manejo:</strong> Primeira vacinação (se aplicável)</p>
+          <p><strong>Peso esperado:</strong> 4x o peso de nascimento</p>
+        </div>
+      </div>
+      
+      <h3 style="margin: 1.5rem 0 1rem;">🔍 Sinais de Alerta</h3>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Sinal Observado</th>
+            <th>Provável Causa</th>
+            <th>Ação Imediata</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pintos aglomerados sob a fonte de calor</td>
+            <td>Temperatura ambiente baixa</td>
+            <td>Aumentar temperatura em 1-2°C</td>
+          </tr>
+          <tr>
+            <td>Pintos ofegantes, asas abertas</td>
+            <td>Superaquecimento</td>
+            <td>Reduzir temperatura, melhorar ventilação</td>
+          </tr>
+          <tr>
+            <td>Fezes pastosas/amareladas</td>
+            <td>Estresse, água contaminada</td>
+            <td>Trocar água, adicionar probiótico</td>
+          </tr>
+          <tr>
+            <td>Bico aberto, pescoço esticado</td>
+            <td>Dificuldade respiratória</td>
+            <td>Isolar, verificar amônia, consultar veterinário</td>
+          </tr>
+          <tr>
+            <td>Penugem úmida, olhos fechados</td>
+            <td>Falta de aquecimento pós-eclosão</td>
+            <td>Secar com papel, aquecer gradualmente</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    
+    <!-- ALIMENTAÇÃO -->
+    <section id="alimentacao" class="card tab-content">
+      <div class="card-header">
+        <h2 class="card-title">🥣 Plano Alimentar por Fase</h2>
+        <span class="badge">Nutrição</span>
+      </div>
+      
+      <div class="tabs">
+        <button class="tab-btn active" onclick="showFeedTab('aves')">🐔 Aves</button>
+        <button class="tab-btn" onclick="showFeedTab('suinos')">🐷 Suínos</button>
+        <button class="tab-btn" onclick="showFeedTab('ruminantes')">🐮 Ruminantes</button>
+        <button class="tab-btn" onclick="showFeedTab('outros')">🐰 Outros</button>
+      </div>
+      
+      <div id="feed-aves" class="feed-tab active">
+        <h3>🐣 Galinhas/Codornas - Cronograma Alimentar</h3>
+        
+        <div class="feeding-item">
+          <div class="feeding-time">0-7 dias</div>
+          <div>
+            <strong>Ração Inicial</strong> - 22-24% Proteína Bruta<br>
+            <small style="color: var(--text-muted);">
+              • Oferecer em papel nos primeiros 2 dias<br>
+              • 10-15g/ave/dia<br>
+              • Água com vitaminas nos primeiros 3 dias
+            </small>
+          </div>
+        </div>
+        
+        <div class="feeding-item">
+          <div class="feeding-time">8-21 dias</div>
+          <div>
+            <strong>Ração de Crescimento</strong> - 20-22% PB<br>
+            <small style="color: var(--text-muted);">
+              • Transição gradual (3 dias misturando)<br>
+              • 25-40g/ave/dia<br>
+              • Inserir grãos moídos após 15 dias
+            </small>
+          </div>
+        </div>
+        
+        <div class="feeding-item">
+          <div class="feeding-time">22-42 dias</div>
+          <div>
+            <strong>Ração de Terminação</strong> - 18-20% PB<br>
+            <small style="color: var(--text-muted);">
+              • Para corte: aumentar energia (milho)<br>
+              • Para postura: aumentar cálcio (concha moída)<br>
+              • 60-100g/ave/dia conforme peso
+            </small>
+          </div>
+        </div>
+        
+        <div class="grid-2" style="margin-top: 1.5rem;">
+          <div class="info-card">
+            <h4>💧 Água: O Nutriente Esquecido</h4>
+            <ul style="padding-left: 1.2rem; font-size: 0.95rem;">
+              <li>Consumo: 2x o peso da ração ingerida</li>
+              <li>Trocar 2-3x/dia no verão</li>
+              <li>Lavar bebedouros com água sanitária semanalmente</li>
+              <li>Evitar água >25°C (reduz consumo)</li>
+            </ul>
+          </div>
+          
+          <div class="info-card warning">
+            <h4>⚠️ Erros na Alimentação</h4>
+            <ul style="padding-left: 1.2rem; font-size: 0.95rem;">
+              <li>Mudar de ração abruptamente</li>
+              <li>Deixar ração velha umedecer (micotoxinas)</li>
+              <li>Subestimar necessidade de cálcio para postura</li>
+              <li>Ignorar ajuste sazonal (inverno = +10% energia)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div id="feed-suinos" class="feed-tab" style="display:none;">
+        <h3>🐷 Suínos - Fases Nutricionais</h3>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">Conteúdo em desenvolvimento. Selecione "Aves" para ver o guia completo.</p>
+        <div class="info-card info">
+          <h4>📋 Em Breve:</h4>
+          <ul style="padding-left: 1.2rem;">
+            <li>Creche: 20-22% PB, lisina digestível</li>
+            <li>Crescimento: 18% PB, ajuste energético</li>
+            <li>Terminação: 16% PB, controle de gordura</li>
+            <li>Matrizes: fases reprodutivas específicas</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div id="feed-ruminantes" class="feed-tab" style="display:none;">
+        <h3>🐮 Ruminantes - Manejo Alimentar</h3>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">Conteúdo em desenvolvimento.</p>
+      </div>
+      
+      <div id="feed-outros" class="feed-tab" style="display:none;">
+        <h3>🐰 Outros Animais</h3>
+        <p style="color: var(--text-muted);">Guias para coelhos, caprinos, ovinos e aves ornamentais em breve.</p>
+      </div>
+    </section>
+    
+    <!-- TEMPERATURA -->
+    <section id="temperatura" class="card tab-content">
+      <div class="card-header">
+        <h2 class="card-title">🌡️ Controle de Temperatura</h2>
+        <span class="badge danger">Vital</span>
+      </div>
+      
+      <div class="alert danger">
+        <span class="alert-icon">🔥</span>
+        <div>
+          <strong>Regra de Ouro:</strong> Observar o comportamento do lote é mais confiável que qualquer termômetro. Os animais indicam seu conforto!
+        </div>
+      </div>
+      
+      <h3>🐣 Comportamento = Termômetro Natural</h3>
+      
+      <div class="grid-3">
+        <div class="info-card danger">
+          <h4>❄️ Muito Frio</h4>
+          <p><strong>Sinais:</strong> Aglomeração sob a fonte de calor, piado alto e constante, tremores</p>
+          <p><strong>Ação:</strong> Aumentar temperatura 1-2°C, verificar correntes de ar</p>
+        </div>
+        
+        <div class="info-card" style="border-left-color: #22c55e;">
+          <h4>✅ Conforto Térmico</h4>
+          <p><strong>Sinais:</strong> Distribuição uniforme, atividade normal, piado suave</p>
+          <p><strong>Ação:</strong> Manter condições atuais, monitorar</p>
+        </div>
+        
+        <div class="info-card warning">
+          <h4>🔥 Muito Quente</h4>
+          <p><strong>Sinais:</strong> Afastados da fonte, ofegação, asas abertas, consumo reduzido</p>
+          <p><strong>Ação:</strong> Reduzir temperatura, aumentar ventilação, oferecer água fresca</p>
+        </div>
+      </div>
+      
+      <h3 style="margin: 1.5rem 0 1rem;">📉 Redução Gradual de Temperatura</h3>
+      
+      <div class="temp-scale">
+        <div class="temp-bar">
+          <div class="temp-marker" style="left: 10%;">35°C<br><small>Dia 1</small></div>
+          <div class="temp-marker" style="left: 30%;">32°C<br><small>Dia 7</small></div>
+          <div class="temp-marker" style="left: 50%;">28°C<br><small>Dia 14</small></div>
+          <div class="temp-marker" style="left: 70%;">24°C<br><small>Dia 21</small></div>
+          <div class="temp-marker" style="left: 90%;">21°C<br><small>Dia 28+</small></div>
+        </div>
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Idade</th>
+            <th>Temp. Ambiente</th>
+            <th>Temp. Sob a Fonte</th>
+            <th>Altura da Lâmpada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1-3 dias</td>
+            <td>28-30°C</td>
+            <td>35°C</td>
+            <td>40-45 cm do piso</td>
+          </tr>
+          <tr>
+            <td>4-7 dias</td>
+            <td>26-28°C</td>
+            <td>32°C</td>
+            <td>45-50 cm</td>
+          </tr>
+          <tr>
+            <td>8-14 dias</td>
+            <td>24-26°C</td>
+            <td>29°C</td>
+            <td>50-55 cm</td>
+          </tr>
+          <tr>
+            <td>15-21 dias</td>
+            <td>22-24°C</td>
+            <td>26°C</td>
+            <td>55-60 cm</td>
+          </tr>
+          <tr>
+            <td>22-28 dias</td>
+            <td>20-22°C</td>
+            <td>24°C</td>
+            <td>60-65 cm</td>
+          </tr>
+          <tr>
+            <td>29+ dias</td>
+            <td>18-21°C</td>
+            <td>Ambiente</td>
+            <td>Remover fonte auxiliar</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 style="margin: 1.5rem 0 1rem;">🛠️ Método Isopor (Baixo Custo)</h3>
+      
+      <div class="grid-2">
+        <div>
+          <h4>Materiais Necessários</h4>
+          <ul class="checklist" style="margin-top: 0.5rem;">
+            <li>Caixa de isopor (40x30x30cm mínimo)</li>
+            <li>Lâmpada incandescente 40-60W ou cerâmica</li>
+            <li>Soquete com cabo e plugue</li>
+            <li>Termômetro de mercúrio ou digital</li>
+            <li>Tela de arame para tampa (ventilação)</li>
+            <li>Marmitex ou recipiente para água/ração</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4>Montagem Passo a Passo</h4>
+          <ol style="padding-left: 1.5rem; font-size: 0.95rem;">
+            <li>Faça furos de ventilação na tampa (cobrir com tela)</li>
+            <li>Fixe o soquete no centro da tampa, interno</li>
+            <li>Posicione termômetro na altura dos animais</li>
+            <li>Forre o fundo com maravalha ou papel</li>
+            <li>Teste 24h antes de receber os pintinhos</li>
+            <li>Ajuste altura da lâmpada para atingir 35°C no centro</li>
+          </ol>
+        </div>
+      </div>
+      
+      <div class="info-card warning" style="margin-top: 1rem;">
+        <h4>⚠️ Segurança com Lâmpadas</h4>
+        <ul style="padding-left: 1.2rem;">
+          <li>Nunca deixar lâmpada tocar material inflamável</li>
+          <li>Usar protetor de lâmpada (gaiola) para evitar quebra</li>
+          <li>Verificar fiação diariamente (roedores roem cabos!)</li>
+          <li>Ter lâmpada reserva trocada e testada</li>
+          <li>Em locais com oscilação de energia, usar estabilizador</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- SAÚDE -->
+    <section id="saude" class="card tab-content">
+      <div class="card-header">
+        <h2 class="card-title">🏥 Monitoramento de Saúde</h2>
+        <span class="badge">Prevenção</span>
+      </div>
+      
+      <div class="grid-2">
+        <div class="info-card info">
+          <h4>📋 Rotina Diária de Observação</h4>
+          <ul style="padding-left: 1.2rem; margin-top: 0.5rem;">
+            <li><strong>Manhã:</strong> Contar mortalidade, observar comportamento</li>
+            <li><strong>Meio-dia:</strong> Verificar consumo de água/ração</li>
+            <li><strong>Tarde:</strong> Checar temperatura e ventilação</li>
+            <li><strong>Noite:</strong> Observar distribuição no galpão</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h4>📊 Parâmetros Normais (Galinhas)</h4>
+          <ul style="padding-left: 1.2rem; margin-top: 0.5rem; font-size: 0.95rem;">
+            <li>Temperatura corporal: 40.6-41.7°C</li>
+            <li>Frequência cardíaca: 250-350 bpm</li>
+            <li>Frequência respiratória: 15-30 rpm</li>
+            <li>Consumo água: 200-300ml/ave/adulto</li>
+            <li>Conversão alimentar: 1.6-2.0 (corte)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <h3 style="margin: 1.5rem 0 1rem;">🚨 Sinais de Doença - Ação Imediata</h3>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Sintoma</th>
+            <th>Possível Causa</th>
+            <th>Primeiros Socorros</th>
+            <th>Buscar Veterinário?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Crista pálida, mole</td>
+            <td>Anemia, coccidiose, verminose</td>
+            <td>Isolar, oferecer água com eletrólitos</td>
+            <td>✅ Sim, em 24h</td>
+          </tr>
+          <tr>
+            <td>Fezes com sangue</td>
+            <td>Coccidiose (Eimeria)</td>
+            <td>Isolar lote, limpar comedouros</td>
+            <td>✅ Urgente</td>
+          </tr>
+          <tr>
+            <td>Cabeça inclinada, torticollis</td>
+            <td>Doença de Newcastle, deficiência B</td>
+            <td>Isolar imediatamente</td>
+            <td>✅ Imediato</td>
+          </tr>
+          <tr>
+            <td>Olhos inchados, secreção</td>
+            <td>CRD, micoplasmose, amônia alta</td>
+            <td>Melhorar ventilação, limpar ambiente</td>
+            <td>✅ Em 48h</td>
+          </tr>
+          <tr>
+            <td>Penugem arrepiada, prostração</td>
+            <td>Infecção geral, frio, estresse</td>
+            <td>Aquecer, oferecer água morna com açúcar</td>
+            <td>⚠️ Se persistir >12h</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="alert info" style="margin-top: 1rem;">
+        <span class="alert-icon">💉</span>
+        <div>
+          <strong>Programa Vacinal Básico (Aves):</strong><br>
+          • Dia 1: Marek (em incubatório)<br>
+          • Dia 7: Newcastle + Bronquite (ocular)<br>
+          • Dia 14: Gumboro (água)<br>
+          • Dia 21: Newcastle reforço<br>
+          <em>Consulte veterinário para adaptar à sua região!</em>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CALCULADORA -->
+    <section id="calculadora" class="card tab-content">
+      <div class="card-header">
+        <h2 class="card-title">📅 Calculadora de Gestação/Incubação</h2>
+        <span class="badge">Ferramenta</span>
+      </div>
+      
+      <div class="calc-form">
+        <label>
+          Animal
+          <select id="calcAnimal">
+            <!-- Preenchido via JS -->
+          </select>
+        </label>
+        
+        <label>
+          Data da Cobrição/Postura
+          <input type="date" id="calcDate">
+        </label>
+        
+        <button onclick="calculateDate()">🔮 Calcular Data Prevista</button>
+      </div>
+      
+      <div class="calc-result" id="calcResult" style="display:none;">
+        <div>Data Prevista: <span class="date" id="resultDate">--/--/----</span></div>
+        <div style="margin-top: 0.5rem; color: var(--text-muted);" id="resultDetails"></div>
+        <button onclick="shareResult()" style="margin-top: 1rem;">📲 Compartilhar no WhatsApp</button>
+      </div>
+      
+      <h3 style="margin: 1.5rem 0 1rem;">📋 Tabela de Períodos</h3>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Animal</th>
+            <th>Período (dias)</th>
+            <th>Tipo</th>
+            <th>Observação</th>
+          </tr>
+        </thead>
+        <tbody id="gestationTable">
+          <!-- Preenchido via JS -->
+        </tbody>
+      </table>
+    </section>
+    
+    <!-- RANKING -->
+    <section id="ranking" class="card tab-content">
+      <div class="card-header">
+        <h2 class="card-title">📊 Ranking: Períodos de Gestação/Incubação</h2>
+        <span class="badge">Referência</span>
+      </div>
+      
+      <div class="search-box no-print">
+        <input type="text" id="searchRanking" placeholder="Buscar animal..." onkeyup="searchRanking()">
+      </div>
+      
+      <ol id="rankingList" style="padding-left: 1.5rem; line-height: 2;">
+        <!-- Preenchido via JS -->
+      </ol>
+      
+      <div class="info-card" style="margin-top: 1.5rem;">
+        <h4>ℹ️ Como Interpretar</h4>
+        <p style="font-size: 0.95rem; color: var(--text-muted);">
+          Os períodos são médias. Variações de ±5% são normais e dependem de: raça, nutrição da mãe, temperatura ambiente e genética. 
+          Sempre monitore sinais de parto/eclosão iminente (inquietação, ninho, perda de apetite).
+        </p>
+      </div>
+    </section>
+    
+    <!-- GALERIA -->
+    <section id="galeria" class="card tab-content">
+      <div class="card-header">
+        <h2 class="card-title">📸 Galeria da Criação</h2>
+        <span class="badge">Comunidade</span>
+      </div>
+      
+      <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📤</div>
+        <div><strong>Clique para enviar sua foto</strong></div>
+        <div style="color: var(--text-muted); font-size: 0.9rem;">
+          Compartilhe momentos da sua criação (máx. 5MB)
+        </div>
+        <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="previewImage(event)">
+      </div>
+      
+      <img id="previewImg" style="display:none; margin-top: 1rem;">
+      
+      <div style="margin-top: 1.5rem;">
+        <h3>🌟 Dicas para Boas Fotos</h3>
+        <ul class="checklist" style="margin-top: 0.5rem;">
+          <li>Fotografar com luz natural (evitar flash direto)</li>
+          <li>Mostrar escala: incluir mão ou objeto conhecido</li>
+          <li>Registrar data e idade do animal na legenda</li>
+          <li>Focar nos olhos para expressividade</li>
+          <li>Evitar fundos poluídos (focar no animal)</li>
+        </ul>
+      </div>
+      
+      <div class="alert info" style="margin-top: 1.5rem;">
+        <span class="alert-icon">🔒</span>
+        <div>
+          <strong>Privacidade:</strong> Suas fotos são processadas apenas no seu dispositivo. Nenhum dado é enviado para servidores externos.
+        </div>
+      </div>
+    </section>
+    
+  </main>
 </div>
-</div>
 
-<!-- TABELA -->
-<div class="card tab active">
-<table id="table"></table>
-</div>
-
-<!-- CALCULADORA -->
-<div class="card tab">
-<h3 id="calcTitle">Calculadora</h3>
-<select id="animal"></select>
-<input type="date" id="date">
-<button onclick="calc()">Calcular</button>
-<p id="result"></p>
-<button onclick="share()">📲 WhatsApp</button>
-</div>
-
-<!-- CUIDADOS -->
-<div class="card tab">
-<h3>🔥 Temperatura</h3>
-<ul>
-<li>32–35°C primeira semana</li>
-<li>Reduzir semanalmente</li>
-<li>Aglutinados = frio</li>
-<li>Espalhados = ideal</li>
-</ul>
-
-<h3>💡 Método Isopor</h3>
-<ul>
-<li>Caixa de isopor</li>
-<li>Lâmpada 60W</li>
-<li>Termômetro dentro</li>
-<li>Ajustar altura</li>
-</ul>
-
-<h3>🥣 Alimentação</h3>
-<ul>
-<li>Ração inicial</li>
-<li>Água limpa</li>
-<li>Mais proteína para codorna</li>
-</ul>
-</div>
-
-<!-- RANKING -->
-<div class="card tab">
-<h3>🏆 Ranking de Gestação</h3>
-<ol id="ranking"></ol>
-</div>
-
-<!-- FOTO -->
-<div class="card tab">
-<h3>📸 Compartilhe sua criação</h3>
-<input type="file" onchange="preview(event)">
-<img id="img">
-</div>
-
-</div>
+<footer>
+  <p>🌾 Guia Rural Animal © 2026 | Conteúdo educativo para pequenos e médios produtores</p>
+  <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+    ⚠️ Este guia não substitui orientação veterinária profissional. Consulte um técnico para planos específicos à sua propriedade.
+  </p>
+</footer>
 
 <script>
-let pt=true;
+// ================= CONFIGURAÇÃO =================
+let pt = true;
+let currentSection = 'incubacao';
+let currentFeedTab = 'aves';
 
-const data=[
-["Gato","Cat",60],
-["Cachorro","Dog",60],
-["Vaca","Cow",285],
-["Ovelha","Sheep",150],
-["Égua","Mare",340],
-["Jumenta","Donkey",370],
-["Galinha","Chicken",21],
-["Codorna","Quail",17],
-["Pavão","Peacock",29],
-["Angola","Guinea fowl",27],
-["Porco","Pig",114],
-["Cabra","Goat",150]
+// Dados completos dos animais
+const animals = [
+  { pt: "Galinha", en: "Chicken", gestation: 21, type: "ave", incubation: { temp: "37.5-37.8°C", humidity: "50-60%", turning: "3-5x/dia até dia 18" }},
+  { pt: "Codorna", en: "Quail", gestation: 17, type: "ave", incubation: { temp: "37.5°C", humidity: "55-60%", turning: "5x/dia até dia 14" }},
+  { pt: "Pavão", en: "Peacock", gestation: 28, type: "ave", incubation: { temp: "37.5°C", humidity: "50-55%", turning: "3-4x/dia" }},
+  { pt: "Angola", en: "Guinea fowl", gestation: 26, type: "ave", incubation: { temp: "37.5°C", humidity: "55%", turning: "3x/dia" }},
+  { pt: "Pato", en: "Duck", gestation: 28, type: "ave", incubation: { temp: "37.2-37.5°C", humidity: "55-65%", turning: "3-4x/dia" }},
+  { pt: "Ganso", en: "Goose", gestation: 30, type: "ave", incubation: { temp: "37.2°C", humidity: "60-70%", turning: "4-5x/dia" }},
+  { pt: "Porco", en: "Pig", gestation: 114, type: "mamifero" },
+  { pt: "Cabra", en: "Goat", gestation: 150, type: "mamifero" },
+  { pt: "Ovelha", en: "Sheep", gestation: 150, type: "mamifero" },
+  { pt: "Vaca", en: "Cow", gestation: 285, type: "mamifero" },
+  { pt: "Égua", en: "Mare", gestation: 340, type: "mamifero" },
+  { pt: "Jumenta", en: "Donkey", gestation: 370, type: "mamifero" },
+  { pt: "Coelha", en: "Rabbit", gestation: 31, type: "mamifero" },
+  { pt: "Gata", en: "Cat", gestation: 63, type: "mamifero" },
+  { pt: "Cadela", en: "Dog", gestation: 63, type: "mamifero" }
 ];
 
-function render(){
-let t="<tr><th>Animal</th><th>Dias</th></tr>";
-data.forEach(a=>{
-t+=`<tr><td>${pt?a[0]:a[1]}</td><td>${a[2]}</td></tr>`;
+// ================= FUNÇÕES DE RENDERIZAÇÃO =================
+
+function renderAnimalOptions() {
+  const filter = document.getElementById('animalFilter');
+  const calcSelect = document.getElementById('calcAnimal');
+  
+  [filter, calcSelect].forEach(select => {
+    if (!select) return;
+    select.innerHTML = '<option value="all">' + (pt ? 'Todos os animais' : 'All animals') + '</option>';
+    animals.forEach((a, i) => {
+      const name = pt ? a.pt : a.en;
+      select.innerHTML += `<option value="${i}">${name}</option>`;
+    });
+  });
+}
+
+function renderIncubationTable() {
+  const tbody = document.getElementById('incubationTable');
+  if (!tbody) return;
+  
+  const aves = animals.filter(a => a.type === 'ave');
+  tbody.innerHTML = aves.map(a => {
+    const name = pt ? a.pt : a.en;
+    const inc = a.incubation || {};
+    return `<tr>
+      <td><strong>${name}</strong></td>
+      <td>${a.gestation} dias</td>
+      <td>${inc.temp || '37.5°C'}</td>
+      <td>${inc.humidity || '50-60%'}</td>
+      <td>${inc.turning || '3-5x/dia'}</td>
+    </tr>`;
+  }).join('');
+}
+
+function renderGestationTable() {
+  const tbody = document.getElementById('gestationTable');
+  if (!tbody) return;
+  
+  tbody.innerHTML = animals.map(a => {
+    const name = pt ? a.pt : a.en;
+    const type = a.type === 'ave' ? (pt ? 'Incubação' : 'Incubation') : (pt ? 'Gestação' : 'Gestation');
+    const obs = a.type === 'ave' 
+      ? (pt ? 'Ovos férteis' : 'Fertile eggs') 
+      : (pt ? 'Cobrição confirmada' : 'Confirmed breeding');
+    return `<tr>
+      <td>${name}</td>
+      <td><strong>${a.gestation}</strong></td>
+      <td>${type}</td>
+      <td style="color: var(--text-muted); font-size: 0.9rem;">${obs}</td>
+    </tr>`;
+  }).join('');
+}
+
+function renderRanking() {
+  const list = document.getElementById('rankingList');
+  if (!list) return;
+  
+  const sorted = [...animals].sort((a, b) => b.gestation - a.gestation);
+  list.innerHTML = sorted.map((a, i) => {
+    const name = pt ? a.pt : a.en;
+    const type = a.type === 'ave' ? '🥚' : '🤰';
+    return `<li><strong>${type} ${name}</strong> — ${a.gestation} ${pt ? 'dias' : 'days'}</li>`;
+  }).join('');
+}
+
+// ================= NAVEGAÇÃO =================
+
+function showSection(id) {
+  // Atualizar botões da sidebar
+  document.querySelectorAll('.nav-list button').forEach(btn => btn.classList.remove('active'));
+  event?.target?.classList.add('active');
+  
+  // Mostrar seção
+  document.querySelectorAll('.tab-content').forEach(sec => {
+    sec.classList.remove('active');
+    if (sec.id === id) sec.classList.add('active');
+  });
+  
+  currentSection = id;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showFeedTab(tab) {
+  document.querySelectorAll('.feed-tab').forEach(t => t.style.display = 'none');
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  
+  document.getElementById(`feed-${tab}`).style.display = 'block';
+  event?.target?.classList.add('active');
+  currentFeedTab = tab;
+}
+
+function tab(n) {
+  // Compatibilidade com código original
+  const sections = ['incubacao', 'primeiros-dias', 'alimentacao', 'temperatura', 'galeria'];
+  if (sections[n]) showSection(sections[n]);
+}
+
+// ================= FUNCIONALIDADES =================
+
+function toggleTheme() {
+  document.body.classList.toggle('light');
+  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+}
+
+function toggleLang() {
+  pt = !pt;
+  localStorage.setItem('lang', pt ? 'pt' : 'en');
+  renderAll();
+}
+
+function renderAll() {
+  renderAnimalOptions();
+  renderIncubationTable();
+  renderGestationTable();
+  renderRanking();
+  
+  // Atualizar textos estáticos se necessário
+  document.querySelectorAll('[data-pt][data-en]').forEach(el => {
+    el.textContent = pt ? el.dataset.pt : el.dataset.en;
+  });
+}
+
+function filterContent() {
+  const filter = document.getElementById('animalFilter').value;
+  // Implementar filtragem por animal nas seções relevantes
+  console.log('Filtrar por:', filter === 'all' ? 'todos' : animals[filter].pt);
+}
+
+function searchRanking() {
+  const term = document.getElementById('searchRanking').value.toLowerCase();
+  const items = document.querySelectorAll('#rankingList li');
+  
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(term) ? '' : 'none';
+  });
+}
+
+// ================= CALCULADORA =================
+
+function calculateDate() {
+  const animalIdx = document.getElementById('calcAnimal').value;
+  const dateInput = document.getElementById('calcDate').value;
+  
+  if (animalIdx === 'all' || !dateInput) {
+    alert(pt ? 'Selecione um animal e uma data!' : 'Select an animal and a date!');
+    return;
+  }
+  
+  const animal = animals[animalIdx];
+  const startDate = new Date(dateInput);
+  const resultDate = new Date(startDate);
+  resultDate.setDate(resultDate.getDate() + animal.gestation);
+  
+  const formatted = resultDate.toLocaleDateString(pt ? 'pt-BR' : 'en-US');
+  document.getElementById('resultDate').textContent = formatted;
+  
+  const details = pt 
+    ? `${animal.pt}: ${animal.gestation} dias a partir de ${startDate.toLocaleDateString('pt-BR')}`
+    : `${animal.en}: ${animal.gestation} days from ${startDate.toLocaleDateString('en-US')}`;
+  document.getElementById('resultDetails').textContent = details;
+  
+  document.getElementById('calcResult').style.display = 'block';
+}
+
+function shareResult() {
+  const date = document.getElementById('resultDate').textContent;
+  const text = encodeURIComponent(`🌾 Data prevista: ${date}\nCalculado com Guia Rural Animal`);
+  window.open(`https://wa.me/?text=${text}`, '_blank');
+}
+
+function exportData() {
+  const data = {
+    animals: animals.map(a => ({ name: pt ? a.pt : a.en, days: a.gestation })),
+    exported: new Date().toISOString(),
+    lang: pt ? 'pt-BR' : 'en'
+  };
+  
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `guia-rural-${pt ? 'pt' : 'en'}-${Date.now()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ================= GALERIA =================
+
+function previewImage(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  
+  if (file.size > 5 * 1024 * 1024) {
+    alert(pt ? 'Arquivo muito grande! Máximo 5MB.' : 'File too large! Max 5MB.');
+    return;
+  }
+  
+  const img = document.getElementById('previewImg');
+  img.src = URL.createObjectURL(file);
+  img.style.display = 'block';
+  img.onload = () => URL.revokeObjectURL(img.src);
+}
+
+// ================= INICIALIZAÇÃO =================
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Carregar preferências salvas
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light');
+  }
+  if (localStorage.getItem('lang') === 'en') {
+    pt = false;
+  }
+  
+  // Definir data mínima no calendário como hoje
+  const today = new Date().toISOString().split('T')[0];
+  const dateInput = document.getElementById('calcDate');
+  if (dateInput) dateInput.min = today;
+  
+  // Renderizar conteúdo
+  renderAll();
+  
+  // Atalhos de teclado
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key === 'p') {
+      e.preventDefault();
+      window.print();
+    }
+  });
 });
-document.getElementById("table").innerHTML=t;
 
-let sel="";
-data.forEach((a,i)=>{
-sel+=`<option value="${i}">${pt?a[0]:a[1]}</option>`;
-});
-document.getElementById("animal").innerHTML=sel;
-
-// ranking
-let sorted=[...data].sort((a,b)=>b[2]-a[2]);
-document.getElementById("ranking").innerHTML=sorted.map(a=>`<li>${pt?a[0]:a[1]} - ${a[2]} dias</li>`).join("");
-}
-
-function calc(){
-let i=document.getElementById("animal").value;
-let d=new Date(document.getElementById("date").value);
-d.setDate(d.getDate()+data[i][2]);
-document.getElementById("result").innerText=d.toLocaleDateString();
-}
-
-function share(){
-let text=document.getElementById("result").innerText;
-window.open("https://wa.me/?text=Data prevista: "+text);
-}
-
-function preview(e){
-let img=document.getElementById("img");
-img.src=URL.createObjectURL(e.target.files[0]);
-}
-
-function toggleTheme(){document.body.classList.toggle("light");}
-function toggleLang(){pt=!pt;render();}
-function tab(n){
-document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",i===n));
-}
-
-render();
+// Compatibilidade com funções originais
+function calc() { calculateDate(); }
+function share() { shareResult(); }
+function preview(e) { previewImage(e); }
 </script>
 
 </body>
