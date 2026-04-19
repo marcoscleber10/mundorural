@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+)<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0f172a">
-  <meta name="description" content="Guia Rural Animal - Sistema completo com clima, lembretes e modo offline">
-  <title>🌾 Guia Rural Animal | Clima + Lembretes + Offline</title>
+  <meta name="description" content="Guia Rural Animal - Enciclopédia Completa + Clima + Lembretes">
+  <title>🌾 Guia Rural Pro | Enciclopédia + Gestão</title>
   
-  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiR3VpYSBSdXJhbCBBbmltYWwiLCJzaG9ydF9uYW1lIjoiR3VpYVJ1cmFsIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwZjE3MmEiLCJ0aGVtZV9jb2xvciI6IiMwZjE3MmEifQ==">
+  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiR3VpYSBSdXJhbCBQcm8iLCJzaG9ydF9uYW1lIjoiR3VpYVJ1cmFsIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwZjE3MmEiLCJ0aGVtZV9jb2xvciI6IiMwZjE3MmEifQ==">
   
   <style>
     :root {
@@ -24,6 +24,8 @@
       --border: #334155;
       --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
       --success: #10b981;
+      --purple: #8b5cf6;
+      --pink: #ec4899;
     }
     
     .light {
@@ -75,7 +77,10 @@
       gap: 0.5rem;
       font-size: 1.5rem;
       font-weight: bold;
-      color: var(--accent);
+      background: linear-gradient(135deg, var(--accent), var(--info));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
     .controls {
@@ -139,6 +144,7 @@
     button.secondary:hover { background: var(--card-hover); }
     button.danger { background: var(--danger); }
     button.warning { background: var(--warning); color: #1e293b; }
+    button.purple { background: var(--purple); }
     
     /* Container */
     .container {
@@ -146,7 +152,7 @@
       margin: auto;
       padding: 1.5rem;
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 300px 1fr;
       gap: 1.5rem;
     }
     
@@ -164,6 +170,8 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
     }
     
     .nav-card, .weather-card, .reminder-card {
@@ -176,7 +184,7 @@
     .nav-card h4, .weather-card h4, .reminder-card h4 {
       margin-bottom: 0.8rem;
       color: var(--accent);
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       display: flex;
@@ -193,12 +201,14 @@
     
     .nav-list button {
       justify-content: flex-start;
-      padding: 0.5rem 0.8rem;
+      padding: 0.6rem 0.8rem;
       font-size: 0.9rem;
       background: transparent;
       color: var(--text);
       border: 1px solid transparent;
       width: 100%;
+      border-radius: 8px;
+      transition: all 0.2s;
     }
     
     .nav-list button:hover,
@@ -206,6 +216,7 @@
       background: var(--card-hover);
       border-color: var(--accent);
       color: var(--accent);
+      transform: translateX(5px);
     }
     
     /* Weather Card */
@@ -411,6 +422,7 @@
     
     .badge.warning { background: var(--warning); color: #1e293b; }
     .badge.danger { background: var(--danger); }
+    .badge.purple { background: var(--purple); }
     
     /* Tabs */
     .tabs {
@@ -500,6 +512,7 @@
     .info-card.warning { border-left-color: var(--warning); }
     .info-card.danger { border-left-color: var(--danger); }
     .info-card.info { border-left-color: var(--info); }
+    .info-card.purple { border-left-color: var(--purple); }
     
     .info-card h4 {
       margin-bottom: 0.5rem;
@@ -712,6 +725,302 @@
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
+    
+    /* ================= ENCICLOPÉDIA ESTILO WIKI ================= */
+    
+    .wiki-hero {
+      height: 250px;
+      background: linear-gradient(135deg, rgba(15,23,42,0.8), rgba(30,41,59,0.8)), 
+                  url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1200') center/cover;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .wiki-overlay {
+      z-index: 2;
+      padding: 2rem;
+    }
+    
+    .wiki-overlay h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--accent), var(--info));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .wiki-overlay p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .wiki-section {
+      margin: 3rem 0;
+      scroll-margin-top: 100px;
+    }
+    
+    .wiki-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .wiki-section h3 {
+      font-size: 1.3rem;
+      margin: 1.5rem 0 0.8rem;
+      color: var(--accent);
+    }
+    
+    .wiki-section img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 1rem 0;
+      box-shadow: var(--shadow);
+    }
+    
+    .wiki-intro {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: var(--card-hover);
+      border-radius: 10px;
+      border-left: 4px solid var(--info);
+    }
+    
+    .wiki-box {
+      background: var(--card-hover);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 1rem 0;
+      border-left: 4px solid var(--accent);
+      transition: transform 0.2s;
+    }
+    
+    .wiki-box:hover {
+      transform: translateX(5px);
+    }
+    
+    .wiki-box h4 {
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .wiki-box ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .wiki-box li {
+      padding: 0.4rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .wiki-box li:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    
+    .wiki-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .wiki-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem;
+      transition: all 0.2s;
+    }
+    
+    .wiki-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    
+    .wiki-card h4 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .wiki-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: var(--card);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .wiki-table th {
+      background: var(--accent);
+      color: white;
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    .wiki-table td {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .wiki-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .wiki-table tr:hover {
+      background: var(--card-hover);
+    }
+    
+    .wiki-nav {
+      position: sticky;
+      top: 100px;
+      background: var(--card);
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    
+    .wiki-nav h4 {
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+    }
+    
+    .wiki-nav ul {
+      list-style: none;
+    }
+    
+    .wiki-nav li {
+      margin: 0.3rem 0;
+    }
+    
+    .wiki-nav a {
+      color: var(--text);
+      text-decoration: none;
+      display: block;
+      padding: 0.3rem 0;
+      transition: color 0.2s;
+    }
+    
+    .wiki-nav a:hover {
+      color: var(--accent);
+      padding-left: 5px;
+    }
+    
+    .wiki-tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      background: var(--card-hover);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin: 0.2rem;
+      border: 1px solid var(--border);
+    }
+    
+    .wiki-tag.pro {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--purple);
+      color: var(--purple);
+    }
+    
+    .alert {
+      padding: 1rem;
+      border-radius: 10px;
+      margin: 1rem 0;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+    
+    .alert.info {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid var(--info);
+    }
+    
+    .alert.warning {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--warning);
+    }
+    
+    .alert.danger {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid var(--danger);
+    }
+    
+    .alert-icon {
+      font-size: 1.2rem;
+      margin-top: 2px;
+    }
+    
+    /* Search Box */
+    .search-box {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    
+    .search-box input {
+      width: 100%;
+      padding: 1rem 1rem 1rem 3rem;
+      border-radius: 12px;
+      border: 2px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+    
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    .search-box::before {
+      content: '🔍';
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+    }
+    
+    @media (max-width: 768px) {
+      .wiki-hero { height: 200px; }
+      .wiki-overlay h1 { font-size: 1.8rem; }
+      .wiki-section h2 { font-size: 1.4rem; }
+    }
   </style>
 </head>
 
@@ -719,7 +1028,7 @@
 
 <header>
   <div class="header-content">
-    <div class="logo">🌾 Guia Rural Animal</div>
+    <div class="logo">🌾 Guia Rural Pro</div>
     <div class="controls no-print">
       <div id="onlineStatus" class="online-status online">
         <span class="status-dot"></span>
@@ -794,7 +1103,8 @@
     <div class="nav-card">
       <h4>📚 Conteúdo</h4>
       <ul class="nav-list">
-        <li><button class="active" onclick="showSection('incubacao')">🥚 Incubação</button></li>
+        <li><button class="active" onclick="showSection('enciclopedia')">📖 Enciclopédia</button></li>
+        <li><button onclick="showSection('incubacao')">🥚 Incubação</button></li>
         <li><button onclick="showSection('primeiros-dias')">🐣 Primeiros Dias</button></li>
         <li><button onclick="showSection('alimentacao')">🥣 Alimentação</button></li>
         <li><button onclick="showSection('temperatura')">🌡️ Temperatura</button></li>
@@ -808,8 +1118,358 @@
   <!-- Main Content -->
   <main class="main">
     
+    <!-- ENCICLOPÉDIA - NOVA SEÇÃO PROFISSIONAL -->
+    <section id="enciclopedia" class="card tab-content active">
+      
+      <!-- HERO SECTION -->
+      <div class="wiki-hero">
+        <div class="wiki-overlay">
+          <h1>Enciclopédia Rural Completa</h1>
+          <p>Domine a nutrição, manejo e produtividade animal com conteúdo técnico profissional</p>
+        </div>
+      </div>
+      
+      <!-- NAVEGAÇÃO RÁPIDA -->
+      <div class="wiki-nav">
+        <h4>📍 Navegação Rápida</h4>
+        <ul>
+          <li><a href="#galinha">🐔 Galinha (Avicultura)</a></li>
+          <li><a href="#codorna">🥚 Codorna</a></li>
+          <li><a href="#porco">🐖 Porco (Suinocultura)</a></li>
+          <li><a href="#vaca">🐄 Vaca (Bovinocultura)</a></li>
+          <li><a href="#cabra">🐐 Cabra (Caprinocultura)</a></li>
+          <li><a href="#ovelha">🐑 Ovelha (Ovinocultura)</a></li>
+        </ul>
+      </div>
+      
+      <!-- BUSCA -->
+      <div class="search-box">
+        <input type="text" id="wikiSearch" placeholder="Buscar na enciclopédia..." onkeyup="searchWiki()">
+      </div>
+      
+      <!-- GALINHA -->
+      <div class="wiki-section" id="galinha">
+        <h2>🐔 Galinha (Avicultura)</h2>
+        <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?w=800" alt="Galinha">
+        
+        <div class="wiki-intro">
+          A avicultura é uma das atividades mais importantes do agronegócio brasileiro. 
+          O manejo correto desde o primeiro dia de vida determina o sucesso produtivo, 
+          com foco em conversão alimentar, ganho de peso e sanidade do lote.
+        </div>
+        
+        <div class="wiki-tags">
+          <span class="wiki-tag">Corte</span>
+          <span class="wiki-tag">Postura</span>
+          <span class="wiki-tag pro">Alta Produtividade</span>
+        </div>
+        
+        <h3>🐣 Fase Inicial (0–7 dias)</h3>
+        <div class="wiki-box">
+          <h4>📊 Parâmetros Nutricionais</h4>
+          <ul>
+            <li><strong>Proteína Bruta:</strong> 22–24%</li>
+            <li><strong>Energia Metabolizável:</strong> 2.900–3.000 kcal/kg</li>
+            <li><strong>Cálcio:</strong> 0,9–1,0%</li>
+            <li><strong>Fósforo disponível:</strong> 0,45%</li>
+            <li><strong>Consumo diário:</strong> 10–15g/ave</li>
+          </ul>
+        </div>
+        
+        <div class="wiki-box warning">
+          <h4>⚠️ Cuidados Críticos</h4>
+          <ul>
+            <li>Água com glicose e vitaminas nas primeiras 2 horas</li>
+            <li>Temperatura: 32–35°C (reduzir 2°C/semana)</li>
+            <li>Ração farelada fina em papel nos 2 primeiros dias</li>
+            <li>Iluminação 23h luz / 1h escuro</li>
+          </ul>
+        </div>
+        
+        <h3>🐥 Fase de Crescimento (8–21 dias)</h3>
+        <div class="wiki-box">
+          <h4>📊 Parâmetros Nutricionais</h4>
+          <ul>
+            <li><strong>Proteína Bruta:</strong> 20–22%</li>
+            <li><strong>Energia:</strong> 3.000–3.100 kcal/kg</li>
+            <li><strong>Consumo diário:</strong> 25–40g/ave</li>
+            <li><strong>Ganho de peso esperado:</strong> 400–600g</li>
+          </ul>
+        </div>
+        
+        <h3>🐔 Fase de Terminação (22–42 dias)</h3>
+        <div class="wiki-box">
+          <h4>📊 Parâmetros Nutricionais</h4>
+          <ul>
+            <li><strong>Proteína Bruta:</strong> 18–20%</li>
+            <li><strong>Energia:</strong> 3.100–3.200 kcal/kg</li>
+            <li><strong>Consumo diário:</strong> 60–120g/ave</li>
+            <li><strong>Peso de abate:</strong> 2,0–2,5 kg</li>
+            <li><strong>Conversão alimentar:</strong> 1,6–1,8</li>
+          </ul>
+        </div>
+        
+        <table class="wiki-table">
+          <thead>
+            <tr>
+              <th>Idade</th>
+              <th>Peso Médio</th>
+              <th>Consumo Acumulado</th>
+              <th>CA Esperada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>7 dias</td>
+              <td>150g</td>
+              <td>120g</td>
+              <td>1,1</td>
+            </tr>
+            <tr>
+              <td>21 dias</td>
+              <td>800g</td>
+              <td>900g</td>
+              <td>1,4</td>
+            </tr>
+            <tr>
+              <td>42 dias</td>
+              <td>2.400g</td>
+              <td>4.200g</td>
+              <td>1,75</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- CODORNA -->
+      <div class="wiki-section" id="codorna">
+        <h2>🥚 Codorna (Coturnicultura)</h2>
+        <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5a3f4d?w=800" alt="Codorna">
+        
+        <div class="wiki-intro">
+          A coturnicultura destaca-se pela rápida maturidade sexual (35-40 dias) 
+          e alta produtividade de ovos. Exige manejo diferenciado devido ao metabolismo acelerado.
+        </div>
+        
+        <div class="wiki-grid">
+          <div class="wiki-card">
+            <h4>🐣 Inicial (0-15 dias)</h4>
+            <ul>
+              <li>Proteína: 28-30%</li>
+              <li>Consumo: 5-8g/dia</li>
+              <li>Temp: 35-37°C</li>
+            </ul>
+          </div>
+          <div class="wiki-card">
+            <h4>🐥 Crescimento (16-35 dias)</h4>
+            <ul>
+              <li>Proteína: 26-28%</li>
+              <li>Consumo: 15-20g/dia</li>
+              <li>Sexagem aos 25 dias</li>
+            </ul>
+          </div>
+          <div class="wiki-card">
+            <h4>🥚 Postura (36+ dias)</h4>
+            <ul>
+              <li>Proteína: 24-26%</li>
+              <li>Cálcio: 3,5%</li>
+              <li>Postura: 280-300 ovos/ano</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- PORCO -->
+      <div class="wiki-section" id="porco">
+        <h2>🐖 Suínos (Suinocultura)</h2>
+        <img src="https://images.unsplash.com/photo-1601758064226-51c0c63a5f76?w=800" alt="Porco">
+        
+        <div class="wiki-intro">
+          A suinocultura moderna exige eficiência alimentar máxima. O custo da ração 
+          representa 70% dos custos de produção, tornando a nutrição o fator crítico de sucesso.
+        </div>
+        
+        <div class="alert info">
+          <span class="alert-icon">💡</span>
+          <div>
+            <strong>Dica Profissional:</strong> A fase de creche (desmame) é a mais crítica. 
+            Estresse nutricional nesta fase compromete todo o desempenho futuro.
+          </div>
+        </div>
+        
+        <h3>🐷 Creche (Desmame - 70 dias)</h3>
+        <div class="wiki-box">
+          <h4>📊 Nutrição de Alta Digestibilidade</h4>
+          <ul>
+            <li><strong>Proteína:</strong> 20–22%</li>
+            <li><strong>Lisina digestível:</strong> 1,35–1,40%</li>
+            <li><strong>Ingredientes:</strong> Leite em pó, plasma, farelo de soja extrudado</li>
+            <li><strong>Consumo:</strong> 400-600g/dia</li>
+            <li><strong>Ganho diário:</strong> 350-450g</li>
+          </ul>
+        </div>
+        
+        <h3>🐖 Crescimento (70-110 dias)</h3>
+        <div class="wiki-box">
+          <h4>📊 Maximizando Ganho Muscular</h4>
+          <ul>
+            <li><strong>Proteína:</strong> 18–20%</li>
+            <li><strong>Energia:</strong> 3.300 kcal ED/kg</li>
+            <li><strong>Base:</strong> Milho + Farelo de Soja</li>
+            <li><strong>Consumo:</strong> 1,8-2,5 kg/dia</li>
+          </ul>
+        </div>
+        
+        <h3>🏁 Terminação (110-160 dias)</h3>
+        <div class="wiki-box">
+          <h4>📊 Acabamento de Carcaça</h4>
+          <ul>
+            <li><strong>Proteína:</strong> 16–18%</li>
+            <li><strong>Energia:</strong> 3.400 kcal ED/kg</li>
+            <li><strong>Peso de abate:</strong> 110-130 kg</li>
+            <li><strong>Conversão alimentar:</strong> 2,6–2,8</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- VACA -->
+      <div class="wiki-section" id="vaca">
+        <h2>🐄 Bovinos (Bovinocultura)</h2>
+        <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800" alt="Vaca">
+        
+        <div class="wiki-intro">
+          Bovinos são ruminantes que transformam volumosos (capim) em proteína de alta qualidade. 
+          O manejo nutricional define a produção de leite e ganho de peso na engorda.
+        </div>
+        
+        <div class="wiki-grid">
+          <div class="wiki-card">
+            <h4>🌿 Base Volumosa</h4>
+            <ul>
+              <li>Capim (pasto)</li>
+              <li>Silagem de milho</li>
+              <li>Feno de qualidade</li>
+              <li>Canadeaçúcar</li>
+            </ul>
+          </div>
+          <div class="wiki-card">
+            <h4>💪 Concentrado</h4>
+            <ul>
+              <li>Milho moído</li>
+              <li>Farelo de soja</li>
+              <li>DDG (milho)</li>
+              <li>Polpa cítrica</li>
+            </ul>
+          </div>
+          <div class="wiki-card">
+            <h4>🧂 Suplementação</h4>
+            <ul>
+              <li>Sais minerais</li>
+              <li>Ureia (proteína)</li>
+              <li>Vitaminas A, D, E</li>
+              <li>Aditivos (monensina)</li>
+            </ul>
+          </div>
+        </div>
+        
+        <h3>🐮 Categorias e Exigências</h3>
+        <table class="wiki-table">
+          <thead>
+            <tr>
+              <th>Categoria</th>
+              <th>PB Mínimo</th>
+              <th>NDT</th>
+              <th>Suplemento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Vaca em lactação</td>
+              <td>12-14%</td>
+              <td>65-70%</td>
+              <td>4-6 kg concentrado</td>
+            </tr>
+            <tr>
+              <td>Novilho em engorda</td>
+              <td>11-13%</td>
+              <td>70-75%</td>
+              <td>1-2% PV em concentrado</td>
+            </tr>
+            <tr>
+              <td>Vaca seca</td>
+              <td>8-10%</td>
+              <td>55-60%</td>
+              <td>Sal mineral</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- CABRA -->
+      <div class="wiki-section" id="cabra">
+        <h2>🐐 Cabra (Caprinocultura)</h2>
+        <img src="https://images.unsplash.com/photo-1524024973431-2ad916746981?w=800" alt="Cabra">
+        
+        <div class="wiki-intro">
+          Caprinos são animais rústicos e eficientes na conversão de forragem em proteína. 
+          A caprinocultura de corte e leite tem crescido significativamente no Brasil.
+        </div>
+        
+        <div class="wiki-box">
+          <h4>🍼 Cabritos (0-3 meses)</h4>
+          <ul>
+            <li>Leite colostro nas primeiras 24h</li>
+            <li>Início de ração aos 7 dias (18% PB)</li>
+            <li>Desmame aos 60-90 dias</li>
+            <li>Consumo: 200-400g/dia</li>
+          </ul>
+        </div>
+        
+        <div class="wiki-box">
+          <h4>🐐 Adultos (Manejo)</h4>
+          <ul>
+            <li>Pasto como base (capim)</li>
+            <li>Suplementação mineral obrigatória</li>
+            <li>Concentrado apenas para gestantes/lactantes</li>
+            <li>Água limpa à vontade</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- OVELHA -->
+      <div class="wiki-section" id="ovelha">
+        <h2>🐑 Ovelha (Ovinocultura)</h2>
+        <img src="https://images.unsplash.com/photo-1484557985045-edf25e08da73?w=800" alt="Ovelha">
+        
+        <div class="wiki-intro">
+          Ovinos são excelentes conversores de pasto em carne. A ovinocultura exige 
+          atenção especial à suplementação mineral e controle de verminoses.
+        </div>
+        
+        <div class="wiki-grid">
+          <div class="wiki-card">
+            <h4>🐑 Cordeiros</h4>
+            <ul>
+              <li>Creep feeding aos 15 dias</li>
+              <li>Ração 18% PB</li>
+              <li>Desmame: 60-70 dias</li>
+            </ul>
+          </div>
+          <div class="wiki-card">
+            <h4>🐏 Matrizes</h4>
+            <ul>
+              <li>Flushing (30 dias antes)</li>
+              <li>Suplementação gestação</li>
+              <li>Lactação: +30% energia</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    
     <!-- INCUBAÇÃO -->
-    <section id="incubacao" class="card tab-content active">
+    <section id="incubacao" class="card tab-content">
       <div class="card-header">
         <h2 class="card-title">🥚 Guia de Incubação</h2>
         <span class="badge">Aves</span>
@@ -1019,7 +1679,7 @@
 <div class="toast-container" id="toastContainer"></div>
 
 <footer>
-  <p>🌾 Guia Rural Animal © 2026 | Funciona offline</p>
+  <p>🌾 Guia Rural Pro © 2026 | Enciclopédia Completa + Gestão Inteligente</p>
   <p style="margin-top:0.5rem; font-size:0.85rem;">
     ⚠️ Este guia não substitui orientação veterinária profissional.
   </p>
@@ -1082,9 +1742,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initServiceWorker() {
   if ('serviceWorker' in navigator) {
-    // Criar Service Worker inline
     const swCode = `
-      const CACHE_NAME = 'guia-rural-v1';
+      const CACHE_NAME = 'guia-rural-pro-v1';
       const urlsToCache = ['.'];
       
       self.addEventListener('install', event => {
@@ -1152,7 +1811,6 @@ async function getWeather() {
   }
   
   try {
-    // Tentar geolocalização
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(
         async position => {
@@ -1160,8 +1818,6 @@ async function getWeather() {
           await fetchWeatherData(latitude, longitude);
         },
         error => {
-          console.log('Geolocalização negada, usando localização padrão');
-          // Usar São Paulo como fallback
           fetchWeatherData(-23.5505, -46.6333);
         }
       );
@@ -1175,7 +1831,6 @@ async function getWeather() {
 }
 
 async function fetchWeatherData(lat, lon) {
-  // Usando Open-Meteo API (gratuita, sem necessidade de API key)
   const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,showers,snowfall,weather_code,cloud_cover,pressure_msl,surface_pressure,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
   
   try {
@@ -1201,7 +1856,6 @@ function updateWeatherDisplay(data) {
   document.getElementById('weatherMin').textContent = `${Math.round(daily.temperature_2m_min[0])}°C`;
   document.getElementById('weatherMax').textContent = `${Math.round(daily.temperature_2m_max[0])}°C`;
   
-  // Descrição e ícone baseado no weather code
   const code = current.weather_code;
   const isDay = current.is_day;
   
@@ -1240,16 +1894,15 @@ function checkWeatherAlerts(data) {
   
   let alert = null;
   
-  // Alertas baseados na temperatura para aves
   if (temp > 30) {
     alert = {
       type: 'danger',
-      message: `🔥 ALERTA: Temperatura muito alta (${temp}°C)! Risco de estresse térmico nas aves. Aumente ventilação e ofereça água fresca.`
+      message: `🔥 ALERTA: Temperatura muito alta (${temp}°C)! Risco de estresse térmico nas aves.`
     };
   } else if (temp < 15) {
     alert = {
       type: 'warning',
-      message: `❄️ ALERTA: Temperatura baixa (${temp}°C)! Aumente aquecimento nos pintinhos.`
+      message: `❄️ ALERTA: Temperatura baixa (${temp}°C)! Aumente aquecimento.`
     };
   } else if (temp > 25) {
     alert = {
@@ -1262,7 +1915,6 @@ function checkWeatherAlerts(data) {
     alertDiv.className = `weather-alert show ${alert.type}`;
     alertDiv.textContent = alert.message;
     
-    // Mostrar toast se for crítico
     if (alert.type === 'danger') {
       showToast('🌡️ Alerta de Temperatura', alert.message, 'danger');
     }
@@ -1294,7 +1946,6 @@ function saveReminders() {
 
 function showReminderModal() {
   document.getElementById('reminderModal').classList.add('show');
-  // Definir data mínima como hoje
   document.getElementById('reminderDate').min = new Date().toISOString().split('T')[0];
 }
 
@@ -1326,7 +1977,6 @@ function saveReminder(event) {
   
   showToast('✅ Lembrete cadastrado!', ` "${reminder.title}" para ${formatDate(reminder.date)}`, 'info');
   
-  // Agendar notificação
   scheduleNotification(reminder);
 }
 
@@ -1406,12 +2056,10 @@ function checkReminders() {
     const reminderTime = new Date(reminder.date + 'T' + reminder.time);
     const diffMinutes = Math.floor((reminderTime - now) / (1000 * 60));
     
-    // Notificar se estiver no horário ou atrasado (e ainda não notificado)
     if (diffMinutes <= 0 && diffMinutes > -60) {
       notifyReminder(reminder);
       reminder.notified = true;
       
-      // Se for repetitivo, criar próximo
       if (reminder.repeat) {
         const nextDate = new Date(reminderTime);
         nextDate.setDate(nextDate.getDate() + 7);
@@ -1432,10 +2080,8 @@ function checkReminders() {
 }
 
 function notifyReminder(reminder) {
-  // Toast
   showToast(`🔔 ${reminder.title}`, `${reminder.description || 'Hora do lembrete!'}`, 'warning');
   
-  // Notificação do navegador
   if ('Notification' in window && Notification.permission === 'granted') {
     new Notification(`🔔 ${reminder.title}`, {
       body: reminder.description || 'Não esqueça!',
@@ -1445,12 +2091,10 @@ function notifyReminder(reminder) {
     });
   }
   
-  // Som de alerta (opcional)
   playAlertSound();
 }
 
 function playAlertSound() {
-  // Criar som simples usando Web Audio API
   try {
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
     const oscillator = audioContext.createOscillator();
@@ -1473,12 +2117,10 @@ function playAlertSound() {
 }
 
 function scheduleNotification(reminder) {
-  // Verificar a cada minuto se é hora de notificar
   const checkInterval = setInterval(() => {
     checkReminders();
   }, 60000);
   
-  // Primeira verificação imediata
   setTimeout(checkReminders, 1000);
 }
 
@@ -1505,7 +2147,6 @@ function showToast(title, message, type = 'info') {
   
   container.appendChild(toast);
   
-  // Auto-remove após 5 segundos
   setTimeout(() => {
     if (toast.parentElement) {
       toast.style.opacity = '0';
@@ -1541,8 +2182,27 @@ function toggleLang() {
 }
 
 function updateTexts() {
-  // Atualizar textos básicos
-  document.querySelector('.logo').textContent = pt ? '🌾 Guia Rural Animal' : '🌾 Rural Animal Guide';
+  document.querySelector('.logo').textContent = pt ? '🌾 Guia Rural Pro' : '🌾 Rural Pro Guide';
+}
+
+// ================= BUSCA NA ENCICLOPÉDIA =================
+
+function searchWiki() {
+  const term = document.getElementById('wikiSearch').value.toLowerCase();
+  const sections = document.querySelectorAll('.wiki-section');
+  
+  sections.forEach(section => {
+    const text = section.textContent.toLowerCase();
+    if (text.includes(term)) {
+      section.style.display = 'block';
+      if (term.length > 2) {
+        // Highlight terms
+        section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    } else {
+      section.style.display = term.length > 2 ? 'none' : 'block';
+    }
+  });
 }
 
 // ================= CALCULADORA =================
