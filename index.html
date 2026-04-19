@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guia Rural Completo PRO</title>
+<title>Guia Rural Animal</title>
 
 <style>
 :root {
@@ -12,22 +12,22 @@
   --text:#e5e7eb;
   --accent:#22c55e;
 }
+
 .light {
   --bg:#f9fafb;
   --card:#fff;
   --text:#111827;
 }
-body {margin:0;font-family:Arial;background:var(--bg);color:var(--text);}
-.container {max-width:1100px;margin:auto;padding:20px;}
-.card {background:var(--card);padding:20px;border-radius:12px;margin-bottom:20px;}
-button {padding:10px;border:none;border-radius:8px;background:var(--accent);color:white;cursor:pointer;}
-.tabs button {margin:3px;}
-.tab {display:none;}
-.tab.active {display:block;}
-input,select {width:100%;padding:8px;margin:5px 0;border-radius:6px;border:none;}
-table {width:100%;border-collapse:collapse;}
-td,th {padding:10px;border-bottom:1px solid #333;}
-h3 {margin-top:0;}
+
+body { margin:0; font-family:Arial; background:var(--bg); color:var(--text);}
+.container { max-width:1000px; margin:auto; padding:20px;}
+.card { background:var(--card); padding:20px; border-radius:12px; margin-bottom:20px;}
+button { padding:10px; border:none; border-radius:8px; background:var(--accent); color:white; cursor:pointer;}
+.tabs button { margin:3px;}
+.tab { display:none;}
+.tab.active { display:block;}
+input,select { padding:8px; margin:5px 0; width:100%; border-radius:6px; border:none;}
+img { max-width:100%; border-radius:10px; margin-top:10px;}
 </style>
 </head>
 
@@ -36,165 +36,131 @@ h3 {margin-top:0;}
 <div class="container">
 
 <div class="card">
-<button onclick="toggleTheme()">🌗 Tema</button>
+<button onclick="toggleTheme()">🌗</button>
+<button onclick="toggleLang()">🌍</button>
 
 <div class="tabs">
-<button onclick="tab(0)">🐣 Tabela</button>
-<button onclick="tab(1)">📅 Calculadora</button>
-<button onclick="tab(2)">📚 Incubação</button>
-<button onclick="tab(3)">🔥 Cuidados</button>
-<button onclick="tab(4)">⚠️ Erros</button>
-<button onclick="tab(5)">🏆 Ranking</button>
-<button onclick="tab(6)">🧠 Curiosidades</button>
+<button onclick="tab(0)">🐣</button>
+<button onclick="tab(1)">📅</button>
+<button onclick="tab(2)">🔥</button>
+<button onclick="tab(3)">🏆</button>
+<button onclick="tab(4)">📸</button>
 </div>
 </div>
 
 <!-- TABELA -->
 <div class="card tab active">
-<h3>Período de gestação / incubação</h3>
 <table id="table"></table>
 </div>
 
 <!-- CALCULADORA -->
 <div class="card tab">
-<h3>Previsão de nascimento</h3>
+<h3 id="calcTitle">Calculadora</h3>
 <select id="animal"></select>
 <input type="date" id="date">
 <button onclick="calc()">Calcular</button>
 <p id="result"></p>
-</div>
-
-<!-- INCUBAÇÃO -->
-<div class="card tab">
-<h3>Parâmetros de incubação</h3>
-<ul>
-<li><b>Temperatura ideal:</b> 37.5°C (aves)</li>
-<li><b>Umidade:</b> 50–65% (subir para 70% na eclosão)</li>
-<li><b>Viragem:</b> 3 a 5 vezes por dia</li>
-<li><b>Ventilação:</b> essencial para troca de oxigênio</li>
-</ul>
-
-<h3>Fases da incubação</h3>
-<ul>
-<li>Dia 1–7: formação inicial do embrião</li>
-<li>Dia 8–14: desenvolvimento dos órgãos</li>
-<li>Final: preparação para nascimento</li>
-</ul>
+<button onclick="share()">📲 WhatsApp</button>
 </div>
 
 <!-- CUIDADOS -->
 <div class="card tab">
-<h3>Cuidados após nascimento</h3>
-
-<h4>Temperatura</h4>
+<h3>🔥 Temperatura</h3>
 <ul>
-<li>32–35°C na primeira semana</li>
-<li>Reduzir 2–3°C por semana</li>
+<li>32–35°C primeira semana</li>
+<li>Reduzir semanalmente</li>
+<li>Aglutinados = frio</li>
+<li>Espalhados = ideal</li>
 </ul>
 
-<h4>Ambiente</h4>
-<ul>
-<li>Local seco e limpo</li>
-<li>Sem vento direto</li>
-<li>Evitar superlotação</li>
-</ul>
-
-<h4>Alimentação</h4>
-<ul>
-<li>Ração inicial rica em proteína</li>
-<li>Água limpa sempre disponível</li>
-<li>Pedrinhas na água para evitar afogamento</li>
-</ul>
-
-<h4>Método simples</h4>
+<h3>💡 Método Isopor</h3>
 <ul>
 <li>Caixa de isopor</li>
 <li>Lâmpada 60W</li>
-<li>Termômetro interno</li>
-</ul>
-</div>
-
-<!-- ERROS -->
-<div class="card tab">
-<h3>Erros comuns</h3>
-<ul>
-<li>Temperatura errada (principal causa de morte)</li>
-<li>Falta de água</li>
-<li>Umidade inadequada</li>
-<li>Não virar os ovos</li>
-<li>Superlotação</li>
+<li>Termômetro dentro</li>
+<li>Ajustar altura</li>
 </ul>
 
-<h3>Sinais de alerta</h3>
+<h3>🥣 Alimentação</h3>
 <ul>
-<li>Filhote não anda</li>
-<li>Não se alimenta</li>
-<li>Respiração irregular</li>
-<li>Mãe rejeitando</li>
+<li>Ração inicial</li>
+<li>Água limpa</li>
+<li>Mais proteína para codorna</li>
 </ul>
 </div>
 
 <!-- RANKING -->
 <div class="card tab">
-<h3>Ranking de gestação</h3>
+<h3>🏆 Ranking de Gestação</h3>
 <ol id="ranking"></ol>
 </div>
 
-<!-- CURIOSIDADES -->
+<!-- FOTO -->
 <div class="card tab">
-<h3>Curiosidades</h3>
-<ul>
-<li>A jumenta possui uma das gestações mais longas</li>
-<li>A codorna nasce em menos de 18 dias</li>
-<li>Uma gestação de cavalo equivale a várias de aves</li>
-<li>Temperatura influencia mais que qualquer outro fator</li>
-</ul>
+<h3>📸 Compartilhe sua criação</h3>
+<input type="file" onchange="preview(event)">
+<img id="img">
 </div>
 
 </div>
 
 <script>
+let pt=true;
+
 const data=[
-["Gato",60],
-["Cachorro",60],
-["Vaca",285],
-["Ovelha",150],
-["Égua",340],
-["Jumenta",370],
-["Galinha",21],
-["Codorna",17],
-["Pavão",29],
-["Angola",27],
-["Peru",28],
-["Pato",28],
-["Porco",114],
-["Cabra",150],
-["Coelho",31]
+["Gato","Cat",60],
+["Cachorro","Dog",60],
+["Vaca","Cow",285],
+["Ovelha","Sheep",150],
+["Égua","Mare",340],
+["Jumenta","Donkey",370],
+["Galinha","Chicken",21],
+["Codorna","Quail",17],
+["Pavão","Peacock",29],
+["Angola","Guinea fowl",27],
+["Porco","Pig",114],
+["Cabra","Goat",150]
 ];
 
 function render(){
-table.innerHTML="<tr><th>Animal</th><th>Dias</th></tr>"+
-data.map(a=>`<tr><td>${a[0]}</td><td>${a[1]}</td></tr>`).join("");
+let t="<tr><th>Animal</th><th>Dias</th></tr>";
+data.forEach(a=>{
+t+=`<tr><td>${pt?a[0]:a[1]}</td><td>${a[2]}</td></tr>`;
+});
+document.getElementById("table").innerHTML=t;
 
-animal.innerHTML=data.map((a,i)=>`<option value=${i}>${a[0]}</option>`).join("");
+let sel="";
+data.forEach((a,i)=>{
+sel+=`<option value="${i}">${pt?a[0]:a[1]}</option>`;
+});
+document.getElementById("animal").innerHTML=sel;
 
-let sorted=[...data].sort((a,b)=>b[1]-a[1]);
-ranking.innerHTML=sorted.map(a=>`<li>${a[0]} - ${a[1]} dias</li>`).join("");
+// ranking
+let sorted=[...data].sort((a,b)=>b[2]-a[2]);
+document.getElementById("ranking").innerHTML=sorted.map(a=>`<li>${pt?a[0]:a[1]} - ${a[2]} dias</li>`).join("");
 }
 
 function calc(){
-let i=animal.value;
-let d=new Date(date.value);
-d.setDate(d.getDate()+data[i][1]);
-result.innerText=d.toLocaleDateString();
+let i=document.getElementById("animal").value;
+let d=new Date(document.getElementById("date").value);
+d.setDate(d.getDate()+data[i][2]);
+document.getElementById("result").innerText=d.toLocaleDateString();
 }
 
+function share(){
+let text=document.getElementById("result").innerText;
+window.open("https://wa.me/?text=Data prevista: "+text);
+}
+
+function preview(e){
+let img=document.getElementById("img");
+img.src=URL.createObjectURL(e.target.files[0]);
+}
+
+function toggleTheme(){document.body.classList.toggle("light");}
+function toggleLang(){pt=!pt;render();}
 function tab(n){
 document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",i===n));
-}
-
-function toggleTheme(){
-document.body.classList.toggle("light");
 }
 
 render();
