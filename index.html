@@ -1,11 +1,23 @@
-)<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0f172a">
-  <meta name="description" content="Guia Rural Animal - Enciclopédia Completa + Clima + Lembretes">
-  <title>🌾 Guia Rural Pro | Enciclopédia + Gestão</title>
+  <meta name="description" content="Guia Rural Pro - Enciclopédia Completa + Sistema Integrado">
+  <title>🌾 Guia Rural Pro | Enciclopédia + Gestão + Sistema Integrado</title>
+  
+  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiR3VpYSBSdXJhbVou implementar TODAS essas melhorias de alto impacto! 🚀
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Guia Rural Pro - Enciclopédia Completa + Sistema Integrado">
+  <title>🌾 Guia Rural Pro | Enciclopédia + Gestão + Sistema Integrado</title>
   
   <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiR3VpYSBSdXJhbCBQcm8iLCJzaG9ydF9uYW1lIjoiR3VpYVJ1cmFsIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwZjE3MmEiLCJ0aGVtZV9jb2xvciI6IiMwZjE3MmEifQ==">
   
@@ -26,6 +38,366 @@
       --success: #10b981;
       --purple: #8b5cf6;
       --pink: #ec4899;
+      --cyan: #06b6d4;
+    }
+    
+    .light {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --card-hover: #f1f5f9;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --accent: #16a34a;
+      --accent-hover: #15803d;
+      --border: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--card), var(--bg));
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    
+    .header-content {
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, var(--accent), var(--info));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    
+    .online-status {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    .online-status.online {
+      background: rgba(34, 197, 94, 0.2);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    
+    .online-status.offline {
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--danger);
+      border: 1px solid var(--danger);
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    button {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    button:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    button.secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    button.danger { background: var(--danger); }
+    button.warning { background: var(--warning); color: #1e293b; }
+    button.purple { background: var(--purple); }
+    
+    /* Container */
+    .container {
+      max-width: 1400px;
+      margin: auto;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 1.5rem;
+    }
+    
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
+      .sidebar { order: 2; }
+      .main { order: 1; }
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+    }
+    
+    .nav-card, .weather-card, .reminder-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1rem;
+      border: 1px solid var(--border);
+    }
+    
+    .nav-card h4, .weather-card h4, .reminder-card h4 {
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    
+    .nav-list button {
+      justify-content: flex-start;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.9rem;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid transparent;
+      width: 100%;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    
+    .nav-list button:hover,
+    .nav-list button.active {
+      background: var(--card-hover);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateX(5px);
+    }
+    
+    /* Weather Card */
+    .weather-info {
+      display: grid;
+      gap: 0.8rem;
+    }
+    
+    .weather-main {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem;
+      background: var(--card-hover);
+      border-radius: 8px;
+    }
+    
+    .weather-temp {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    
+    .weather-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-transform: capitalize;
+    }
+    
+    .weather-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+    
+    .weather-detail {
+      padding: 0.5rem;
+      background: var(--card-hover);
+      border-radius: 6px;
+      text-align: center;
+    }
+    
+    .weather-detail label {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+    
+    .weather-detail value {
+      font-weight: 600;
+      color: var(--text);
+    }
+    
+    .weather-alert {
+      padding: 0.6rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+    
+    .weather-alert.show {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+    
+    .weather-alert.warning {
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid var(--warning);
+      color: var(--warning);
+    }
+    
+    .weather-alert.danger {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid var(--danger);
+      color: var(--danger);
+    }
+    
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Reminder Card */
+    .reminder-list {
+      list-style: none;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    
+    .reminder-item {
+      padding: 0.6rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .reminder-item:last-child { border-bottom: none; }
+    
+    .reminder-item.urgent {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 3px solid var(--danger);
+      padding-left: 0.8rem;
+    }
+    
+    .reminder-item.soon {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 3px solid var(--warning);
+      padding-left: 0.8rem;
+    }
+    
+    .reminder-icon {
+      font-size: 1.2rem;
+      margin-top: 2px;
+    }
+    
+    .reminder-content {
+      flex: 1;
+    }
+    
+    .reminder-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    
+    .reminder-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    
+    .reminder-delete {
+      background: none;
+      border: none;
+      color:Vou implementar TODAS essas melhorias de alto impacto! 🚀
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Guia Rural Pro - Enciclopédia Completa + Sistema Integrado">
+  <title>🌾 Guia Rural Pro | Enciclopédia + Gestão + Sistema Integrado</title>
+  
+  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiR3VpYSBSdXJhbCBQcm8iLCJzaG9ydF9uYW1lIjoiR3VpYVJ1cmFsIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwZjE3MmEiLCJ0aGVtZV9jb2xvciI6IiMwZjE3MmEifQ==">
+  
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-hover: #334155;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #22c55e;
+      --accent-hover: #16a34a;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #3b82f6;
+      --border: #334155;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+      --success: #10b981;
+      --purple: #8b5cf6;
+      --pink: #ec4899;
+      --cyan: #06b6d4;
     }
     
     .light {
@@ -513,6 +885,707 @@
     .info-card.danger { border-left-color: var(--danger); }
     .info-card.info { border-left-color: var(--info); }
     .info-card.purple { border-left-color: var(--purple); }
+    .info-card.success { border-left-color: var(--success); }
+    .info-card.cyan { border-left-color: var(--cyan); }
+    
+    .info-card h4 {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    /* Forms */
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+    
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    
+    .modal.show {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .modal-content {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.5rem;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.2rem;
+    }
+    
+    .modal-close:hover {
+      background: none;
+      color: var(--danger);
+      transform: none;
+    }
+    
+    /* Notification Toast */
+    .toast-container {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-width: 350px;
+    }
+    
+    .toast {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      animation: slideInRight 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .toast.warning {
+      border-left: 4px solid var(--warning);
+      background: rgba(245, 158, 11, 0.1);
+    }
+    
+    .toast.danger {
+      border-left: 4px solid var(--danger);
+      background: rgba(239, 68, 68, 0.1);
+    }
+    
+    .toast.info {
+      border-left: 4px solid var(--info);
+    }
+    
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(100%); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    .toast-icon {
+      font-size: 1.5rem;
+    }
+    
+    .toast-content {
+      flex: 1;
+    }
+    
+    .toast-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    
+    .toast-message {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    .toast-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.2rem;
+    }
+    
+    .toast-close:hover {
+      background: none;
+      color: var(--text);
+      transform: none;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-sizeVou implementar TODAS essas melhorias de alto impacto! 🚀
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Guia Rural Pro - Enciclopédia Completa + Sistema Integrado">
+  <title>🌾 Guia Rural Pro | Enciclopédia + Gestão + Sistema Integrado</title>
+  
+  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiR3VpYSBSdXJhbCBQcm8iLCJzaG9ydF9uYW1lIjoiR3VpYVJ1cmFsIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwZjE3MmEiLCJ0aGVtZV9jb2xvciI6IiMwZjE3MmEifQ==">
+  
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-hover: #334155;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #22c55e;
+      --accent-hover: #16a34a;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #3b82f6;
+      --border: #334155;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+      --success: #10b981;
+      --purple: #8b5cf6;
+      --pink: #ec4899;
+      --cyan: #06b6d4;
+    }
+    
+    .light {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --card-hover: #f1f5f9;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --accent: #16a34a;
+      --accent-hover: #15803d;
+      --border: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--card), var(--bg));
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    
+    .header-content {
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, var(--accent), var(--info));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    
+    .online-status {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    .online-status.online {
+      background: rgba(34, 197, 94, 0.2);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    
+    .online-status.offline {
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--danger);
+      border: 1px solid var(--danger);
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    button {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    button:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    button.secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    button.danger { background: var(--danger); }
+    button.warning { background: var(--warning); color: #1e293b; }
+    button.purple { background: var(--purple); }
+    
+    /* Container */
+    .container {
+      max-width: 1400px;
+      margin: auto;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 1.5rem;
+    }
+    
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
+      .sidebar { order: 2; }
+      .main { order: 1; }
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+    }
+    
+    .nav-card, .weather-card, .reminder-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1rem;
+      border: 1px solid var(--border);
+    }
+    
+    .nav-card h4, .weather-card h4, .reminder-card h4 {
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    
+    .nav-list button {
+      justify-content: flex-start;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.9rem;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid transparent;
+      width: 100%;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    
+    .nav-list button:hover,
+    .nav-list button.active {
+      background: var(--card-hover);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateX(5px);
+    }
+    
+    /* Weather Card */
+    .weather-info {
+      display: grid;
+      gap: 0.8rem;
+    }
+    
+    .weather-main {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem;
+      background: var(--card-hover);
+      border-radius: 8px;
+    }
+    
+    .weather-temp {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    
+    .weather-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-transform: capitalize;
+    }
+    
+    .weather-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+    
+    .weather-detail {
+      padding: 0.5rem;
+      background: var(--card-hover);
+      border-radius: 6px;
+      text-align: center;
+    }
+    
+    .weather-detail label {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+    
+    .weather-detail value {
+      font-weight: 600;
+      color: var(--text);
+    }
+    
+    .weather-alert {
+      padding: 0.6rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+    
+    .weather-alert.show {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+    
+    .weather-alert.warning {
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid var(--warning);
+      color: var(--warning);
+    }
+    
+    .weather-alert.danger {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid var(--danger);
+      color: var(--danger);
+    }
+    
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Reminder Card */
+    .reminder-list {
+      list-style: none;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    
+    .reminder-item {
+      padding: 0.6rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .reminder-item:last-child { border-bottom: none; }
+    
+    .reminder-item.urgent {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 3px solid var(--danger);
+      padding-left: 0.8rem;
+    }
+    
+    .reminder-item.soon {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 3px solid var(--warning);
+      padding-left: 0.8rem;
+    }
+    
+    .reminder-icon {
+      font-size: 1.2rem;
+      margin-top: 2px;
+    }
+    
+    .reminder-content {
+      flex: 1;
+    }
+    
+    .reminder-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    
+    .reminder-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    
+    .reminder-delete {
+      background: none;
+      border: none;
+      color: var(--danger);
+      cursor: pointer;
+      padding: 0.2rem;
+      font-size: 1rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    
+    .reminder-delete:hover {
+      opacity: 1;
+      background: none;
+    }
+    
+    .add-reminder-btn {
+      width: 100%;
+      margin-top: 0.8rem;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Main Content */
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px -5px rgba(0,0,0,0.4);
+    }
+    
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .badge {
+      background: var(--accent);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .badge.warning { background: var(--warning); color: #1e293b; }
+    .badge.danger { background: var(--danger); }
+    .badge.purple { background: var(--purple); }
+    
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .tab-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    
+    .tab-btn:hover,
+    .tab-btn.active {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.5rem 0;
+    }
+    
+    th, td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    th {
+      background: var(--card-hover);
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    tr:hover {
+      background: var(--card-hover);
+    }
+    
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    
+    /* Info Cards */
+    .info-card {
+      background: var(--card-hover);
+      border-radius: 10px;
+      padding: 1rem;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .info-card.warning { border-left-color: var(--warning); }
+    .info-card.danger { border-left-color: var(--danger); }
+    .info-card.info { border-left-color: var(--info); }
+    .info-card.purple { border-left-color: var(--purple); }
+    .info-card.success { border-left-color: var(--success); }
+    .info-card.cyan { border-left-color: var(--cyan); }
     
     .info-card h4 {
       margin-bottom: 0.5rem;
@@ -817,6 +1890,13 @@
       transform: translateX(5px);
     }
     
+    .wiki-box.info { border-left-color: var(--info); }
+    .wiki-box.warning { border-left-color: var(--warning); }
+    .wiki-box.danger { border-left-color: var(--danger); }
+    .wiki-box.success { border-left-color: var(--success); }
+    .wiki-box.purple { border-left-color: var(--purple); }
+    .wiki-box.cyan { border-left-color: var(--cyan); }
+    
     .wiki-box h4 {
       margin-bottom: 0.8rem;
       color: var(--accent);
@@ -889,6 +1969,996 @@
       padding: 1rem;
       text-align: left;
       font-weight: 600;
+      width: 40%;
+    }
+    
+    .wiki-table td {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .wiki-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .wiki-table tr:hover {
+      background: var(--card-hover);
+    }
+    
+    .wiki-nav {
+      position: sticky;
+      top: 100px;
+      background: var(--card);
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    
+    .wiki-nav h4 {
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+    }
+    
+    .wiki-nav ul {
+      list-style: none;
+    }
+    
+    .wiki-nav li {
+      margin: 0.3rem 0;
+    }
+    
+    .wiki-nav a {
+      color: var(--text);
+      text-decoration: none;
+      display: block;
+      padding: 0.3rem 0;
+      transition: color 0.2s;
+    }
+    
+    .wiki-nav a:hover {
+      color: var(--accent);
+      padding-left: 5px;
+    }
+    
+    .wiki-tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      background: var(--card-hover);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin: 0.2rem;
+      border: 1px solid var(--border);
+    }
+    
+    .wiki-tag.pro {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--purple);
+      color: var(--purple);
+    }
+    
+    .alert {
+      padding: 1rem;
+      border-radius: 10px;
+      margin: 1rem 0;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+    
+    .alert.info {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid var(--info);
+    }
+    
+    .alert.warning {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--warning);
+   Vou implementar TODAS essas melhorias de alto impacto! 🚀
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Guia Rural Pro - Enciclopédia Completa + Sistema Integrado">
+  <title>🌾 Guia Rural Pro | Enciclopédia + Gestão + Sistema Integrado</title>
+  
+  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiR3VpYSBSdXJhbCBQcm8iLCJzaG9ydF9uYW1lIjoiR3VpYVJ1cmFsIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwZjE3MmEiLCJ0aGVtZV9jb2xvciI6IiMwZjE3MmEifQ==">
+  
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-hover: #334155;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #22c55e;
+      --accent-hover: #16a34a;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #3b82f6;
+      --border: #334155;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+      --success: #10b981;
+      --purple: #8b5cf6;
+      --pink: #ec4899;
+      --cyan: #06b6d4;
+    }
+    
+    .light {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --card-hover: #f1f5f9;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --accent: #16a34a;
+      --accent-hover: #15803d;
+      --border: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--card), var(--bg));
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    
+    .header-content {
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, var(--accent), var(--info));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    
+    .online-status {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    .online-status.online {
+      background: rgba(34, 197, 94, 0.2);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    
+    .online-status.offline {
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--danger);
+      border: 1px solid var(--danger);
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    button {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    button:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    button.secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    button.danger { background: var(--danger); }
+    button.warning { background: var(--warning); color: #1e293b; }
+    button.purple { background: var(--purple); }
+    
+    /* Container */
+    .container {
+      max-width: 1400px;
+      margin: auto;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 1.5rem;
+    }
+    
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
+      .sidebar { order: 2; }
+      .main { order: 1; }
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+    }
+    
+    .nav-card, .weather-card, .reminder-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1rem;
+      border: 1px solid var(--border);
+    }
+    
+    .nav-card h4, .weather-card h4, .reminder-card h4 {
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    
+    .nav-list button {
+      justify-content: flex-start;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.9rem;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid transparent;
+      width: 100%;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    
+    .nav-list button:hover,
+    .nav-list button.active {
+      background: var(--card-hover);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateX(5px);
+    }
+    
+    /* Weather Card */
+    .weather-info {
+      display: grid;
+      gap: 0.8rem;
+    }
+    
+    .weather-main {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem;
+      background: var(--card-hover);
+      border-radius: 8px;
+    }
+    
+    .weather-temp {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    
+    .weather-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-transform: capitalize;
+    }
+    
+    .weather-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+    
+    .weather-detail {
+      padding: 0.5rem;
+      background: var(--card-hover);
+      border-radius: 6px;
+      text-align: center;
+    }
+    
+    .weather-detail label {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+    
+    .weather-detail value {
+      font-weight: 600;
+      color: var(--text);
+    }
+    
+    .weather-alert {
+      padding: 0.6rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+    
+    .weather-alert.show {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+    
+    .weather-alert.warning {
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid var(--warning);
+      color: var(--warning);
+    }
+    
+    .weather-alert.danger {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid var(--danger);
+      color: var(--danger);
+    }
+    
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Reminder Card */
+    .reminder-list {
+      list-style: none;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    
+    .reminder-item {
+      padding: 0.6rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .reminder-item:last-child { border-bottom: none; }
+    
+    .reminder-item.urgent {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 3px solid var(--danger);
+      padding-left: 0.8rem;
+    }
+    
+    .reminder-item.soon {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 3px solid var(--warning);
+      padding-left: 0.8rem;
+    }
+    
+    .reminder-icon {
+      font-size: 1.2rem;
+      margin-top: 2px;
+    }
+    
+    .reminder-content {
+      flex: 1;
+    }
+    
+    .reminder-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    
+    .reminder-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    
+    .reminder-delete {
+      background: none;
+      border: none;
+      color: var(--danger);
+      cursor: pointer;
+      padding: 0.2rem;
+      font-size: 1rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    
+    .reminder-delete:hover {
+      opacity: 1;
+      background: none;
+    }
+    
+    .add-reminder-btn {
+      width: 100%;
+      margin-top: 0.8rem;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Main Content */
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px -5px rgba(0,0,0,0.4);
+    }
+    
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .badge {
+      background: var(--accent);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .badge.warning { background: var(--warning); color: #1e293b; }
+    .badge.danger { background: var(--danger); }
+    .badge.purple { background: var(--purple); }
+    
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .tab-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    
+    .tab-btn:hover,
+    .tab-btn.active {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.5rem 0;
+    }
+    
+    th, td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    th {
+      background: var(--card-hover);
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    tr:hover {
+      background: var(--card-hover);
+    }
+    
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    
+    /* Info Cards */
+    .info-card {
+      background: var(--card-hover);
+      border-radius: 10px;
+      padding: 1rem;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .info-card.warning { border-left-color: var(--warning); }
+    .info-card.danger { border-left-color: var(--danger); }
+    .info-card.info { border-left-color: var(--info); }
+    .info-card.purple { border-left-color: var(--purple); }
+    .info-card.success { border-left-color: var(--success); }
+    .info-card.cyan { border-left-color: var(--cyan); }
+    
+    .info-card h4 {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    /* Forms */
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+    
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    
+    .modal.show {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .modal-content {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.5rem;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.2rem;
+    }
+    
+    .modal-close:hover {
+      background: none;
+      color: var(--danger);
+      transform: none;
+    }
+    
+    /* Notification Toast */
+    .toast-container {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-width: 350px;
+    }
+    
+    .toast {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      animation: slideInRight 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .toast.warning {
+      border-left: 4px solid var(--warning);
+      background: rgba(245, 158, 11, 0.1);
+    }
+    
+    .toast.danger {
+      border-left: 4px solid var(--danger);
+      background: rgba(239, 68, 68, 0.1);
+    }
+    
+    .toast.info {
+      border-left: 4px solid var(--info);
+    }
+    
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(100%); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    .toast-icon {
+      font-size: 1.5rem;
+    }
+    
+    .toast-content {
+      flex: 1;
+    }
+    
+    .toast-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    
+    .toast-message {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    .toast-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.2rem;
+    }
+    
+    .toast-close:hover {
+      background: none;
+      color: var(--text);
+      transform: none;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container { padding: 1rem; }
+      .card { padding: 1rem; }
+      .header-content { flex-direction: column; align-items: flex-start; }
+      .toast-container { right: 10px; left: 10px; max-width: none; }
+    }
+    
+    /* Print */
+    @media print {
+      .no-print, .sidebar, .toast-container { display: none !important; }
+      body { background: white; color: black; }
+      .card { break-inside: avoid; }
+    }
+    
+    /* Loading */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* ================= ENCICLOPÉDIA ESTILO WIKI ================= */
+    
+    .wiki-hero {
+      height: 250px;
+      background: linear-gradient(135deg, rgba(15,23,42,0.8), rgba(30,41,59,0.8)), 
+                  url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1200') center/cover;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .wiki-overlay {
+      z-index: 2;
+      padding: 2rem;
+    }
+    
+    .wiki-overlay h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--accent), var(--info));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .wiki-overlay p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .wiki-section {
+      margin: 3rem 0;
+      scroll-margin-top: 100px;
+    }
+    
+    .wiki-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .wiki-section h3 {
+      font-size: 1.3rem;
+      margin: 1.5rem 0 0.8rem;
+      color: var(--accent);
+    }
+    
+    .wiki-section img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 1rem 0;
+      box-shadow: var(--shadow);
+    }
+    
+    .wiki-intro {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: var(--card-hover);
+      border-radius: 10px;
+      border-left: 4px solid var(--info);
+    }
+    
+    .wiki-box {
+      background: var(--card-hover);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 1rem 0;
+      border-left: 4px solid var(--accent);
+      transition: transform 0.2s;
+    }
+    
+    .wiki-box:hover {
+      transform: translateX(5px);
+    }
+    
+    .wiki-box.info { border-left-color: var(--info); }
+    .wiki-box.warning { border-left-color: var(--warning); }
+    .wiki-box.danger { border-left-color: var(--danger); }
+    .wiki-box.success { border-left-color: var(--success); }
+    .wiki-box.purple { border-left-color: var(--purple); }
+    .wiki-box.cyan { border-left-color: var(--cyan); }
+    
+    .wiki-box h4 {
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .wiki-box ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .wiki-box li {
+      padding: 0.4rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .wiki-box li:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    
+    .wiki-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .wiki-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem;
+      transition: all 0.2s;
+    }
+    
+    .wiki-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    
+    .wiki-card h4 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .wiki-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: var(--card);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .wiki-table th {
+      background: var(--accent);
+      color: white;
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+      width: 40%;
     }
     
     .wiki-table td {
@@ -1016,6 +3086,103 @@
       font-size: 1.2rem;
     }
     
+    /* Calculator Box */
+    .calculator-box {
+      background: linear-gradient(135deg, var(--card), var(--card-hover));
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 2px solid var(--accent);
+      margin: 1.5rem 0;
+    }
+    
+    .calculator-box h4 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .calculator-result {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--bg);
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--accent);
+      display: none;
+    }
+    
+    .calculator-result.show {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+    
+    /* Status Indicator */
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 0.5rem 0;
+    }
+    
+    .status-indicator.inicial {
+      background: rgba(34, 197, 94, 0.2);
+      color: var(--success);
+      border: 1px solid var(--success);
+    }
+    
+    .status-indicator.crescimento {
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--warning);
+      border: 1px solid var(--warning);
+    }
+    
+    .status-indicator.engorda {
+      background: rgba(59, 130, 246, 0.2);
+      color: var(--info);
+      border: 1px solid var(--info);
+    }
+    
+    .status-indicator.reproducao {
+      background: rgba(139, 92, 246, 0.2);
+      color: var(--purple);
+      border: 1px solid var(--purple);
+    }
+    
+    .status-dot-small {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    
+    /* Quote Box */
+    .quote-box {
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      color: white;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 1.3rem;
+      font-style: italic;
+      box-shadow: var(--shadow);
+    }
+    
+    .quote-box::before {
+      content: '"';
+      font-size: 3rem;
+      display: block;
+      opacity: 0.5;
+      line-height: 1;
+    }
+    
     @media (max-width: 768px) {
       .wiki-hero { height: 200px; }
       .wiki-overlay h1 { font-size: 1.8rem; }
@@ -1104,13 +3271,13 @@
       <h4>📚 Conteúdo</h4>
       <ul class="nav-list">
         <li><button class="active" onclick="showSection('enciclopedia')">📖 Enciclopédia</button></li>
+        <li><button onclick="showSection('sistema-integrado')">♻️ Sistema Integrado</button></li>
         <li><button onclick="showSection('incubacao')">🥚 Incubação</button></li>
         <li><button onclick="showSection('primeiros-dias')">🐣 Primeiros Dias</button></li>
         <li><button onclick="showSection('alimentacao')">🥣 Alimentação</button></li>
         <li><button onclick="showSection('temperatura')">🌡️ Temperatura</button></li>
         <li><button onclick="showSection('saude')">🏥 Saúde</button></li>
         <li><button onclick="showSection('calculadora')">📅 Calculadora</button></li>
-        <li><button onclick="showSection('ranking')">📊 Ranking</button></li>
       </ul>
     </div>
   </aside>
@@ -1118,7 +3285,7 @@
   <!-- Main Content -->
   <main class="main">
     
-    <!-- ENCICLOPÉDIA - NOVA SEÇÃO PROFISSIONAL -->
+    <!-- ENCICLOPÉDIA -->
     <section id="enciclopedia" class="card tab-content active">
       
       <!-- HERO SECTION -->
@@ -1137,8 +3304,8 @@
           <li><a href="#codorna">🥚 Codorna</a></li>
           <li><a href="#porco">🐖 Porco (Suinocultura)</a></li>
           <li><a href="#vaca">🐄 Vaca (Bovinocultura)</a></li>
+          <li><a href="#cavalo">🐴 Cavalo (Equinocultura)</a></li>
           <li><a href="#cabra">🐐 Cabra (Caprinocultura)</a></li>
-          <li><a href="#ovelha">🐑 Ovelha (Ovinocultura)</a></li>
         </ul>
       </div>
       
@@ -1150,12 +3317,22 @@
       <!-- GALINHA -->
       <div class="wiki-section" id="galinha">
         <h2>🐔 Galinha (Avicultura)</h2>
-        <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?w=800" alt="Galinha">
+        <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?w=1200" alt="Galinha">
         
         <div class="wiki-intro">
           A avicultura é uma das atividades mais importantes do agronegócio brasileiro. 
-          O manejo correto desde o primeiro dia de vida determina o sucesso produtivo, 
-          com foco em conversão alimentar, ganho de peso e sanidade do lote.
+          O manejo correto desde o primeiro dia de vida determina o sucesso produtivo.
+        </div>
+        
+        <div class="wiki-box info">
+          <h4>📊 Ficha Técnica</h4>
+          <table class="wiki-table">
+            <tr><th>Espécie</th><td>Gallus gallus domesticus</td></tr>
+            <tr><th>Incubação</th><td>21 dias</td></tr>
+            <tr><th>Peso adulto</th><td>2-4 kg</td></tr>
+            <tr><th>Produção</th><td>Corte / Postura</td></tr>
+            <tr><th>Vida útil</th><td>5-10 anos</td></tr>
+          </table>
         </div>
         
         <div class="wiki-tags">
@@ -1165,169 +3342,63 @@
         </div>
         
         <h3>🐣 Fase Inicial (0–7 dias)</h3>
-        <div class="wiki-box">
+        <div class="status-indicator inicial">
+          <span class="status-dot-small"></span>
+          Fase Inicial - Atenção Máxima
+        </div>
+        
+        <div class="wiki-box success">
           <h4>📊 Parâmetros Nutricionais</h4>
           <ul>
             <li><strong>Proteína Bruta:</strong> 22–24%</li>
             <li><strong>Energia Metabolizável:</strong> 2.900–3.000 kcal/kg</li>
-            <li><strong>Cálcio:</strong> 0,9–1,0%</li>
-            <li><strong>Fósforo disponível:</strong> 0,45%</li>
             <li><strong>Consumo diário:</strong> 10–15g/ave</li>
           </ul>
         </div>
         
-        <div class="wiki-box warning">
-          <h4>⚠️ Cuidados Críticos</h4>
-          <ul>
-            <li>Água com glicose e vitaminas nas primeiras 2 horas</li>
-            <li>Temperatura: 32–35°C (reduzir 2°C/semana)</li>
-            <li>Ração farelada fina em papel nos 2 primeiros dias</li>
-            <li>Iluminação 23h luz / 1h escuro</li>
-          </ul>
-        </div>
-        
-        <h3>🐥 Fase de Crescimento (8–21 dias)</h3>
-        <div class="wiki-box">
-          <h4>📊 Parâmetros Nutricionais</h4>
-          <ul>
-            <li><strong>Proteína Bruta:</strong> 20–22%</li>
-            <li><strong>Energia:</strong> 3.000–3.100 kcal/kg</li>
-            <li><strong>Consumo diário:</strong> 25–40g/ave</li>
-            <li><strong>Ganho de peso esperado:</strong> 400–600g</li>
-          </ul>
-        </div>
-        
-        <h3>🐔 Fase de Terminação (22–42 dias)</h3>
-        <div class="wiki-box">
-          <h4>📊 Parâmetros Nutricionais</h4>
-          <ul>
-            <li><strong>Proteína Bruta:</strong> 18–20%</li>
-            <li><strong>Energia:</strong> 3.100–3.200 kcal/kg</li>
-            <li><strong>Consumo diário:</strong> 60–120g/ave</li>
-            <li><strong>Peso de abate:</strong> 2,0–2,5 kg</li>
-            <li><strong>Conversão alimentar:</strong> 1,6–1,8</li>
-          </ul>
-        </div>
-        
-        <table class="wiki-table">
-          <thead>
-            <tr>
-              <th>Idade</th>
-              <th>Peso Médio</th>
-              <th>Consumo Acumulado</th>
-              <th>CA Esperada</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>7 dias</td>
-              <td>150g</td>
-              <td>120g</td>
-              <td>1,1</td>
-            </tr>
-            <tr>
-              <td>21 dias</td>
-              <td>800g</td>
-              <td>900g</td>
-              <td>1,4</td>
-            </tr>
-            <tr>
-              <td>42 dias</td>
-              <td>2.400g</td>
-              <td>4.200g</td>
-              <td>1,75</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
-      <!-- CODORNA -->
-      <div class="wiki-section" id="codorna">
-        <h2>🥚 Codorna (Coturnicultura)</h2>
-        <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5a3f4d?w=800" alt="Codorna">
-        
-        <div class="wiki-intro">
-          A coturnicultura destaca-se pela rápida maturidade sexual (35-40 dias) 
-          e alta produtividade de ovos. Exige manejo diferenciado devido ao metabolismo acelerado.
-        </div>
-        
-        <div class="wiki-grid">
-          <div class="wiki-card">
-            <h4>🐣 Inicial (0-15 dias)</h4>
-            <ul>
-              <li>Proteína: 28-30%</li>
-              <li>Consumo: 5-8g/dia</li>
-              <li>Temp: 35-37°C</li>
-            </ul>
+        <div class="calculator-box">
+          <h4>🧮 Calculadora de Ração</h4>
+          <div class="form-group">
+            <label>Peso do lote (kg)</label>
+            <input type="number" id="galinhaPeso" placeholder="Ex: 50">
           </div>
-          <div class="wiki-card">
-            <h4>🐥 Crescimento (16-35 dias)</h4>
-            <ul>
-              <li>Proteína: 26-28%</li>
-              <li>Consumo: 15-20g/dia</li>
-              <li>Sexagem aos 25 dias</li>
-            </ul>
-          </div>
-          <div class="wiki-card">
-            <h4>🥚 Postura (36+ dias)</h4>
-            <ul>
-              <li>Proteína: 24-26%</li>
-              <li>Cálcio: 3,5%</li>
-              <li>Postura: 280-300 ovos/ano</li>
-            </ul>
-          </div>
+          <button onclick="calcularRacaoGalinha()">Calcular Consumo Diário</button>
+          <div id="resultadoGalinha" class="calculator-result"></div>
         </div>
       </div>
       
       <!-- PORCO -->
       <div class="wiki-section" id="porco">
         <h2>🐖 Suínos (Suinocultura)</h2>
-        <img src="https://images.unsplash.com/photo-1601758064226-51c0c63a5f76?w=800" alt="Porco">
+        <img src="https://images.unsplash.com/photo-1601758064226-51c0c63a5f76?w=1200" alt="Porco">
         
         <div class="wiki-intro">
           A suinocultura moderna exige eficiência alimentar máxima. O custo da ração 
-          representa 70% dos custos de produção, tornando a nutrição o fator crítico de sucesso.
+          representa 70% dos custos de produção.
         </div>
         
-        <div class="alert info">
-          <span class="alert-icon">💡</span>
-          <div>
-            <strong>Dica Profissional:</strong> A fase de creche (desmame) é a mais crítica. 
-            Estresse nutricional nesta fase compromete todo o desempenho futuro.
-          </div>
+        <div class="wiki-box info">
+          <h4>📊 Ficha Técnica</h4>
+          <table class="wiki-table">
+            <tr><th>Espécie</th><td>Sus scrofa domesticus</td></tr>
+            <tr><th>Gestação</th><td>114 dias (3 meses, 3 semanas, 3 dias)</td></tr>
+            <tr><th>Peso abate</th><td>110-130 kg</td></tr>
+            <tr><th>Leitegada</th><td>10-14 leitões</td></tr>
+          </table>
         </div>
         
         <h3>🐷 Creche (Desmame - 70 dias)</h3>
-        <div class="wiki-box">
-          <h4>📊 Nutrição de Alta Digestibilidade</h4>
-          <ul>
-            <li><strong>Proteína:</strong> 20–22%</li>
-            <li><strong>Lisina digestível:</strong> 1,35–1,40%</li>
-            <li><strong>Ingredientes:</strong> Leite em pó, plasma, farelo de soja extrudado</li>
-            <li><strong>Consumo:</strong> 400-600g/dia</li>
-            <li><strong>Ganho diário:</strong> 350-450g</li>
-          </ul>
+        <div class="status-indicator crescimento">
+          <span class="status-dot-small"></span>
+          Crescimento - Período Crítico
         </div>
         
-        <h3>🐖 Crescimento (70-110 dias)</h3>
-        <div class="wiki-box">
-          <h4>📊 Maximizando Ganho Muscular</h4>
+        <div class="wiki-box warning">
+          <h4>⚠️ Cuidados Especiais</h4>
           <ul>
-            <li><strong>Proteína:</strong> 18–20%</li>
-            <li><strong>Energia:</strong> 3.300 kcal ED/kg</li>
-            <li><strong>Base:</strong> Milho + Farelo de Soja</li>
-            <li><strong>Consumo:</strong> 1,8-2,5 kg/dia</li>
-          </ul>
-        </div>
-        
-        <h3>🏁 Terminação (110-160 dias)</h3>
-        <div class="wiki-box">
-          <h4>📊 Acabamento de Carcaça</h4>
-          <ul>
-            <li><strong>Proteína:</strong> 16–18%</li>
-            <li><strong>Energia:</strong> 3.400 kcal ED/kg</li>
-            <li><strong>Peso de abate:</strong> 110-130 kg</li>
-            <li><strong>Conversão alimentar:</strong> 2,6–2,8</li>
+            <li>Proteína: 20–22%</li>
+            <li>Alta digestibilidade necessária</li>
+            <li>Consumo: 400-600g/dia</li>
           </ul>
         </div>
       </div>
@@ -1335,11 +3406,20 @@
       <!-- VACA -->
       <div class="wiki-section" id="vaca">
         <h2>🐄 Bovinos (Bovinocultura)</h2>
-        <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800" alt="Vaca">
+        <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1200" alt="Vaca">
         
         <div class="wiki-intro">
-          Bovinos são ruminantes que transformam volumosos (capim) em proteína de alta qualidade. 
-          O manejo nutricional define a produção de leite e ganho de peso na engorda.
+          Bovinos são ruminantes que transformam volumosos (capim) em proteína de alta qualidade.
+        </div>
+        
+        <div class="wiki-box info">
+          <h4>📊 Ficha Técnica</h4>
+          <table class="wiki-table">
+            <tr><th>Espécie</th><td>Bos taurus / Bos indicus</td></tr>
+            <tr><th>Gestação</th><td>285 dias (9 meses)</td></tr>
+            <tr><th>Peso adulto</th><td>400-800 kg</td></tr>
+            <tr><th>Produção leite</th><td>15-30L/dia (média)</td></tr>
+          </table>
         </div>
         
         <div class="wiki-grid">
@@ -1349,7 +3429,6 @@
               <li>Capim (pasto)</li>
               <li>Silagem de milho</li>
               <li>Feno de qualidade</li>
-              <li>Canadeaçúcar</li>
             </ul>
           </div>
           <div class="wiki-card">
@@ -1358,65 +3437,71 @@
               <li>Milho moído</li>
               <li>Farelo de soja</li>
               <li>DDG (milho)</li>
-              <li>Polpa cítrica</li>
-            </ul>
-          </div>
-          <div class="wiki-card">
-            <h4>🧂 Suplementação</h4>
-            <ul>
-              <li>Sais minerais</li>
-              <li>Ureia (proteína)</li>
-              <li>Vitaminas A, D, E</li>
-              <li>Aditivos (monensina)</li>
             </ul>
           </div>
         </div>
+      </div>
+      
+      <!-- CAVALO -->
+      <div class="wiki-section" id="cavalo">
+        <h2>🐴 Cavalo (Equinocultura)</h2>
+        <img src="https://images.unsplash.com/photo-1553284965-5dd835f6fd91?w=1200" alt="Cavalo">
         
-        <h3>🐮 Categorias e Exigências</h3>
-        <table class="wiki-table">
-          <thead>
-            <tr>
-              <th>Categoria</th>
-              <th>PB Mínimo</th>
-              <th>NDT</th>
-              <th>Suplemento</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Vaca em lactação</td>
-              <td>12-14%</td>
-              <td>65-70%</td>
-              <td>4-6 kg concentrado</td>
-            </tr>
-            <tr>
-              <td>Novilho em engorda</td>
-              <td>11-13%</td>
-              <td>70-75%</td>
-              <td>1-2% PV em concentrado</td>
-            </tr>
-            <tr>
-              <td>Vaca seca</td>
-              <td>8-10%</td>
-              <td>55-60%</td>
-              <td>Sal mineral</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="wiki-intro">
+          Equinos exigem manejo nutricional específico baseado em forragem de qualidade 
+          e suplementação estratégica conforme atividade.
+        </div>
+        
+        <div class="wiki-box info">
+          <h4>📊 Ficha Técnica</h4>
+          <table class="wiki-table">
+            <tr><th>Espécie</th><td>Equus ferus caballus</td></tr>
+            <tr><th>Gestação</th><td>340 dias (11 meses)</td></tr>
+            <tr><th>Peso adulto</th><td>400-1000 kg</td></tr>
+            <tr><th>Vida útil</th><td>25-30 anos</td></tr>
+          </table>
+        </div>
+        
+        <div class="wiki-box cyan">
+          <h4>🥗 Alimentação Básica</h4>
+          <ul>
+            <li><strong>Forragem:</strong> 1,5-2% do peso vivo em capim/feno</li>
+            <li><strong>Concentrado:</strong> Conforme atividade (0-1% PV)</li>
+            <li><strong>Água:</strong> 30-50L/dia</li>
+            <li><strong>Sal mineral:</strong> À vontade</li>
+          </ul>
+        </div>
       </div>
       
       <!-- CABRA -->
       <div class="wiki-section" id="cabra">
         <h2>🐐 Cabra (Caprinocultura)</h2>
-        <img src="https://images.unsplash.com/photo-1524024973431-2ad916746981?w=800" alt="Cabra">
+        <img src="https://images.unsplash.com/photo-1524024973431-2ad916746881?w=1200" alt="Cabra">
         
         <div class="wiki-intro">
           Caprinos são animais rústicos e eficientes na conversão de forragem em proteína. 
-          A caprinocultura de corte e leite tem crescido significativamente no Brasil.
+          A caprinocultura de corte e leite tem crescido significativamente.
         </div>
         
-        <div class="wiki-box">
+        <div class="wiki-box info">
+          <h4>📊 Ficha Técnica</h4>
+          <table class="wiki-table">
+            <tr><th>Espécie</th><td>Capra aegagrus hircus</td></tr>
+            <tr><th>Gestação</th><td>150 dias (5 meses)</td></tr>
+            <tr><th>Peso médio</th><td>30–70 kg</td></tr>
+            <tr><th>Produção</th><td>Leite / Carne</td></tr>
+            <tr><th>Cria/ano</th><td>1,5-2 (média)</td></tr>
+          </table>
+        </div>
+        
+        <h3>🐐 Fases de Criação</h3>
+        
+        <div class="wiki-box success">
           <h4>🍼 Cabritos (0-3 meses)</h4>
+          <div class="status-indicator inicial">
+            <span class="status-dot-small"></span>
+            Fase Inicial
+          </div>
           <ul>
             <li>Leite colostro nas primeiras 24h</li>
             <li>Início de ração aos 7 dias (18% PB)</li>
@@ -1425,8 +3510,12 @@
           </ul>
         </div>
         
-        <div class="wiki-box">
-          <h4>🐐 Adultos (Manejo)</h4>
+        <div class="wiki-box cyan">
+          <h4> Adultos (Manejo)</h4>
+          <div class="status-indicator reproducao">
+            <span class="status-dot-small"></span>
+            Reprodução / Produção
+          </div>
           <ul>
             <li>Pasto como base (capim)</li>
             <li>Suplementação mineral obrigatória</li>
@@ -1434,36 +3523,232 @@
             <li>Água limpa à vontade</li>
           </ul>
         </div>
+        
+        <div class="calculator-box">
+          <h4>🧮 Calculadora de Suplementação</h4>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Peso do animal (kg)</label>
+              <input type="number" id="cabraPeso" placeholder="Ex: 45">
+            </div>
+            <div class="form-group">
+              <label>Tipo</label>
+              <select id="cabraTipo">
+                <option value="manutencao">Manutenção</option>
+                <option value="gestacao">Gestação</option>
+                <option value="lactacao">Lactação</option>
+              </select>
+            </div>
+          </div>
+          <button onclick="calcularSuplementoCabra()">Calcular Necessidade</button>
+          <div id="resultadoCabra" class="calculator-result"></div>
+        </div>
       </div>
       
-      <!-- OVELHA -->
-      <div class="wiki-section" id="ovelha">
-        <h2>🐑 Ovelha (Ovinocultura)</h2>
-        <img src="https://images.unsplash.com/photo-1484557985045-edf25e08da73?w=800" alt="Ovelha">
+    </section>
+    
+    <!-- SISTEMA INTEGRADO RURAL - NOVA SEÇÃO -->
+    <section id="sistema-integrado" class="card tab-content">
+      
+      <div class="quote-box">
+        No campo, nada se perde — tudo se transforma em lucro.
+      </div>
+      
+      <div class="wiki-hero" style="background: linear-gradient(135deg, rgba(15,23,42,0.8), rgba(30,41,59,0.8)), url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200') center/cover;">
+        <div class="wiki-overlay">
+          <h1>♻️ Sistema Integrado Rural</h1>
+          <p>Aproveitamento total da produção: esterco, ovos, peixes e hortas trabalhando juntos</p>
+        </div>
+      </div>
+      
+      <div class="wiki-intro">
+        A integração de diferentes atividades rurais gera sinergia, reduz custos com insumos externos, 
+        aumenta a produtividade e cria múltiplas fontes de renda. É o conceito de economia circular aplicado ao campo.
+      </div>
+      
+      <!-- 1. FEZES → ADUBO -->
+      <div class="wiki-section">
+        <h2>💩 Aproveitamento de Esterco → Adubo Orgânico</h2>
         
-        <div class="wiki-intro">
-          Ovinos são excelentes conversores de pasto em carne. A ovinocultura exige 
-          atenção especial à suplementação mineral e controle de verminoses.
+        <div class="wiki-box success">
+          <h4>🌱 Benefícios do Esterco Curtido</h4>
+          <ul>
+            <li>Esterco de cabra, vaca e galinha é rico em nutrientes (NPK natural)</li>
+            <li>Melhora a estrutura e fertilidade do solo</li>
+            <li>Reduz custo com adubo químico em até 70%</li>
+            <li>Aumenta produtividade da horta em 40-60%</li>
+            <li>Retém mais água no solo (economia de irrigação)</li>
+          </ul>
         </div>
         
-        <div class="wiki-grid">
+        <div class="grid-3">
           <div class="wiki-card">
-            <h4>🐑 Cordeiros</h4>
+            <h4>🐐 Esterco de Cabra</h4>
+            <p><strong>Características:</strong> Seco, fácil de manusear, pouco odor</p>
+            <p><strong>Uso ideal:</strong> Hortaliças, frutíferas, vasos</p>
+            <p><strong>Dosagem:</strong> 2-3 kg/m²</p>
+          </div>
+          
+          <div class="wiki-card">
+            <h4>🐄 Esterco de Vaca</h4>
+            <p><strong>Características:</strong> Alta produção, úmido, precisa curtir</p>
+            <p><strong>Uso ideal:</strong> Compostagem em grande escala, pastagens</p>
+            <p><strong>Dosagem:</strong> 10-15 kg/m²</p>
+          </div>
+          
+          <div class="wiki-card">
+            <h4>🐔 Cama de Frango</h4>
+            <p><strong>Características:</strong> Muito forte, rico em nitrogênio</p>
+            <p><strong>Uso ideal:</strong> Somente curtido (30-60 dias)</p>
+            <p><strong>Dosagem:</strong> 1-2 kg/m² (evita queimar plantas)</p>
+          </div>
+        </div>
+        
+        <div class="info-card warning">
+          <h4>⚠️ Importante: Como Curtir</h4>
+          <p>
+            <strong>Nunca use esterco fresco!</strong> Empilhe em local sombreado, 
+            cubra com lona e aguarde 30-60 dias. Revire a cada 15 dias. 
+            Esterco fresco queima as raízes e transmite doenças.
+          </p>
+        </div>
+      </div>
+      
+      <!-- 2. HORTA ORGÂNICA -->
+      <div class="wiki-section">
+        <h2>🪴 Horta Orgânica Sustentável</h2>
+        
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200" alt="Horta Orgânica" style="border-radius:12px; margin:1rem 0;">
+        
+        <div class="wiki-box info">
+          <h4>🥬 Cultivo com Esterco Orgânico</h4>
+          <ul>
+            <li><strong>Alface, coentro, cebolinha:</strong> Crescem 30% mais rápido</li>
+            <li><strong>Tomate, pimentão:</strong> Frutos maiores e mais saborosos</li>
+            <li><strong>Raízes (cenoura, beterraba):</strong> Melhor desenvolvimento</li>
+            <li>Irrigação simples aumenta a produção em 50%</li>
+            <li>Produção pode ser vendida ou consumida (economia familiar)</li>
+          </ul>
+        </div>
+        
+        <div class="wiki-box purple">
+          <h4>💰 Renda Extra com Horta</h4>
+          <ul>
+            <li>Venda direta em feiras locais</li>
+            <li>Cestas semanais para vizinhos</li>
+            <li>Parceria com restaurantes</li>
+            <li>Plantas medicinais (valor agregado alto)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- 3. PISCICULTURA -->
+      <div class="wiki-section">
+        <h2>🐟 Piscicultura Integrada</h2>
+        
+        <div class="wiki-box cyan">
+          <h4>🔄 Ciclo da Água Nutritiva</h4>
+          <ul>
+            <li>Água rica em nutrientes dos tanques pode irrigar a horta (fertirrigação)</li>
+            <li>Restos orgânicos da horta podem alimentar peixes (reduz custo de ração)</li>
+            <li>Lodo do fundo do tanque = adubo superpotente</li>
+            <li>Tilápia é a mais indicada para iniciantes (crescimento rápido)</li>
+          </ul>
+        </div>
+        
+        <div class="grid-2">
+          <div class="wiki-card">
+            <h4>🐟 Tilápia</h4>
             <ul>
-              <li>Creep feeding aos 15 dias</li>
-              <li>Ração 18% PB</li>
-              <li>Desmame: 60-70 dias</li>
+              <li>Ciclo: 6-8 meses</li>
+              <li>Peso abate: 500-800g</li>
+              <li>Alta resistência</li>
+              <li>Mercado garantido</li>
             </ul>
           </div>
           <div class="wiki-card">
-            <h4>🐏 Matrizes</h4>
+            <h4>💰 Rentabilidade</h4>
             <ul>
-              <li>Flushing (30 dias antes)</li>
-              <li>Suplementação gestação</li>
-              <li>Lactação: +30% energia</li>
+              <li>Venda direta: R$ 12-18/kg</li>
+              <li>Processada (filé): R$ 25-35/kg</li>
+              <li>Peixe vivo: valor premium</li>
             </ul>
           </div>
         </div>
+      </div>
+      
+      <!-- 4. OVOS CAIPIRA -->
+      <div class="wiki-section">
+        <h2>🥚 Ovos Caipira - Mercado Fitness</h2>
+        
+        <img src="https://images.unsplash.com/photo-1569405760693-30a514e1ba32?w=1200" alt="Ovos Caipira" style="border-radius:12px; margin:1rem 0;">
+        
+        <div class="wiki-box warning">
+          <h4>💪 Produto Premium para Público Fitness</h4>
+          <ul>
+            <li><strong>Alta proteína:</strong> Muito procurado por quem treina</li>
+            <li><strong>Mais valorizado:</strong> Vale 2-3x o ovo comum</li>
+            <li><strong>Venda direta:</strong> Academias, personal trainers, nutricionistas</li>
+            <li><strong>Redes sociais:</strong> Instagram aumenta vendas</li>
+            <li><strong>Assinaturas:</strong> Cestas semanais/mensais</li>
+          </ul>
+        </div>
+        
+        <div class="info-card success">
+          <h4> Números do Mercado Fitness</h4>
+          <p>
+            Ovos caipira/orgânicos têm demanda crescente. 
+            Um produtor com 100 galinhas pode faturar R$ 2.000-3.000/mês 
+            vendendo diretamente para o público fitness.
+          </p>
+        </div>
+      </div>
+      
+      <!-- 5. MÚLTIPLAS FONTES DE RENDA -->
+      <div class="wiki-section">
+        <h2>💰 Múltiplas Fontes de Renda</h2>
+        
+        <div class="wiki-box danger">
+          <h4>🎯 Diversificação = Segurança Financeira</h4>
+          <ul>
+            <li>✅ Venda de ovos caipira (renda diária)</li>
+            <li>✅ Venda de hortaliças orgânicas (semanal)</li>
+            <li>✅ Venda de peixes (tilápia) - ciclo 6-8 meses</li>
+            <li>✅ Venda de adubo orgânico ensacado</li>
+            <li>✅ Venda de cabritos/corderos (sazonal)</li>
+            <li>✅ Venda de leite de cabra/vaca (diária)</li>
+          </ul>
+        </div>
+        
+        <div class="calculator-box">
+          <h4>📈 Simulador de Renda Mensal</h4>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Galinhas (ovos/dia)</label>
+              <input type="number" id="simGalinhas" placeholder="Ex: 50">
+            </div>
+            <div class="form-group">
+              <label>Preço ovo (R$)</label>
+              <input type="number" id="simPrecoOvo" placeholder="Ex: 0.50" step="0.01">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Horta (R$/mês)</label>
+              <input type="number" id="simHorta" placeholder="Ex: 500">
+            </div>
+            <div class="form-group">
+              <label>Peixes (kg/mês)</label>
+              <input type="number" id="simPeixes" placeholder="Ex: 20">
+            </div>
+          </div>
+          <button onclick="simularRenda()">Calcular Renda Estimada</button>
+          <div id="resultadoRenda" class="calculator-result"></div>
+        </div>
+      </div>
+      
+      <div class="quote-box" style="background: linear-gradient(135deg, var(--purple), var(--pink));">
+        Quem entende o ciclo rural, lucra em todas as etapas.
       </div>
       
     </section>
@@ -1590,6 +3875,7 @@
           <option value="114">Porco (114 dias)</option>
           <option value="150">Cabra/Ovelha (150 dias)</option>
           <option value="285">Vaca (285 dias)</option>
+          <option value="340">Égua/Cavalo (340 dias)</option>
         </select>
       </div>
       
@@ -1603,18 +3889,6 @@
       <div id="calcResult" style="margin-top:1rem; padding:1rem; background:var(--card-hover); border-radius:8px; display:none;">
         <div style="font-size:1.5rem; font-weight:bold; color:var(--accent);" id="resultDate"></div>
       </div>
-    </section>
-    
-    <!-- RANKING -->
-    <section id="ranking" class="card tab-content">
-      <div class="card-header">
-        <h2 class="card-title">📊 Ranking de Gestação</h2>
-        <span class="badge">Referência</span>
-      </div>
-      
-      <ol id="rankingList" style="padding-left:1.5rem; line-height:2;">
-        <!-- Preenchido via JS -->
-      </ol>
     </section>
     
   </main>
@@ -1679,7 +3953,7 @@
 <div class="toast-container" id="toastContainer"></div>
 
 <footer>
-  <p>🌾 Guia Rural Pro © 2026 | Enciclopédia Completa + Gestão Inteligente</p>
+  <p>🌾 Guia Rural Pro © 2026 | Enciclopédia Completa + Sistema Integrado</p>
   <p style="margin-top:0.5rem; font-size:0.85rem;">
     ⚠️ Este guia não substitui orientação veterinária profissional.
   </p>
@@ -1691,99 +3965,51 @@ let pt = true;
 let reminders = [];
 let weatherData = null;
 
-// Dados dos animais
-const animals = [
-  { pt: "Galinha", en: "Chicken", days: 21 },
-  { pt: "Codorna", en: "Quail", days: 17 },
-  { pt: "Pavão", en: "Peacock", days: 28 },
-  { pt: "Porco", en: "Pig", days: 114 },
-  { pt: "Cabra", en: "Goat", days: 150 },
-  { pt: "Ovelha", en: "Sheep", days: 150 },
-  { pt: "Vaca", en: "Cow", days: 285 }
-];
-
 // ================= INICIALIZAÇÃO =================
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Carregar preferências
   if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
   if (localStorage.getItem('lang') === 'en') { pt = false; updateTexts(); }
   
-  // Carregar lembretes
   loadReminders();
-  
-  // Verificar conexão
   updateOnlineStatus();
-  
-  // Inicializar Service Worker para offline
   initServiceWorker();
-  
-  // Carregar clima
   getWeather();
   
-  // Atualizar lembretes a cada minuto
   setInterval(checkReminders, 60000);
   
-  // Definir data mínima
   document.getElementById('calcDate').min = new Date().toISOString().split('T')[0];
   document.getElementById('reminderDate').min = new Date().toISOString().split('T')[0];
   
-  renderRanking();
-  
-  // Solicitar permissão para notificações
   if ('Notification' in window && Notification.permission === 'default') {
-    setTimeout(() => {
-      Notification.requestPermission();
-    }, 5000);
+    setTimeout(() => Notification.requestPermission(), 5000);
   }
 });
 
-// ================= SERVICE WORKER (OFFLINE) =================
+// ================= SERVICE WORKER =================
 
 function initServiceWorker() {
   if ('serviceWorker' in navigator) {
     const swCode = `
-      const CACHE_NAME = 'guia-rural-pro-v1';
-      const urlsToCache = ['.'];
-      
-      self.addEventListener('install', event => {
-        event.waitUntil(
-          caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(urlsToCache))
-        );
+      const CACHE_NAME = 'guia-rural-pro-v2';
+      self.addEventListener('install', e => {
+        e.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(['.'])));
         self.skipWaiting();
       });
-      
-      self.addEventListener('fetch', event => {
-        event.respondWith(
-          caches.match(event.request)
-            .then(response => {
-              if (response) return response;
-              return fetch(event.request).catch(() => {
-                return new Response('Offline - Conteúdo em cache');
-              });
-            })
-        );
+      self.addEventListener('fetch', e => {
+        e.respondWith(caches.match(e.request).then(r => r || fetch(e.request).catch(() => new Response('Offline'))));
       });
-      
-      self.addEventListener('activate', event => {
-        event.waitUntil(self.clients.claim());
-      });
+      self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
     `;
     
     const blob = new Blob([swCode], { type: 'application/javascript' });
-    const swUrl = URL.createObjectURL(blob);
-    
-    navigator.serviceWorker.register(swUrl)
-      .then(reg => {
-        console.log('Service Worker registrado');
-        showToast('📱 App pronto para uso offline', 'info');
-      })
+    navigator.serviceWorker.register(URL.createObjectURL(blob))
+      .then(() => showToast('📱 App pronto para uso offline', 'info'))
       .catch(err => console.log('SW erro:', err));
   }
 }
 
-// ================= CONEXÃO ONLINE/OFFLINE =================
+// ================= CONEXÃO =================
 
 function updateOnlineStatus() {
   const status = document.getElementById('onlineStatus');
@@ -1795,14 +4021,14 @@ function updateOnlineStatus() {
   } else {
     status.className = 'online-status offline';
     statusText.textContent = 'Offline';
-    showToast('📴 Você está offline. App funcionando com dados salvos.', 'warning');
+    showToast('📴 Offline. App funcionando com dados salvos.', 'warning');
   }
 }
 
 window.addEventListener('online', updateOnlineStatus);
 window.addEventListener('offline', updateOnlineStatus);
 
-// ================= CLIMA / WEATHER API =================
+// ================= CLIMA INTELIGENTE =================
 
 async function getWeather() {
   if (!navigator.onLine) {
@@ -1813,36 +4039,28 @@ async function getWeather() {
   try {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(
-        async position => {
-          const { latitude, longitude } = position.coords;
-          await fetchWeatherData(latitude, longitude);
-        },
-        error => {
-          fetchWeatherData(-23.5505, -46.6333);
-        }
+        async pos => await fetchWeatherData(pos.coords.latitude, pos.coords.longitude),
+        () => fetchWeatherData(-23.5505, -46.6333)
       );
     } else {
       fetchWeatherData(-23.5505, -46.6333);
     }
   } catch (error) {
-    console.error('Erro ao buscar clima:', error);
-    document.getElementById('weatherDesc').textContent = 'Erro ao carregar';
+    document.getElementById('weatherDesc').textContent = 'Erro';
   }
 }
 
 async function fetchWeatherData(lat, lon) {
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,showers,snowfall,weather_code,cloud_cover,pressure_msl,surface_pressure,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&timezone=auto`;
   
   try {
     const response = await fetch(url);
     const data = await response.json();
-    
     weatherData = data;
     updateWeatherDisplay(data);
-    checkWeatherAlerts(data);
+    checkSmartWeatherAlerts(data);
   } catch (error) {
-    console.error('Erro API clima:', error);
-    document.getElementById('weatherDesc').textContent = 'Erro na API';
+    document.getElementById('weatherDesc').textContent = 'Erro API';
   }
 }
 
@@ -1858,7 +4076,6 @@ function updateWeatherDisplay(data) {
   
   const code = current.weather_code;
   const isDay = current.is_day;
-  
   const weatherInfo = getWeatherDescription(code, isDay);
   document.getElementById('weatherDesc').textContent = weatherInfo.desc;
   document.getElementById('weatherIcon').textContent = weatherInfo.icon;
@@ -1871,52 +4088,60 @@ function getWeatherDescription(code, isDay) {
     2: { desc: 'Parcialmente nublado', icon: '⛅' },
     3: { desc: 'Nublado', icon: '☁️' },
     45: { desc: 'Nevoeiro', icon: '🌫️' },
-    48: { desc: 'Nevoeiro com geada', icon: '🌫️' },
     51: { desc: 'Garoa leve', icon: '🌦️' },
-    53: { desc: 'Garoa moderada', icon: '🌧️' },
-    55: { desc: 'Garoa densa', icon: '🌧️' },
+    53: { desc: 'Garoa', icon: '🌧️' },
     61: { desc: 'Chuva fraca', icon: '🌦️' },
-    63: { desc: 'Chuva moderada', icon: '🌧️' },
+    63: { desc: 'Chuva', icon: '🌧️' },
     65: { desc: 'Chuva forte', icon: '🌧️' },
-    71: { desc: 'Neve fraca', icon: '🌨️' },
-    73: { desc: 'Neve moderada', icon: '🌨️' },
-    75: { desc: 'Neve forte', icon: '❄️' },
-    95: { desc: 'Trovoada', icon: '⛈️' },
-    96: { desc: 'Trovoada com granizo', icon: '⛈️' }
+    95: { desc: 'Trovoada', icon: '⛈️' }
   };
-  
   return codes[code] || { desc: 'Desconhecido', icon: '🌡️' };
 }
 
-function checkWeatherAlerts(data) {
+function checkSmartWeatherAlerts(data) {
   const temp = data.current.temperature_2m;
+  const humidity = data.current.relative_humidity_2m;
+  const rain = data.daily.precipitation_sum[0];
   const alertDiv = document.getElementById('weatherAlert');
   
-  let alert = null;
+  let alerts = [];
   
-  if (temp > 30) {
-    alert = {
+  // Calor extremo - risco para gado
+  if (temp > 32) {
+    alerts.push({
       type: 'danger',
-      message: `🔥 ALERTA: Temperatura muito alta (${temp}°C)! Risco de estresse térmico nas aves.`
-    };
-  } else if (temp < 15) {
-    alert = {
+      message: `🔥 CALOR EXTREMO (${temp}°C)! Risco de estresse térmico no gado. Aumente sombreamento e água fresca.`
+    });
+  }
+  // Chuva - risco sanitário
+  else if (rain > 20) {
+    alerts.push({
       type: 'warning',
-      message: `❄️ ALERTA: Temperatura baixa (${temp}°C)! Aumente aquecimento.`
-    };
-  } else if (temp > 25) {
-    alert = {
+      message: `🌧️ CHUVA FORTE prevista (${rain}mm). Risco sanitário aumentado. Verifique drenagem e abrigo dos animais.`
+    });
+  }
+  // Umidade alta - risco respiratório
+  else if (humidity > 85) {
+    alerts.push({
       type: 'warning',
-      message: `⚠️ Atenção: Temperatura elevada (${temp}°C). Monitore consumo de água.`
-    };
+      message: `💧 UMIDADE MUITA ALTA (${humidity}%). Risco de problemas respiratórios. Melhore ventilação.`
+    });
+  }
+  // Frio intenso
+  else if (temp < 10) {
+    alerts.push({
+      type: 'warning',
+      message: `❄️ FRIO INTENSO (${temp}°C). Aumente aquecimento para pintinhos e animais jovens.`
+    });
   }
   
-  if (alert) {
+  if (alerts.length > 0) {
+    const alert = alerts[0];
     alertDiv.className = `weather-alert show ${alert.type}`;
     alertDiv.textContent = alert.message;
     
     if (alert.type === 'danger') {
-      showToast('🌡️ Alerta de Temperatura', alert.message, 'danger');
+      showToast('🚨 Alerta Climático', alert.message, 'danger');
     }
   } else {
     alertDiv.classList.remove('show');
@@ -1928,7 +4153,7 @@ function refreshWeather() {
   getWeather();
 }
 
-// ================= SISTEMA DE LEMBRETES =================
+// ================= LEMBRETES =================
 
 function loadReminders() {
   const saved = localStorage.getItem('guiaRuralReminders');
@@ -1965,8 +4190,7 @@ function saveReminder(event) {
     type: document.getElementById('reminderType').value,
     description: document.getElementById('reminderDesc').value,
     repeat: document.getElementById('reminderRepeat').checked,
-    notified: false,
-    createdAt: new Date().toISOString()
+    notified: false
   };
   
   reminders.push(reminder);
@@ -1974,16 +4198,13 @@ function saveReminder(event) {
   
   saveReminders();
   closeReminderModal();
-  
-  showToast('✅ Lembrete cadastrado!', ` "${reminder.title}" para ${formatDate(reminder.date)}`, 'info');
-  
+  showToast('✅ Lembrete cadastrado!', `"${reminder.title}"`, 'info');
   scheduleNotification(reminder);
 }
 
 function deleteReminder(id) {
   reminders = reminders.filter(r => r.id !== id);
   saveReminders();
-  showToast('🗑️ Lembrete removido', '', 'info');
 }
 
 function renderReminders() {
@@ -1999,49 +4220,26 @@ function renderReminders() {
   badge.style.display = upcoming.length > 0 ? 'inline' : 'none';
   
   if (upcoming.length === 0) {
-    list.innerHTML = '<li style="text-align:center; color:var(--text-muted); padding:1rem;">Nenhum lembrete próximo</li>';
+    list.innerHTML = '<li style="text-align:center; color:var(--text-muted); padding:1rem;">Nenhum lembrete</li>';
     return;
   }
   
-  const typeIcons = {
-    vacina: '💉',
-    racao: '🥣',
-    temperatura: '🌡️',
-    pesagem: '⚖️',
-    limpeza: '🧹',
-    outro: '📋'
-  };
+  const icons = { vacina: '💉', racao: '🥣', temperatura: '🌡️', pesagem: '⚖️', limpeza: '🧹', outro: '📋' };
   
   list.innerHTML = upcoming.map(r => {
     const datetime = new Date(r.date + 'T' + r.time);
     const diffDays = Math.ceil((datetime - now) / (1000 * 60 * 60 * 24));
-    const diffHours = Math.ceil((datetime - now) / (1000 * 60 * 60));
-    
-    let urgencyClass = '';
-    let urgencyText = '';
-    
-    if (diffDays < 0 || (diffDays === 0 && diffHours <= 0)) {
-      urgencyClass = 'urgent';
-      urgencyText = 'Atrasado!';
-    } else if (diffDays === 0) {
-      urgencyClass = 'urgent';
-      urgencyText = `Hoje em ${r.time}`;
-    } else if (diffDays <= 2) {
-      urgencyClass = 'soon';
-      urgencyText = `Em ${diffDays} dia${diffDays > 1 ? 's' : ''}`;
-    } else {
-      urgencyText = formatDate(r.date);
-    }
+    const urgency = diffDays === 0 ? 'urgent' : diffDays <= 2 ? 'soon' : '';
+    const urgencyText = diffDays === 0 ? `Hoje ${r.time}` : diffDays === 1 ? 'Amanhã' : `${diffDays} dias`;
     
     return `
-      <li class="reminder-item ${urgencyClass}">
-        <div class="reminder-icon">${typeIcons[r.type] || '📋'}</div>
+      <li class="reminder-item ${urgency}">
+        <div class="reminder-icon">${icons[r.type]}</div>
         <div class="reminder-content">
           <div class="reminder-title">${r.title}</div>
-          <div class="reminder-date">${urgencyText} ${r.time}</div>
-          ${r.description ? `<div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">${r.description}</div>` : ''}
+          <div class="reminder-date">${urgencyText}</div>
         </div>
-        <button class="reminder-delete" onclick="deleteReminder(${r.id})" title="Excluir">×</button>
+        <button class="reminder-delete" onclick="deleteReminder(${r.id})">×</button>
       </li>
     `;
   }).join('');
@@ -2063,15 +4261,12 @@ function checkReminders() {
       if (reminder.repeat) {
         const nextDate = new Date(reminderTime);
         nextDate.setDate(nextDate.getDate() + 7);
-        
-        const newReminder = {
+        reminders.push({
           ...reminder,
           id: Date.now() + Math.random(),
           date: nextDate.toISOString().split('T')[0],
           notified: false
-        };
-        
-        reminders.push(newReminder);
+        });
       }
       
       saveReminders();
@@ -2080,14 +4275,13 @@ function checkReminders() {
 }
 
 function notifyReminder(reminder) {
-  showToast(`🔔 ${reminder.title}`, `${reminder.description || 'Hora do lembrete!'}`, 'warning');
+  showToast(`🔔 ${reminder.title}`, reminder.description || 'Hora do lembrete!', 'warning');
   
   if ('Notification' in window && Notification.permission === 'granted') {
     new Notification(`🔔 ${reminder.title}`, {
       body: reminder.description || 'Não esqueça!',
       icon: '🌾',
-      tag: reminder.id.toString(),
-      requireInteraction: true
+      tag: reminder.id.toString()
     });
   }
   
@@ -2096,44 +4290,27 @@ function notifyReminder(reminder) {
 
 function playAlertSound() {
   try {
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    const oscillator = audioContext.createOscillator();
-    const gainNode = audioContext.createGain();
-    
-    oscillator.connect(gainNode);
-    gainNode.connect(audioContext.destination);
-    
-    oscillator.frequency.value = 800;
-    oscillator.type = 'sine';
-    
-    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-    
-    oscillator.start(audioContext.currentTime);
-    oscillator.stop(audioContext.currentTime + 0.5);
-  } catch (e) {
-    console.log('Audio não suportado');
-  }
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.frequency.value = 800;
+    gain.gain.setValueAtTime(0.3, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + 0.5);
+  } catch (e) {}
 }
 
 function scheduleNotification(reminder) {
-  const checkInterval = setInterval(() => {
-    checkReminders();
-  }, 60000);
-  
   setTimeout(checkReminders, 1000);
 }
 
-function formatDate(dateStr) {
-  const date = new Date(dateStr + 'T00:00:00');
-  return date.toLocaleDateString('pt-BR');
-}
-
-// ================= TOAST NOTIFICATIONS =================
+// ================= TOAST =================
 
 function showToast(title, message, type = 'info') {
   const container = document.getElementById('toastContainer');
-  
   const toast = document.createElement('div');
   toast.className = `toast ${type}`;
   toast.innerHTML = `
@@ -2146,7 +4323,6 @@ function showToast(title, message, type = 'info') {
   `;
   
   container.appendChild(toast);
-  
   setTimeout(() => {
     if (toast.parentElement) {
       toast.style.opacity = '0';
@@ -2185,27 +4361,99 @@ function updateTexts() {
   document.querySelector('.logo').textContent = pt ? '🌾 Guia Rural Pro' : '🌾 Rural Pro Guide';
 }
 
-// ================= BUSCA NA ENCICLOPÉDIA =================
-
 function searchWiki() {
   const term = document.getElementById('wikiSearch').value.toLowerCase();
   const sections = document.querySelectorAll('.wiki-section');
   
   sections.forEach(section => {
     const text = section.textContent.toLowerCase();
-    if (text.includes(term)) {
-      section.style.display = 'block';
-      if (term.length > 2) {
-        // Highlight terms
-        section.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    } else {
-      section.style.display = term.length > 2 ? 'none' : 'block';
+    section.style.display = (term.length > 2 && !text.includes(term)) ? 'none' : 'block';
+    if (term.length > 2 && text.includes(term)) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   });
 }
 
-// ================= CALCULADORA =================
+// ================= CALCULADORAS =================
+
+function calcularRacaoGalinha() {
+  const peso = parseFloat(document.getElementById('galinhaPeso').value);
+  if (!peso || peso <= 0) {
+    showToast('⚠️ Digite um peso válido', '', 'warning');
+    return;
+  }
+  
+  // Consumo médio: 3% do peso vivo
+  const racao = (peso * 0.03).toFixed(2);
+  const resultado = document.getElementById('resultadoGalinha');
+  resultado.innerHTML = `
+    📊 Consumo Diário Estimado:<br>
+    <strong>${racao} kg de ração/dia</strong><br>
+    <small style="color:var(--text-muted); font-weight:normal;">Base: 3% do peso vivo</small>
+  `;
+  resultado.classList.add('show');
+}
+
+function calcularSuplementoCabra() {
+  const peso = parseFloat(document.getElementById('cabraPeso').value);
+  const tipo = document.getElementById('cabraTipo').value;
+  
+  if (!peso || peso <= 0) {
+    showToast('⚠️ Digite um peso válido', '', 'warning');
+    return;
+  }
+  
+  let concentrado, observacao;
+  
+  switch(tipo) {
+    case 'manutencao':
+      concentrado = (peso * 0.005).toFixed(2);
+      observacao = 'Apenas manutenção - pasto suficiente';
+      break;
+    case 'gestacao':
+      concentrado = (peso * 0.01).toFixed(2);
+      observacao = 'Últimos 2 meses de gestação';
+      break;
+    case 'lactacao':
+      concentrado = (peso * 0.015).toFixed(2);
+      observacao = 'Produção de leite - ajuste conforme produção';
+      break;
+  }
+  
+  const resultado = document.getElementById('resultadoCabra');
+  resultado.innerHTML = `
+    📊 Necessidade Diária:<br>
+    <strong>${concentrado} kg de concentrado/dia</strong><br>
+    <small style="color:var(--text-muted); font-weight:normal;">${observacao}</small><br>
+    <small style="color:var(--text-muted); font-weight:normal;">Feno/capim: à vontade</small>
+  `;
+  resultado.classList.add('show');
+}
+
+function simularRenda() {
+  const galinhas = parseInt(document.getElementById('simGalinhas').value) || 0;
+  const precoOvo = parseFloat(document.getElementById('simPrecoOvo').value) || 0;
+  const horta = parseFloat(document.getElementById('simHorta').value) || 0;
+  const peixes = parseFloat(document.getElementById('simPeixes').value) || 0;
+  
+  const ovosMes = galinhas * 0.8 * 30; // 80% de postura
+  const rendaOvos = ovosMes * precoOvo;
+  const rendaPeixes = peixes * 15; // R$ 15/kg médio
+  
+  const total = rendaOvos + horta + rendaPeixes;
+  
+  const resultado = document.getElementById('resultadoRenda');
+  resultado.innerHTML = `
+    💰 Renda Mensal Estimada:<br>
+    <strong style="font-size:1.5rem; color:var(--success);">R$ ${total.toFixed(2)}</strong><br>
+    <small style="color:var(--text-muted); font-weight:normal; display:block; margin-top:0.5rem;">
+      🥚 Ovos: R$ ${rendaOvos.toFixed(2)}<br>
+      🪴 Horta: R$ ${horta.toFixed(2)}<br>
+      🐟 Peixes: R$ ${rendaPeixes.toFixed(2)}
+    </small>
+  `;
+  resultado.classList.add('show');
+}
 
 function calculateDate() {
   const days = parseInt(document.getElementById('calcAnimal').value);
@@ -2220,30 +4468,15 @@ function calculateDate() {
   const resultDate = new Date(startDate);
   resultDate.setDate(resultDate.getDate() + days);
   
-  const formatted = resultDate.toLocaleDateString('pt-BR');
-  document.getElementById('resultDate').textContent = formatted;
+  document.getElementById('resultDate').textContent = resultDate.toLocaleDateString('pt-BR');
   document.getElementById('calcResult').style.display = 'block';
-  
-  showToast('📅 Data calculada!', `Previsto para: ${formatted}`, 'info');
-}
-
-function renderRanking() {
-  const list = document.getElementById('rankingList');
-  const sorted = [...animals].sort((a, b) => b.days - a.days);
-  
-  list.innerHTML = sorted.map(a => {
-    const name = pt ? a.pt : a.en;
-    const type = a.days > 30 ? '🤰 Gestação' : '🥚 Incubação';
-    return `<li><strong>${type} ${name}</strong> — ${a.days} dias</li>`;
-  }).join('');
+  showToast('📅 Data calculada!', `Previsto: ${resultDate.toLocaleDateString('pt-BR')}`, 'info');
 }
 
 // Fechar modal ao clicar fora
 window.onclick = function(event) {
   const modal = document.getElementById('reminderModal');
-  if (event.target === modal) {
-    closeReminderModal();
-  }
+  if (event.target === modal) closeReminderModal();
 }
 </script>
 
