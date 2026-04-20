@@ -4,2067 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0f172a">
-  <meta name="description" content="Guia Rural Pro - Enciclopédia Completa + Sistema Integrado">
-  <title>🌾 Guia Rural Pro | Enciclopédia + Gestão + Sistema Integrado</title>
-  
-  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiR3VpYSBSdXJhbVou implementar TODAS essas melhorias de alto impacto! 🚀
-
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0f172a">
-  <meta name="description" content="Guia Rural Pro - Enciclopédia Completa + Sistema Integrado">
-  <title>🌾 Guia Rural Pro | Enciclopédia + Gestão + Sistema Integrado</title>
-  
-  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiR3VpYSBSdXJhbCBQcm8iLCJzaG9ydF9uYW1lIjoiR3VpYVJ1cmFsIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwZjE3MmEiLCJ0aGVtZV9jb2xvciI6IiMwZjE3MmEifQ==">
-  
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --card-hover: #334155;
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --accent: #22c55e;
-      --accent-hover: #16a34a;
-      --warning: #f59e0b;
-      --danger: #ef4444;
-      --info: #3b82f6;
-      --border: #334155;
-      --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
-      --success: #10b981;
-      --purple: #8b5cf6;
-      --pink: #ec4899;
-      --cyan: #06b6d4;
-    }
-    
-    .light {
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --card-hover: #f1f5f9;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --accent: #16a34a;
-      --accent-hover: #15803d;
-      --border: #e2e8f0;
-      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-    }
-    
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
-    }
-    
-    /* Header */
-    header {
-      background: linear-gradient(135deg, var(--card), var(--bg));
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-    
-    .header-content {
-      max-width: 1400px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-      background: linear-gradient(135deg, var(--accent), var(--info));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .controls {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    
-    .online-status {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-    
-    .online-status.online {
-      background: rgba(34, 197, 94, 0.2);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-    }
-    
-    .online-status.offline {
-      background: rgba(239, 68, 68, 0.2);
-      color: var(--danger);
-      border: 1px solid var(--danger);
-    }
-    
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: currentColor;
-      animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-    
-    button {
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 8px;
-      background: var(--accent);
-      color: white;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    
-    button:hover { background: var(--accent-hover); transform: translateY(-1px); }
-    button.secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
-    button.secondary:hover { background: var(--card-hover); }
-    button.danger { background: var(--danger); }
-    button.warning { background: var(--warning); color: #1e293b; }
-    button.purple { background: var(--purple); }
-    
-    /* Container */
-    .container {
-      max-width: 1400px;
-      margin: auto;
-      padding: 1.5rem;
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 1.5rem;
-    }
-    
-    @media (max-width: 900px) {
-      .container { grid-template-columns: 1fr; }
-      .sidebar { order: 2; }
-      .main { order: 1; }
-    }
-    
-    /* Sidebar */
-    .sidebar {
-      position: sticky;
-      top: 80px;
-      height: fit-content;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-height: calc(100vh - 100px);
-      overflow-y: auto;
-    }
-    
-    .nav-card, .weather-card, .reminder-card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 1rem;
-      border: 1px solid var(--border);
-    }
-    
-    .nav-card h4, .weather-card h4, .reminder-card h4 {
-      margin-bottom: 0.8rem;
-      color: var(--accent);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    
-    .nav-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-    
-    .nav-list button {
-      justify-content: flex-start;
-      padding: 0.6rem 0.8rem;
-      font-size: 0.9rem;
-      background: transparent;
-      color: var(--text);
-      border: 1px solid transparent;
-      width: 100%;
-      border-radius: 8px;
-      transition: all 0.2s;
-    }
-    
-    .nav-list button:hover,
-    .nav-list button.active {
-      background: var(--card-hover);
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateX(5px);
-    }
-    
-    /* Weather Card */
-    .weather-info {
-      display: grid;
-      gap: 0.8rem;
-    }
-    
-    .weather-main {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.8rem;
-      background: var(--card-hover);
-      border-radius: 8px;
-    }
-    
-    .weather-temp {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--accent);
-    }
-    
-    .weather-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      text-transform: capitalize;
-    }
-    
-    .weather-details {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-      font-size: 0.85rem;
-    }
-    
-    .weather-detail {
-      padding: 0.5rem;
-      background: var(--card-hover);
-      border-radius: 6px;
-      text-align: center;
-    }
-    
-    .weather-detail label {
-      display: block;
-      color: var(--text-muted);
-      font-size: 0.75rem;
-    }
-    
-    .weather-detail value {
-      font-weight: 600;
-      color: var(--text);
-    }
-    
-    .weather-alert {
-      padding: 0.6rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-      display: none;
-    }
-    
-    .weather-alert.show {
-      display: block;
-      animation: slideIn 0.3s ease;
-    }
-    
-    .weather-alert.warning {
-      background: rgba(245, 158, 11, 0.2);
-      border: 1px solid var(--warning);
-      color: var(--warning);
-    }
-    
-    .weather-alert.danger {
-      background: rgba(239, 68, 68, 0.2);
-      border: 1px solid var(--danger);
-      color: var(--danger);
-    }
-    
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Reminder Card */
-    .reminder-list {
-      list-style: none;
-      max-height: 300px;
-      overflow-y: auto;
-    }
-    
-    .reminder-item {
-      padding: 0.6rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-    }
-    
-    .reminder-item:last-child { border-bottom: none; }
-    
-    .reminder-item.urgent {
-      background: rgba(239, 68, 68, 0.1);
-      border-left: 3px solid var(--danger);
-      padding-left: 0.8rem;
-    }
-    
-    .reminder-item.soon {
-      background: rgba(245, 158, 11, 0.1);
-      border-left: 3px solid var(--warning);
-      padding-left: 0.8rem;
-    }
-    
-    .reminder-icon {
-      font-size: 1.2rem;
-      margin-top: 2px;
-    }
-    
-    .reminder-content {
-      flex: 1;
-    }
-    
-    .reminder-title {
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-    
-    .reminder-date {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-    
-    .reminder-delete {
-      background: none;
-      border: none;
-      color:Vou implementar TODAS essas melhorias de alto impacto! 🚀
-
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0f172a">
-  <meta name="description" content="Guia Rural Pro - Enciclopédia Completa + Sistema Integrado">
-  <title>🌾 Guia Rural Pro | Enciclopédia + Gestão + Sistema Integrado</title>
-  
-  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiR3VpYSBSdXJhbCBQcm8iLCJzaG9ydF9uYW1lIjoiR3VpYVJ1cmFsIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwZjE3MmEiLCJ0aGVtZV9jb2xvciI6IiMwZjE3MmEifQ==">
-  
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --card-hover: #334155;
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --accent: #22c55e;
-      --accent-hover: #16a34a;
-      --warning: #f59e0b;
-      --danger: #ef4444;
-      --info: #3b82f6;
-      --border: #334155;
-      --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
-      --success: #10b981;
-      --purple: #8b5cf6;
-      --pink: #ec4899;
-      --cyan: #06b6d4;
-    }
-    
-    .light {
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --card-hover: #f1f5f9;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --accent: #16a34a;
-      --accent-hover: #15803d;
-      --border: #e2e8f0;
-      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-    }
-    
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
-    }
-    
-    /* Header */
-    header {
-      background: linear-gradient(135deg, var(--card), var(--bg));
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-    
-    .header-content {
-      max-width: 1400px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-      background: linear-gradient(135deg, var(--accent), var(--info));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .controls {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    
-    .online-status {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-    
-    .online-status.online {
-      background: rgba(34, 197, 94, 0.2);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-    }
-    
-    .online-status.offline {
-      background: rgba(239, 68, 68, 0.2);
-      color: var(--danger);
-      border: 1px solid var(--danger);
-    }
-    
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: currentColor;
-      animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-    
-    button {
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 8px;
-      background: var(--accent);
-      color: white;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    
-    button:hover { background: var(--accent-hover); transform: translateY(-1px); }
-    button.secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
-    button.secondary:hover { background: var(--card-hover); }
-    button.danger { background: var(--danger); }
-    button.warning { background: var(--warning); color: #1e293b; }
-    button.purple { background: var(--purple); }
-    
-    /* Container */
-    .container {
-      max-width: 1400px;
-      margin: auto;
-      padding: 1.5rem;
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 1.5rem;
-    }
-    
-    @media (max-width: 900px) {
-      .container { grid-template-columns: 1fr; }
-      .sidebar { order: 2; }
-      .main { order: 1; }
-    }
-    
-    /* Sidebar */
-    .sidebar {
-      position: sticky;
-      top: 80px;
-      height: fit-content;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-height: calc(100vh - 100px);
-      overflow-y: auto;
-    }
-    
-    .nav-card, .weather-card, .reminder-card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 1rem;
-      border: 1px solid var(--border);
-    }
-    
-    .nav-card h4, .weather-card h4, .reminder-card h4 {
-      margin-bottom: 0.8rem;
-      color: var(--accent);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    
-    .nav-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-    
-    .nav-list button {
-      justify-content: flex-start;
-      padding: 0.6rem 0.8rem;
-      font-size: 0.9rem;
-      background: transparent;
-      color: var(--text);
-      border: 1px solid transparent;
-      width: 100%;
-      border-radius: 8px;
-      transition: all 0.2s;
-    }
-    
-    .nav-list button:hover,
-    .nav-list button.active {
-      background: var(--card-hover);
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateX(5px);
-    }
-    
-    /* Weather Card */
-    .weather-info {
-      display: grid;
-      gap: 0.8rem;
-    }
-    
-    .weather-main {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.8rem;
-      background: var(--card-hover);
-      border-radius: 8px;
-    }
-    
-    .weather-temp {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--accent);
-    }
-    
-    .weather-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      text-transform: capitalize;
-    }
-    
-    .weather-details {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-      font-size: 0.85rem;
-    }
-    
-    .weather-detail {
-      padding: 0.5rem;
-      background: var(--card-hover);
-      border-radius: 6px;
-      text-align: center;
-    }
-    
-    .weather-detail label {
-      display: block;
-      color: var(--text-muted);
-      font-size: 0.75rem;
-    }
-    
-    .weather-detail value {
-      font-weight: 600;
-      color: var(--text);
-    }
-    
-    .weather-alert {
-      padding: 0.6rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-      display: none;
-    }
-    
-    .weather-alert.show {
-      display: block;
-      animation: slideIn 0.3s ease;
-    }
-    
-    .weather-alert.warning {
-      background: rgba(245, 158, 11, 0.2);
-      border: 1px solid var(--warning);
-      color: var(--warning);
-    }
-    
-    .weather-alert.danger {
-      background: rgba(239, 68, 68, 0.2);
-      border: 1px solid var(--danger);
-      color: var(--danger);
-    }
-    
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Reminder Card */
-    .reminder-list {
-      list-style: none;
-      max-height: 300px;
-      overflow-y: auto;
-    }
-    
-    .reminder-item {
-      padding: 0.6rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-    }
-    
-    .reminder-item:last-child { border-bottom: none; }
-    
-    .reminder-item.urgent {
-      background: rgba(239, 68, 68, 0.1);
-      border-left: 3px solid var(--danger);
-      padding-left: 0.8rem;
-    }
-    
-    .reminder-item.soon {
-      background: rgba(245, 158, 11, 0.1);
-      border-left: 3px solid var(--warning);
-      padding-left: 0.8rem;
-    }
-    
-    .reminder-icon {
-      font-size: 1.2rem;
-      margin-top: 2px;
-    }
-    
-    .reminder-content {
-      flex: 1;
-    }
-    
-    .reminder-title {
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-    
-    .reminder-date {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-    
-    .reminder-delete {
-      background: none;
-      border: none;
-      color: var(--danger);
-      cursor: pointer;
-      padding: 0.2rem;
-      font-size: 1rem;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-    
-    .reminder-delete:hover {
-      opacity: 1;
-      background: none;
-    }
-    
-    .add-reminder-btn {
-      width: 100%;
-      margin-top: 0.8rem;
-      padding: 0.5rem;
-      font-size: 0.9rem;
-    }
-    
-    /* Main Content */
-    .main {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    
-    .card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 1.5rem;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px -5px rgba(0,0,0,0.4);
-    }
-    
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .card-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .badge {
-      background: var(--accent);
-      color: white;
-      padding: 0.2rem 0.6rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-    
-    .badge.warning { background: var(--warning); color: #1e293b; }
-    .badge.danger { background: var(--danger); }
-    .badge.purple { background: var(--purple); }
-    
-    /* Tabs */
-    .tabs {
-      display: flex;
-      gap: 0.3rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .tab-btn {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 8px;
-      background: transparent;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-    
-    .tab-btn:hover,
-    .tab-btn.active {
-      background: var(--accent);
-      color: white;
-    }
-    
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-    
-    .tab-content.active {
-      display: block;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Tables */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 0.5rem 0;
-    }
-    
-    th, td {
-      padding: 0.8rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    th {
-      background: var(--card-hover);
-      font-weight: 600;
-      color: var(--accent);
-    }
-    
-    tr:hover {
-      background: var(--card-hover);
-    }
-    
-    /* Grids */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-    
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-    
-    /* Info Cards */
-    .info-card {
-      background: var(--card-hover);
-      border-radius: 10px;
-      padding: 1rem;
-      border-left: 4px solid var(--accent);
-    }
-    
-    .info-card.warning { border-left-color: var(--warning); }
-    .info-card.danger { border-left-color: var(--danger); }
-    .info-card.info { border-left-color: var(--info); }
-    .info-card.purple { border-left-color: var(--purple); }
-    .info-card.success { border-left-color: var(--success); }
-    .info-card.cyan { border-left-color: var(--cyan); }
-    
-    .info-card h4 {
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    
-    /* Forms */
-    .form-group {
-      margin-bottom: 1rem;
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: 0.3rem;
-      font-weight: 500;
-    }
-    
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      color: var(--text);
-      font-size: 1rem;
-    }
-    
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    
-    @media (max-width: 600px) {
-      .form-row { grid-template-columns: 1fr; }
-    }
-    
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-    
-    .modal.show {
-      display: flex;
-      animation: fadeIn 0.3s ease;
-    }
-    
-    .modal-content {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 1.5rem;
-      max-width: 500px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      border: 1px solid var(--border);
-    }
-    
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .modal-close {
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.2rem;
-    }
-    
-    .modal-close:hover {
-      background: none;
-      color: var(--danger);
-      transform: none;
-    }
-    
-    /* Notification Toast */
-    .toast-container {
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      z-index: 2000;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      max-width: 350px;
-    }
-    
-    .toast {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.8rem;
-      animation: slideInRight 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .toast.warning {
-      border-left: 4px solid var(--warning);
-      background: rgba(245, 158, 11, 0.1);
-    }
-    
-    .toast.danger {
-      border-left: 4px solid var(--danger);
-      background: rgba(239, 68, 68, 0.1);
-    }
-    
-    .toast.info {
-      border-left: 4px solid var(--info);
-    }
-    
-    @keyframes slideInRight {
-      from { opacity: 0; transform: translateX(100%); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    
-    .toast-icon {
-      font-size: 1.5rem;
-    }
-    
-    .toast-content {
-      flex: 1;
-    }
-    
-    .toast-title {
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-    
-    .toast-message {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-    
-    .toast-close {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-size: 1.2rem;
-      padding: 0.2rem;
-    }
-    
-    .toast-close:hover {
-      background: none;
-      color: var(--text);
-      transform: none;
-    }
-    
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: var(--text-muted);
-      font-sizeVou implementar TODAS essas melhorias de alto impacto! 🚀
-
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0f172a">
-  <meta name="description" content="Guia Rural Pro - Enciclopédia Completa + Sistema Integrado">
-  <title>🌾 Guia Rural Pro | Enciclopédia + Gestão + Sistema Integrado</title>
-  
-  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiR3VpYSBSdXJhbCBQcm8iLCJzaG9ydF9uYW1lIjoiR3VpYVJ1cmFsIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwZjE3MmEiLCJ0aGVtZV9jb2xvciI6IiMwZjE3MmEifQ==">
-  
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --card-hover: #334155;
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --accent: #22c55e;
-      --accent-hover: #16a34a;
-      --warning: #f59e0b;
-      --danger: #ef4444;
-      --info: #3b82f6;
-      --border: #334155;
-      --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
-      --success: #10b981;
-      --purple: #8b5cf6;
-      --pink: #ec4899;
-      --cyan: #06b6d4;
-    }
-    
-    .light {
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --card-hover: #f1f5f9;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --accent: #16a34a;
-      --accent-hover: #15803d;
-      --border: #e2e8f0;
-      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-    }
-    
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
-    }
-    
-    /* Header */
-    header {
-      background: linear-gradient(135deg, var(--card), var(--bg));
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-    
-    .header-content {
-      max-width: 1400px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-      background: linear-gradient(135deg, var(--accent), var(--info));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .controls {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    
-    .online-status {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-    
-    .online-status.online {
-      background: rgba(34, 197, 94, 0.2);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-    }
-    
-    .online-status.offline {
-      background: rgba(239, 68, 68, 0.2);
-      color: var(--danger);
-      border: 1px solid var(--danger);
-    }
-    
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: currentColor;
-      animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-    
-    button {
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 8px;
-      background: var(--accent);
-      color: white;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    
-    button:hover { background: var(--accent-hover); transform: translateY(-1px); }
-    button.secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
-    button.secondary:hover { background: var(--card-hover); }
-    button.danger { background: var(--danger); }
-    button.warning { background: var(--warning); color: #1e293b; }
-    button.purple { background: var(--purple); }
-    
-    /* Container */
-    .container {
-      max-width: 1400px;
-      margin: auto;
-      padding: 1.5rem;
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 1.5rem;
-    }
-    
-    @media (max-width: 900px) {
-      .container { grid-template-columns: 1fr; }
-      .sidebar { order: 2; }
-      .main { order: 1; }
-    }
-    
-    /* Sidebar */
-    .sidebar {
-      position: sticky;
-      top: 80px;
-      height: fit-content;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-height: calc(100vh - 100px);
-      overflow-y: auto;
-    }
-    
-    .nav-card, .weather-card, .reminder-card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 1rem;
-      border: 1px solid var(--border);
-    }
-    
-    .nav-card h4, .weather-card h4, .reminder-card h4 {
-      margin-bottom: 0.8rem;
-      color: var(--accent);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    
-    .nav-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-    
-    .nav-list button {
-      justify-content: flex-start;
-      padding: 0.6rem 0.8rem;
-      font-size: 0.9rem;
-      background: transparent;
-      color: var(--text);
-      border: 1px solid transparent;
-      width: 100%;
-      border-radius: 8px;
-      transition: all 0.2s;
-    }
-    
-    .nav-list button:hover,
-    .nav-list button.active {
-      background: var(--card-hover);
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateX(5px);
-    }
-    
-    /* Weather Card */
-    .weather-info {
-      display: grid;
-      gap: 0.8rem;
-    }
-    
-    .weather-main {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.8rem;
-      background: var(--card-hover);
-      border-radius: 8px;
-    }
-    
-    .weather-temp {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--accent);
-    }
-    
-    .weather-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      text-transform: capitalize;
-    }
-    
-    .weather-details {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-      font-size: 0.85rem;
-    }
-    
-    .weather-detail {
-      padding: 0.5rem;
-      background: var(--card-hover);
-      border-radius: 6px;
-      text-align: center;
-    }
-    
-    .weather-detail label {
-      display: block;
-      color: var(--text-muted);
-      font-size: 0.75rem;
-    }
-    
-    .weather-detail value {
-      font-weight: 600;
-      color: var(--text);
-    }
-    
-    .weather-alert {
-      padding: 0.6rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-      display: none;
-    }
-    
-    .weather-alert.show {
-      display: block;
-      animation: slideIn 0.3s ease;
-    }
-    
-    .weather-alert.warning {
-      background: rgba(245, 158, 11, 0.2);
-      border: 1px solid var(--warning);
-      color: var(--warning);
-    }
-    
-    .weather-alert.danger {
-      background: rgba(239, 68, 68, 0.2);
-      border: 1px solid var(--danger);
-      color: var(--danger);
-    }
-    
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Reminder Card */
-    .reminder-list {
-      list-style: none;
-      max-height: 300px;
-      overflow-y: auto;
-    }
-    
-    .reminder-item {
-      padding: 0.6rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-    }
-    
-    .reminder-item:last-child { border-bottom: none; }
-    
-    .reminder-item.urgent {
-      background: rgba(239, 68, 68, 0.1);
-      border-left: 3px solid var(--danger);
-      padding-left: 0.8rem;
-    }
-    
-    .reminder-item.soon {
-      background: rgba(245, 158, 11, 0.1);
-      border-left: 3px solid var(--warning);
-      padding-left: 0.8rem;
-    }
-    
-    .reminder-icon {
-      font-size: 1.2rem;
-      margin-top: 2px;
-    }
-    
-    .reminder-content {
-      flex: 1;
-    }
-    
-    .reminder-title {
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-    
-    .reminder-date {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-    
-    .reminder-delete {
-      background: none;
-      border: none;
-      color: var(--danger);
-      cursor: pointer;
-      padding: 0.2rem;
-      font-size: 1rem;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-    
-    .reminder-delete:hover {
-      opacity: 1;
-      background: none;
-    }
-    
-    .add-reminder-btn {
-      width: 100%;
-      margin-top: 0.8rem;
-      padding: 0.5rem;
-      font-size: 0.9rem;
-    }
-    
-    /* Main Content */
-    .main {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    
-    .card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 1.5rem;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px -5px rgba(0,0,0,0.4);
-    }
-    
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .card-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .badge {
-      background: var(--accent);
-      color: white;
-      padding: 0.2rem 0.6rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-    
-    .badge.warning { background: var(--warning); color: #1e293b; }
-    .badge.danger { background: var(--danger); }
-    .badge.purple { background: var(--purple); }
-    
-    /* Tabs */
-    .tabs {
-      display: flex;
-      gap: 0.3rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .tab-btn {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 8px;
-      background: transparent;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-    
-    .tab-btn:hover,
-    .tab-btn.active {
-      background: var(--accent);
-      color: white;
-    }
-    
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-    
-    .tab-content.active {
-      display: block;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Tables */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 0.5rem 0;
-    }
-    
-    th, td {
-      padding: 0.8rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    th {
-      background: var(--card-hover);
-      font-weight: 600;
-      color: var(--accent);
-    }
-    
-    tr:hover {
-      background: var(--card-hover);
-    }
-    
-    /* Grids */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-    
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-    
-    /* Info Cards */
-    .info-card {
-      background: var(--card-hover);
-      border-radius: 10px;
-      padding: 1rem;
-      border-left: 4px solid var(--accent);
-    }
-    
-    .info-card.warning { border-left-color: var(--warning); }
-    .info-card.danger { border-left-color: var(--danger); }
-    .info-card.info { border-left-color: var(--info); }
-    .info-card.purple { border-left-color: var(--purple); }
-    .info-card.success { border-left-color: var(--success); }
-    .info-card.cyan { border-left-color: var(--cyan); }
-    
-    .info-card h4 {
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    
-    /* Forms */
-    .form-group {
-      margin-bottom: 1rem;
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: 0.3rem;
-      font-weight: 500;
-    }
-    
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      color: var(--text);
-      font-size: 1rem;
-    }
-    
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    
-    @media (max-width: 600px) {
-      .form-row { grid-template-columns: 1fr; }
-    }
-    
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-    
-    .modal.show {
-      display: flex;
-      animation: fadeIn 0.3s ease;
-    }
-    
-    .modal-content {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 1.5rem;
-      max-width: 500px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      border: 1px solid var(--border);
-    }
-    
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .modal-close {
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.2rem;
-    }
-    
-    .modal-close:hover {
-      background: none;
-      color: var(--danger);
-      transform: none;
-    }
-    
-    /* Notification Toast */
-    .toast-container {
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      z-index: 2000;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      max-width: 350px;
-    }
-    
-    .toast {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.8rem;
-      animation: slideInRight 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .toast.warning {
-      border-left: 4px solid var(--warning);
-      background: rgba(245, 158, 11, 0.1);
-    }
-    
-    .toast.danger {
-      border-left: 4px solid var(--danger);
-      background: rgba(239, 68, 68, 0.1);
-    }
-    
-    .toast.info {
-      border-left: 4px solid var(--info);
-    }
-    
-    @keyframes slideInRight {
-      from { opacity: 0; transform: translateX(100%); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    
-    .toast-icon {
-      font-size: 1.5rem;
-    }
-    
-    .toast-content {
-      flex: 1;
-    }
-    
-    .toast-title {
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-    
-    .toast-message {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-    
-    .toast-close {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-size: 1.2rem;
-      padding: 0.2rem;
-    }
-    
-    .toast-close:hover {
-      background: none;
-      color: var(--text);
-      transform: none;
-    }
-    
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--border);
-      margin-top: 2rem;
-    }
-    
-    /* Responsive */
-    @media (max-width: 600px) {
-      .container { padding: 1rem; }
-      .card { padding: 1rem; }
-      .header-content { flex-direction: column; align-items: flex-start; }
-      .toast-container { right: 10px; left: 10px; max-width: none; }
-    }
-    
-    /* Print */
-    @media print {
-      .no-print, .sidebar, .toast-container { display: none !important; }
-      body { background: white; color: black; }
-      .card { break-inside: avoid; }
-    }
-    
-    /* Loading */
-    .loading {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 3px solid var(--border);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    
-    /* ================= ENCICLOPÉDIA ESTILO WIKI ================= */
-    
-    .wiki-hero {
-      height: 250px;
-      background: linear-gradient(135deg, rgba(15,23,42,0.8), rgba(30,41,59,0.8)), 
-                  url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1200') center/cover;
-      border-radius: 16px;
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .wiki-overlay {
-      z-index: 2;
-      padding: 2rem;
-    }
-    
-    .wiki-overlay h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, var(--accent), var(--info));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .wiki-overlay p {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .wiki-section {
-      margin: 3rem 0;
-      scroll-margin-top: 100px;
-    }
-    
-    .wiki-section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 3px solid var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .wiki-section h3 {
-      font-size: 1.3rem;
-      margin: 1.5rem 0 0.8rem;
-      color: var(--accent);
-    }
-    
-    .wiki-section img {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin: 1rem 0;
-      box-shadow: var(--shadow);
-    }
-    
-    .wiki-intro {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      padding: 1rem;
-      background: var(--card-hover);
-      border-radius: 10px;
-      border-left: 4px solid var(--info);
-    }
-    
-    .wiki-box {
-      background: var(--card-hover);
-      padding: 1.5rem;
-      border-radius: 12px;
-      margin: 1rem 0;
-      border-left: 4px solid var(--accent);
-      transition: transform 0.2s;
-    }
-    
-    .wiki-box:hover {
-      transform: translateX(5px);
-    }
-    
-    .wiki-box.info { border-left-color: var(--info); }
-    .wiki-box.warning { border-left-color: var(--warning); }
-    .wiki-box.danger { border-left-color: var(--danger); }
-    .wiki-box.success { border-left-color: var(--success); }
-    .wiki-box.purple { border-left-color: var(--purple); }
-    .wiki-box.cyan { border-left-color: var(--cyan); }
-    
-    .wiki-box h4 {
-      margin-bottom: 0.8rem;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1.1rem;
-    }
-    
-    .wiki-box ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    
-    .wiki-box li {
-      padding: 0.4rem 0;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-    
-    .wiki-box li:before {
-      content: "▸";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: bold;
-    }
-    
-    .wiki-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-    
-    .wiki-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.2rem;
-      transition: all 0.2s;
-    }
-    
-    .wiki-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-    }
-    
-    .wiki-card h4 {
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .wiki-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      background: var(--card);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    
-    .wiki-table th {
-      background: var(--accent);
-      color: white;
-      padding: 1rem;
-      text-align: left;
-      font-weight: 600;
-      width: 40%;
-    }
-    
-    .wiki-table td {
-      padding: 0.8rem 1rem;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .wiki-table tr:last-child td {
-      border-bottom: none;
-    }
-    
-    .wiki-table tr:hover {
-      background: var(--card-hover);
-    }
-    
-    .wiki-nav {
-      position: sticky;
-      top: 100px;
-      background: var(--card);
-      padding: 1rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      margin-bottom: 1.5rem;
-    }
-    
-    .wiki-nav h4 {
-      margin-bottom: 0.8rem;
-      color: var(--accent);
-    }
-    
-    .wiki-nav ul {
-      list-style: none;
-    }
-    
-    .wiki-nav li {
-      margin: 0.3rem 0;
-    }
-    
-    .wiki-nav a {
-      color: var(--text);
-      text-decoration: none;
-      display: block;
-      padding: 0.3rem 0;
-      transition: color 0.2s;
-    }
-    
-    .wiki-nav a:hover {
-      color: var(--accent);
-      padding-left: 5px;
-    }
-    
-    .wiki-tag {
-      display: inline-block;
-      padding: 0.2rem 0.6rem;
-      background: var(--card-hover);
-      border-radius: 20px;
-      font-size: 0.85rem;
-      margin: 0.2rem;
-      border: 1px solid var(--border);
-    }
-    
-    .wiki-tag.pro {
-      background: rgba(139, 92, 246, 0.2);
-      border-color: var(--purple);
-      color: var(--purple);
-    }
-    
-    .alert {
-      padding: 1rem;
-      border-radius: 10px;
-      margin: 1rem 0;
-      display: flex;
-      gap: 0.8rem;
-      align-items: flex-start;
-    }
-    
-    .alert.info {
-      background: rgba(59, 130, 246, 0.15);
-      border: 1px solid var(--info);
-    }
-    
-    .alert.warning {
-      background: rgba(245, 158, 11, 0.15);
-      border: 1px solid var(--warning);
-   Vou implementar TODAS essas melhorias de alto impacto! 🚀
-
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0f172a">
-  <meta name="description" content="Guia Rural Pro - Enciclopédia Completa + Sistema Integrado">
-  <title>🌾 Guia Rural Pro | Enciclopédia + Gestão + Sistema Integrado</title>
+  <meta name="description" content="Guia Rural Pro - Enciclopédia Completa + Sistema Integrado + Veterinário">
+  <title>🌾 Guia Rural Pro | Enciclopédia + Gestão + Veterinário</title>
   
   <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiR3VpYSBSdXJhbCBQcm8iLCJzaG9ydF9uYW1lIjoiR3VpYVJ1cmFsIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwZjE3MmEiLCJ0aGVtZV9jb2xvciI6IiMwZjE3MmEifQ==">
   
@@ -3183,10 +1124,167 @@
       line-height: 1;
     }
     
+    /* ================= APP VETERINÁRIO ================= */
+    
+    .vet-app {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+    }
+    
+    .vet-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+    
+    .vet-header h2 {
+      color: var(--accent);
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    .vet-header span {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
+    .vet-menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .vet-menu button {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+      border-radius: 10px;
+      background: var(--card-hover);
+      color: var(--text);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .vet-menu button:hover,
+    .vet-menu button.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    
+    .vet-tab {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .vet-tab.active {
+      display: block;
+    }
+    
+    .vet-card {
+      background: var(--card-hover);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    
+    .vet-card h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    
+    .vet-item {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    
+    .vet-item:hover {
+      background: var(--card);
+      border-radius: 8px;
+    }
+    
+    .vet-item:last-child {
+      border-bottom: none;
+    }
+    
+    .vet-result {
+      margin-top: 1rem;
+      padding: 1.2rem;
+      border-radius: 10px;
+      background: rgba(59,130,246,0.1);
+      border-left: 4px solid var(--info);
+      display: none;
+      animation: slideIn 0.3s ease;
+    }
+    
+    .vet-result.show {
+      display: block;
+    }
+    
+    .vet-result.warning {
+      background: rgba(245,158,11,0.1);
+      border-left-color: var(--warning);
+    }
+    
+    .vet-result.danger {
+      background: rgba(239,68,68,0.1);
+      border-left-color: var(--danger);
+    }
+    
+    .vet-result.success {
+      background: rgba(34,197,94,0.1);
+      border-left-color: var(--success);
+    }
+    
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+    
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.8rem;
+      background: var(--card);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid var(--border);
+    }
+    
+    .checklist-item:hover {
+      border-color: var(--accent);
+      transform: translateX(3px);
+    }
+    
+    .checklist-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: var(--accent);
+    }
+    
+    .checklist-item span {
+      font-size: 0.95rem;
+    }
+    
     @media (max-width: 768px) {
       .wiki-hero { height: 200px; }
       .wiki-overlay h1 { font-size: 1.8rem; }
       .wiki-section h2 { font-size: 1.4rem; }
+      .vet-menu { grid-template-columns: 1fr 1fr; }
+      .checklist-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -3272,6 +1370,7 @@
       <ul class="nav-list">
         <li><button class="active" onclick="showSection('enciclopedia')">📖 Enciclopédia</button></li>
         <li><button onclick="showSection('sistema-integrado')">♻️ Sistema Integrado</button></li>
+        <li><button onclick="showSection('veterinario')">🩺 Veterinário</button></li>
         <li><button onclick="showSection('incubacao')">🥚 Incubação</button></li>
         <li><button onclick="showSection('primeiros-dias')">🐣 Primeiros Dias</button></li>
         <li><button onclick="showSection('alimentacao')">🥣 Alimentação</button></li>
@@ -3511,7 +1610,7 @@
         </div>
         
         <div class="wiki-box cyan">
-          <h4> Adultos (Manejo)</h4>
+          <h4>🐐 Adultos (Manejo)</h4>
           <div class="status-indicator reproducao">
             <span class="status-dot-small"></span>
             Reprodução / Produção
@@ -3547,7 +1646,7 @@
       
     </section>
     
-    <!-- SISTEMA INTEGRADO RURAL - NOVA SEÇÃO -->
+    <!-- SISTEMA INTEGRADO RURAL -->
     <section id="sistema-integrado" class="card tab-content">
       
       <div class="quote-box">
@@ -3695,7 +1794,7 @@
         </div>
         
         <div class="info-card success">
-          <h4> Números do Mercado Fitness</h4>
+          <h4>📊 Números do Mercado Fitness</h4>
           <p>
             Ovos caipira/orgânicos têm demanda crescente. 
             Um produtor com 100 galinhas pode faturar R$ 2.000-3.000/mês 
@@ -3749,6 +1848,315 @@
       
       <div class="quote-box" style="background: linear-gradient(135deg, var(--purple), var(--pink));">
         Quem entende o ciclo rural, lucra em todas as etapas.
+      </div>
+      
+    </section>
+    
+    <!-- VETERINÁRIO - NOVA ABA -->
+    <section id="veterinario" class="card tab-content">
+      
+      <div class="wiki-hero" style="background: linear-gradient(135deg, rgba(239,68,68,0.8), rgba(139,92,246,0.8)), url('https://images.unsplash.com/photo-1629904853716-6c7d4a1835b1?w=1200') center/cover;">
+        <div class="wiki-overlay">
+          <h1>🩺 Veterinário Rural Pro</h1>
+          <p>Diagnóstico, prevenção e cuidados com a saúde das suas aves</p>
+        </div>
+      </div>
+      
+      <div class="wiki-intro">
+        Guia prático de saúde para aves: identificação de doenças, prevenção, cuidados naturais e quando agir rapidamente para evitar perdas no plantel.
+      </div>
+      
+      <!-- ALERTA IMPORTANTE -->
+      <div class="info-card danger">
+        <h4>🚨 Atenção Importante</h4>
+        <p>
+          Em casos graves ou surtos, procure imediatamente um veterinário. 
+          Uso incorreto de medicamentos pode causar perdas maiores no plantel. 
+          Este guia é para orientação inicial e prevenção.
+        </p>
+      </div>
+      
+      <!-- APP VETERINÁRIO INTERATIVO -->
+      <div class="vet-app">
+        
+        <!-- HEADER APP -->
+        <div class="vet-header">
+          <h2>🩺 Vet Rural</h2>
+          <span>Saúde das Aves</span>
+        </div>
+        
+        <!-- MENU RÁPIDO -->
+        <div class="vet-menu">
+          <button onclick="openVetTab('diagnostico')" class="active">🧠 Diagnóstico</button>
+          <button onclick="openVetTab('doencas')">🦠 Doenças</button>
+          <button onclick="openVetTab('tratamento')">💊 Tratamento</button>
+          <button onclick="openVetTab('natural')">🌿 Natural</button>
+        </div>
+        
+        <!-- DIAGNÓSTICO INTERATIVO -->
+        <div id="diagnostico" class="vet-tab active">
+          <div class="vet-card">
+            <h3>🧠 Identificar Sintomas</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">
+              Selecione o principal sintoma observado na ave:
+            </p>
+            
+            <div class="form-group">
+              <select id="sintoma" style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text);">
+                <option value="">Selecione um sintoma...</option>
+                <option value="respiratorio">😮‍💨 Respiração difícil / ofegante</option>
+                <option value="diarreia">💩 Diarreia / fezes líquidas</option>
+                <option value="prostracao">😴 Ave parada / fraca / prostrada</option>
+                <option value="penugem">🪶 Penugem arrepiada</option>
+                <option value="olhos">👁️ Olhos inchados / secreção</option>
+                <option value="crista">🔴 Crista pálida / roxa</option>
+                <option value="apetite">🍽️ Falta de apetite</option>
+                <option value="peso">⚖️ Perda de peso rápida</option>
+              </select>
+            </div>
+            
+            <button onclick="diagnosticar()" style="width: 100%; margin-top: 1rem;">🔍 Analisar Sintoma</button>
+            
+            <div id="resultado" class="vet-result"></div>
+          </div>
+          
+          <!-- CHECKLIST DIÁRIO -->
+          <div class="vet-card" style="margin-top: 1rem;">
+            <h3>📋 Checklist Diário de Saúde</h3>
+            <div class="checklist-grid">
+              <label class="checklist-item">
+                <input type="checkbox" id="check1">
+                <span>✔ Aves ativas e alertas?</span>
+              </label>
+              <label class="checklist-item">
+                <input type="checkbox" id="check2">
+                <span>✔ Alimentação normal?</span>
+              </label>
+              <label class="checklist-item">
+                <input type="checkbox" id="check3">
+                <span>✔ Fezes normais?</span>
+              </label>
+              <label class="checklist-item">
+                <input type="checkbox" id="check4">
+                <span>✔ Sem sinais respiratórios?</span>
+              </label>
+              <label class="checklist-item">
+                <input type="checkbox" id="check5">
+                <span>✔ Penas lisas (não arrepiadas)?</span>
+              </label>
+              <label class="checklist-item">
+                <input type="checkbox" id="check6">
+                <span>✔ Crista e barbelas vermelhas?</span>
+              </label>
+            </div>
+            <button onclick="verificarChecklist()" style="width: 100%; margin-top: 1rem;">✅ Verificar Saúde</button>
+            <div id="checklistResult" style="margin-top: 1rem; padding: 1rem; border-radius: 8px; display: none;"></div>
+          </div>
+        </div>
+        
+        <!-- DOENÇAS -->
+        <div id="doencas" class="vet-tab">
+          <div class="vet-card">
+            <h3>🦠 Principais Doenças</h3>
+            
+            <div class="wiki-grid">
+              <div class="wiki-card">
+                <h4>🫁 Doença Respiratória</h4>
+                <p><strong>Sintomas:</strong> espirros, secreção nasal, dificuldade para respirar, olhos lacrimejantes</p>
+                <p><strong>Causa:</strong> poeira, frio, ventilação inadequada, vírus ou bactérias</p>
+                <p><strong>Prevenção:</strong> ambiente limpo e ventilado, evitar superlotação</p>
+                <div class="status-indicator danger" style="margin-top: 0.5rem;">
+                  <span class="status-dot-small"></span>
+                  Atenção: Isolamento imediato
+                </div>
+              </div>
+              
+              <div class="wiki-card">
+                <h4>💩 Coccidiose</h4>
+                <p><strong>Sintomas:</strong> fezes líquidas com sangue, fraqueza, penas arrepiadas</p>
+                <p><strong>Causa:</strong> ambiente úmido e contaminado, cama suja</p>
+                <p><strong>Prevenção:</strong> higiene rigorosa, cama seca, evitar umidade</p>
+                <div class="status-indicator warning" style="margin-top: 0.5rem;">
+                  <span class="status-dot-small"></span>
+                  Comum em pintinhos
+                </div>
+              </div>
+              
+              <div class="wiki-card">
+                <h4>🥚 Queda de Produção</h4>
+                <p><strong>Sintomas:</strong> menos ovos, ovos moles ou sem casca</p>
+                <p><strong>Causa:</strong> estresse, alimentação inadequada, falta de cálcio, doença</p>
+                <p><strong>Prevenção:</strong> nutrição equilibrada, cálcio, ambiente calmo</p>
+              </div>
+              
+              <div class="wiki-card">
+                <h4>🦟 Bouba Aviária</h4>
+                <p><strong>Sintomas:</strong> feridas na crista e barbelas, dificuldade para comer</p>
+                <p><strong>Causa:</strong> vírus transmitido por mosquitos</p>
+                <p><strong>Prevenção:</strong> vacinação, controle de mosquitos</p>
+              </div>
+              
+              <div class="wiki-card">
+                <h4>🦠 Newcastle</h4>
+                <p><strong>Sintomas:</strong> torcicolo, paralisia, dificuldade respiratória</p>
+                <p><strong>Causa:</strong> vírus altamente contagioso</p>
+                <p><strong>Prevenção:</strong> vacinação obrigatória</p>
+                <div class="status-indicator danger" style="margin-top: 0.5rem;">
+                  <span class="status-dot-small"></span>
+                  Doença grave
+                </div>
+              </div>
+              
+              <div class="wiki-card">
+                <h4>🐛 Piolhos e Ácaros</h4>
+                <p><strong>Sintomas:</strong> coceira, penas danificadas, anemia</p>
+                <p><strong>Causa:</strong> parasitas externos</p>
+                <p><strong>Prevenção:</strong> banho de cinza, limpeza do galinheiro</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- TRATAMENTO -->
+        <div id="tratamento" class="vet-tab">
+          <div class="vet-card">
+            <h3>💊 Protocolo de Tratamento</h3>
+            
+            <div class="info-card warning">
+              <h4>⚠️ Primeiros Socorros</h4>
+              <ol style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                <li><strong>Isolar imediatamente</strong> a ave doente do restante do plantel</li>
+                <li><strong>Manter aquecida</strong> (32-35°C) em local tranquilo</li>
+                <li><strong>Hidratação constante</strong> - água limpa e fresca sempre disponível</li>
+                <li><strong>Observar de perto</strong> - anotar sintomas e evolução</li>
+                <li><strong>Consultar veterinário</strong> para diagnóstico preciso</li>
+              </ol>
+            </div>
+            
+            <div class="wiki-box info">
+              <h4>💊 Tratamento Veterinário</h4>
+              <ul>
+                <li>Uso de medicamentos específicos conforme diagnóstico veterinário</li>
+                <li>Antibióticos apenas com prescrição e orientação de dosagem</li>
+                <li>Respeitar período de carência (tempo sem consumir ovos/carne)</li>
+                <li>Completar todo o tratamento mesmo após melhora dos sintomas</li>
+                <li>Descartar ovos durante tratamento com medicamentos</li>
+              </ul>
+            </div>
+            
+            <div class="wiki-box">
+              <h4>🏥 Quando Procurar Veterinário URGENTE</h4>
+              <ul>
+                <li>🔴 Morte súbita de várias aves</li>
+                <li>🔴 Sinais neurológicos (torcicolo, paralisia)</li>
+                <li>🔴 Dificuldade respiratória severa</li>
+                <li>🔴 Diarreia com sangue em múltiplas aves</li>
+                <li>🔴 Inchaço generalizado</li>
+                <li>🔴 Surto repentino no plantel</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- MEDICINA NATURAL -->
+        <div id="natural" class="vet-tab">
+          <div class="vet-card">
+            <h3>🌿 Medicina Natural e Preventiva</h3>
+            
+            <div class="wiki-box info">
+              <h4>🌿 Remédios Naturais</h4>
+              <ul>
+                <li><strong>Alho na água</strong> → 1 dente amassado por litro, ajuda na imunidade e como vermífugo natural</li>
+                <li><strong>Vinagre de maçã</strong> → 1 colher/litro, melhora digestão e previne bactérias</li>
+                <li><strong>Chá de hortelã</strong> → apoio digestivo e respiratório</li>
+                <li><strong>Chá de boldo</strong> → problemas digestivos leves (uso moderado)</li>
+                <li><strong>Própolis</strong> → 10 gotas/litro, antibiótico natural</li>
+                <li><strong>Gengibre</strong> → fortalece imunidade no inverno</li>
+              </ul>
+            </div>
+            
+            <div class="wiki-box success">
+              <h4>🛡️ Prevenção é o Melhor Remédio</h4>
+              <ul>
+                <li>✅ Vacinação conforme calendário</li>
+                <li>✅ Água limpa sempre disponível (trocar 2-3x/dia)</li>
+                <li>✅ Ração de qualidade e armazenada corretamente</li>
+                <li>✅ Evitar superlotação (mínimo 4 aves/m²)</li>
+                <li>✅ Controle de umidade e ventilação adequada</li>
+                <li>✅ Limpeza diária de comedouros e bebedouros</li>
+                <li>✅ Troca regular da cama (maravalha)</li>
+                <li>✅ Controle de pragas (ratos, moscas, mosquitos)</li>
+              </ul>
+            </div>
+            
+            <div class="wiki-box purple">
+              <h4>🧹 Higiene do Galinheiro</h4>
+              <ul>
+                <li>Limpeza diária: retirar fezes, restos de ração</li>
+                <li>Semanal: trocar água, lavar bebedouros com água sanitária</li>
+                <li>Mensal: trocar cama completa, desinfetar instalações</li>
+                <li>Cal virgem no piso: previne doenças e parasitas</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- CALENDÁRIO VACINAL -->
+      <div class="wiki-section" style="margin-top: 2rem;">
+        <h2>📅 Calendário Vacinal Básico</h2>
+        
+        <table class="wiki-table">
+          <thead>
+            <tr>
+              <th>Idade</th>
+              <th>Vacina</th>
+              <th>Via</th>
+              <th>Doença Prevenida</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 dia</td>
+              <td>Marek</td>
+              <td>Subcutânea</td>
+              <td>Doença de Marek</td>
+            </tr>
+            <tr>
+              <td>7-10 dias</td>
+              <td>Newcastle + Bronquite</td>
+              <td>Ocular/Nasal</td>
+              <td>Newcastle e Bronquite</td>
+            </tr>
+            <tr>
+              <td>14-21 dias</td>
+              <td>Gumboro</td>
+              <td>Água</td>
+              <td>Doença de Gumboro</td>
+            </tr>
+            <tr>
+              <td>21-28 dias</td>
+              <td>Newcastle (reforço)</td>
+              <td>Água/Ocular</td>
+              <td>Newcastle</td>
+            </tr>
+            <tr>
+              <td>35-42 dias</td>
+              <td>Bouba Aviária</td>
+              <td>Folicular</td>
+              <td>Bouba Aviária</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="info-card info">
+          <h4>💡 Importante</h4>
+          <p>
+            Consulte um veterinário para adaptar o calendário vacinal à sua região. 
+            Algumas doenças são mais comuns em determinadas áreas.
+          </p>
+        </div>
       </div>
       
     </section>
@@ -3953,7 +2361,7 @@
 <div class="toast-container" id="toastContainer"></div>
 
 <footer>
-  <p>🌾 Guia Rural Pro © 2026 | Enciclopédia Completa + Sistema Integrado</p>
+  <p>🌾 Guia Rural Pro © 2026 | Enciclopédia Completa + Sistema Integrado + Veterinário</p>
   <p style="margin-top:0.5rem; font-size:0.85rem;">
     ⚠️ Este guia não substitui orientação veterinária profissional.
   </p>
@@ -3991,7 +2399,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initServiceWorker() {
   if ('serviceWorker' in navigator) {
     const swCode = `
-      const CACHE_NAME = 'guia-rural-pro-v2';
+      const CACHE_NAME = 'guia-rural-pro-v3';
       self.addEventListener('install', e => {
         e.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(['.'])));
         self.skipWaiting();
@@ -4106,28 +2514,24 @@ function checkSmartWeatherAlerts(data) {
   
   let alerts = [];
   
-  // Calor extremo - risco para gado
   if (temp > 32) {
     alerts.push({
       type: 'danger',
       message: `🔥 CALOR EXTREMO (${temp}°C)! Risco de estresse térmico no gado. Aumente sombreamento e água fresca.`
     });
   }
-  // Chuva - risco sanitário
   else if (rain > 20) {
     alerts.push({
       type: 'warning',
       message: `🌧️ CHUVA FORTE prevista (${rain}mm). Risco sanitário aumentado. Verifique drenagem e abrigo dos animais.`
     });
   }
-  // Umidade alta - risco respiratório
   else if (humidity > 85) {
     alerts.push({
       type: 'warning',
       message: `💧 UMIDADE MUITA ALTA (${humidity}%). Risco de problemas respiratórios. Melhore ventilação.`
     });
   }
-  // Frio intenso
   else if (temp < 10) {
     alerts.push({
       type: 'warning',
@@ -4383,7 +2787,6 @@ function calcularRacaoGalinha() {
     return;
   }
   
-  // Consumo médio: 3% do peso vivo
   const racao = (peso * 0.03).toFixed(2);
   const resultado = document.getElementById('resultadoGalinha');
   resultado.innerHTML = `
@@ -4436,9 +2839,9 @@ function simularRenda() {
   const horta = parseFloat(document.getElementById('simHorta').value) || 0;
   const peixes = parseFloat(document.getElementById('simPeixes').value) || 0;
   
-  const ovosMes = galinhas * 0.8 * 30; // 80% de postura
+  const ovosMes = galinhas * 0.8 * 30;
   const rendaOvos = ovosMes * precoOvo;
-  const rendaPeixes = peixes * 15; // R$ 15/kg médio
+  const rendaPeixes = peixes * 15;
   
   const total = rendaOvos + horta + rendaPeixes;
   
@@ -4471,6 +2874,255 @@ function calculateDate() {
   document.getElementById('resultDate').textContent = resultDate.toLocaleDateString('pt-BR');
   document.getElementById('calcResult').style.display = 'block';
   showToast('📅 Data calculada!', `Previsto: ${resultDate.toLocaleDateString('pt-BR')}`, 'info');
+}
+
+// ================= APP VETERINÁRIO =================
+
+function openVetTab(tabName) {
+  document.querySelectorAll('.vet-tab').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  
+  document.querySelectorAll('.vet-menu button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  document.getElementById(tabName).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function diagnosticar() {
+  const sintoma = document.getElementById('sintoma').value;
+  const resultado = document.getElementById('resultado');
+  
+  if (!sintoma) {
+    resultado.className = 'vet-result warning show';
+    resultado.innerHTML = '⚠️ <strong>Atenção:</strong> Por favor, selecione um sintoma para análise.';
+    return;
+  }
+  
+  const diagnosticos = {
+    respiratorio: {
+      titulo: '🫁 Problema Respiratório Detectado',
+      classe: 'danger',
+      descricao: 'Sinais de dificuldade respiratória',
+      possiveisCausas: [
+        'Doença respiratória crônica',
+        'Bronquite infecciosa',
+        'Newcastle',
+        'Excesso de poeira ou amônia',
+        'Frio intenso'
+      ],
+      acoes: [
+        '🔴 Isolar a ave imediatamente',
+        '✅ Verificar ventilação do galinheiro',
+        '✅ Manter aquecida (32-35°C)',
+        '✅ Oferecer água com alho ou própolis',
+        '🏥 Consultar veterinário URGENTE se piorar'
+      ]
+    },
+    
+    diarreia: {
+      titulo: '💩 Problema Digestivo/Diarreia',
+      classe: 'warning',
+      descricao: 'Sinais de coccidiose ou distúrbio digestivo',
+      possiveisCausas: [
+        'Coccidiose (mais comum)',
+        'Água contaminada',
+        'Ração estragada',
+        'Estresse',
+        'Vermes intestinais'
+      ],
+      acoes: [
+        '🔴 Isolar a ave',
+        '✅ Trocar água imediatamente',
+        '✅ Oferecer água com vinagre de maçã (1 colher/L)',
+        '✅ Verificar qualidade da ração',
+        '✅ Manter cama seca e limpa',
+        '🏥 Se houver sangue nas fezes, consultar veterinário'
+      ]
+    },
+    
+    prostracao: {
+      titulo: '😴 Ave Prostrada/Fraca',
+      classe: 'danger',
+      descricao: 'Ave sem energia, parada',
+      possiveisCausas: [
+        'Doença infecciosa',
+        'Desnutrição',
+        'Deshidratação',
+        'Frio intenso',
+        'Doença de Marek ou Newcastle'
+      ],
+      acoes: [
+        '🔴 Isolar imediatamente',
+        '✅ Aquecer (35°C)',
+        '✅ Oferecer água com glicose/açúcar',
+        '✅ Verificar se está comendo',
+        '✅ Observar outras aves',
+        '🏥 Consultar veterinário se não melhorar em 24h'
+      ]
+    },
+    
+    penugem: {
+      titulo: '🪶 Penugem Arrepiada',
+      classe: 'warning',
+      descricao: 'Ave com penas arrepiadas',
+      possiveisCausas: [
+        'Frio (mais comum)',
+        'Doença em estágio inicial',
+        'Estresse',
+        'Parasitas (piolhos/ácaros)'
+      ],
+      acoes: [
+        '✅ Verificar temperatura do ambiente',
+        '✅ Aumentar aquecimento se necessário',
+        '✅ Observar outros sintomas',
+        '✅ Verificar presença de parasitas',
+        '🏥 Se persistir, consultar veterinário'
+      ]
+    },
+    
+    olhos: {
+      titulo: '👁️ Problemas Oculares',
+      classe: 'warning',
+      descricao: 'Olhos inchados ou com secreção',
+      possiveisCausas: [
+        'Doença respiratória',
+        'Corpo estranho',
+        'Amônia alta no ambiente',
+        'Micoplasmose'
+      ],
+      acoes: [
+        '✅ Limpar olhos com soro fisiológico',
+        '✅ Verificar ventilação',
+        '✅ Reduzir amônia (limpar galinheiro)',
+        '✅ Isolar se houver secreção',
+        '🏥 Consultar veterinário se não melhorar'
+      ]
+    },
+    
+    crista: {
+      titulo: '🔴 Alteração na Crista',
+      classe: 'danger',
+      descricao: 'Crista pálida ou roxa',
+      possiveisCausas: [
+        'Anemia (verminose)',
+        'Coccidiose com sangue',
+        'Problema circulatório',
+        'Doença avançada'
+      ],
+      acoes: [
+        '🔴 Isolar imediatamente',
+        '✅ Verificar se há sangue nas fezes',
+        '✅ Observar outras aves',
+        '🏥 Consultar veterinário URGENTE',
+        '⚠️ Sinal de alerta máximo'
+      ]
+    },
+    
+    apetite: {
+      titulo: '🍽️ Falta de Apetite',
+      classe: 'warning',
+      descricao: 'Ave não está comendo',
+      possiveisCausas: [
+        'Estresse',
+        'Doença inicial',
+        'Problema digestivo',
+        'Água contaminada',
+        'Ração inadequada'
+      ],
+      acoes: [
+        '✅ Verificar qualidade da ração',
+        '✅ Trocar água',
+        '✅ Oferecer alimento preferido (milho)',
+        '✅ Observar outros sintomas',
+        '🏥 Se persistir por mais de 2 dias, consultar vet'
+      ]
+    },
+    
+    peso: {
+      titulo: '⚖️ Perda de Peso Rápida',
+      classe: 'danger',
+      descricao: 'Emagrecimento acelerado',
+      possiveisCausas: [
+        'Vermes intestinais',
+        'Coccidiose',
+        'Doença crônica',
+        'Competição por alimento',
+        'Problema metabólico'
+      ],
+      acoes: [
+        '🔴 Isolar para observação',
+        '✅ Verificar se está comendo',
+        '✅ Pesagem semanal',
+        '✅ Vermifugação (orientação veterinária)',
+        '🏥 Consultar veterinário'
+      ]
+    }
+  };
+  
+  const diag = diagnosticos[sintoma];
+  
+  resultado.className = `vet-result ${diag.classe} show`;
+  resultado.innerHTML = `
+    <h4 style="margin-bottom: 0.8rem;">${diag.titulo}</h4>
+    <p style="margin-bottom: 1rem;"><strong>${diag.descricao}</strong></p>
+    
+    <div style="margin-bottom: 1rem;">
+      <strong style="color: var(--warning);">🔍 Possíveis Causas:</strong>
+      <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+        ${diag.possiveisCausas.map(causa => `<li>${causa}</li>`).join('')}
+      </ul>
+    </div>
+    
+    <div>
+      <strong style="color: var(--success);">✅ Ações Imediatas:</strong>
+      <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+        ${diag.acoes.map(acao => `<li>${acao}</li>`).join('')}
+      </ul>
+    </div>
+  `;
+  
+  resultado.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function verificarChecklist() {
+  const checks = [
+    document.getElementById('check1').checked,
+    document.getElementById('check2').checked,
+    document.getElementById('check3').checked,
+    document.getElementById('check4').checked,
+    document.getElementById('check5').checked,
+    document.getElementById('check6').checked
+  ];
+  
+  const total = checks.length;
+  const marcados = checks.filter(c => c).length;
+  const resultado = document.getElementById('checklistResult');
+  
+  if (marcados === total) {
+    resultado.className = '';
+    resultado.style.background = 'rgba(34, 197, 94, 0.1)';
+    resultado.style.borderLeft = '4px solid var(--success)';
+    resultado.innerHTML = `
+      <strong style="color: var(--success);">✅ Tudo OK!</strong><br>
+      Seu plantel está com aparência saudável. Continue com a prevenção!
+    `;
+  } else {
+    const faltando = total - marcados;
+    resultado.className = '';
+    resultado.style.background = 'rgba(245, 158, 11, 0.1)';
+    resultado.style.borderLeft = '4px solid var(--warning)';
+    resultado.innerHTML = `
+      <strong style="color: var(--warning);">⚠️ Atenção!</strong><br>
+      ${faltando} item(s) não conferido(s).<br>
+      Verifique os itens marcados e observe as aves de perto. 
+      Se houver dúvidas, consulte a aba de diagnóstico.
+    `;
+  }
+  
+  resultado.style.display = 'block';
 }
 
 // Fechar modal ao clicar fora
